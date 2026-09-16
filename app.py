@@ -1,110 +1,110 @@
 import streamlit as st
-from groq import Groq
-import base64
-import os
 
-# 1. Page Layout Configuration
-st.set_page_config(page_title="My Portfolio", page_icon="💼", layout="centered")
-
-# --- SAFE SCRAMBLED KEY LOADER ---
-# Paste your SCRAMBLED text string from Step 1 between these quotes:
-SCRAMBLED_KEY = "Z3NrX1lPVVJfQUNUVUFMX0tFWV9IRVJF"
-
-# This automatically unscrambles it back into your real key at runtime
-try:
-    API_KEY = base64.b64decode(SCRAMBLED_KEY.encode()).decode()
-except Exception:
-    API_KEY = ""
-
-# Back up check for the deployed Streamlit Cloud secrets environment panel later
-if not API_KEY or "YOUR_ACTUAL_KEY" in API_KEY:
-    API_KEY = st.secrets.get("GROQ_API_KEY") or os.environ.get("GROQ_API_KEY")
-# ---------------------------------
+# 1. Page Configuration (Must be the first command)
+st.set_page_config(
+    page_title="Professional Portfolio", 
+    page_icon="💼", 
+    layout="centered"
+)
 
 # 2. Sidebar Structural Navigation
-st.sidebar.title("Navigation")
-page = st.sidebar.radio("Go to:", ["About Me", "Projects", "Skills & Experience", "Contact"])
+st.sidebar.markdown("## 🧭 Navigation")
+page = st.sidebar.radio("Go to:", ["Profile Overview", "Core Projects", "Technical Skills", "Contact & Links"])
 
-# --- PAGE 1: ABOUT ME (With AI Welcoming Chatbot!) ---
-if page == "About Me":
+# --- PAGE 1: PROFILE OVERVIEW ---
+if page == "Profile Overview":
     st.title("Hi, I'm a Developer 👋")
-    st.subheader("Data Analyst / Software Engineer")
+    st.subheader("Data Analyst & Software Engineer")
+    
+    # Highlight Banner
+    st.info("🚀 Specialized in building automated data workflows and clean user experiences.")
+    
+    st.markdown("### 🎯 Professional Profile")
     st.write("""
-    Welcome to my portfolio! I build web applications and analyze data to solve real-world problems. 
-    Use the sidebar to view my technical details, or talk to my welcoming assistant below!
+    I am a results-driven professional dedicated to transforming complex data sets into clear, actionable business strategies. 
+    By leveraging cloud-native python workflows, I design and implement reliable pipeline structures that help organizations scale.
     """)
     
     st.divider()
-    st.markdown("### 🤖 Chat with my AI Assistant")
+    st.markdown("### 📊 Career Statistics")
+    
+    # Modern metrics display
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.metric(label="Python Projects", value="12+", delta="Active")
+    with col2:
+        st.metric(label="Data Processed", value="100M+", delta="Rows")
+    with col3:
+        st.metric(label="Automation Efficiency", value="40%", delta="Saved Time")
 
-    if not API_KEY:
-        st.info("👋 Hi! The welcoming chatbot is currently in preview mode. Configure your API credentials to talk live!")
-    else:
-        # Initialize the high-speed Groq inference client engine
-        client = Groq(api_key=API_KEY)
-        
-        # System parameters defining the assistant's boundaries
-        portfolio_context = """
-        You are an enthusiastic AI Assistant hosting the personal portfolio website of a software engineer.
-        - Core Stack: Python, SQL, Git, GitHub, Pandas, and Streamlit.
-        - Core Projects: Built this custom interactive portfolio web app using cloud-native python workflows.
-        - Instructions: Keep responses brief, enthusiastic, friendly, and strictly under 3 sentences. Direct users to the sidebar links for more information.
-        """
-
-        # Keep track of sequential conversational data state arrays
-        if "messages" not in st.session_state:
-            st.session_state.messages = [
-                {"role": "assistant", "content": "Hi there! Welcome to this portfolio. What would you like to know about my work?"}
-            ]
-
-        # Render logging data pipelines sequentially
-        for message in st.session_state.messages:
-            with st.chat_message(message["role"]):
-                st.write(message["content"])
-
-        # Capture live character text box entries
-        if user_prompt := st.chat_input("Ask me a question..."):
-            with st.chat_message("user"):
-                st.write(user_prompt)
-            st.session_state.messages.append({"role": "user", "content": user_prompt})
-
-            try:
-                # Query LLama 3 engine cluster configurations
-                chat_completion = client.chat.completions.create(
-                    messages=[
-                        {"role": "system", "content": portfolio_context},
-                        {"role": "user", "content": user_prompt}
-                    ],
-                    model="llama-3.3-70b-versatile",
-                )
-                ai_response = chat_completion.choices.message.content
-            except Exception as e:
-                ai_response = f"⚠️ API Connection Error: {str(e)}"
-
-            with st.chat_message("assistant"):
-                st.write(ai_response)
-            st.session_state.messages.append({"role": "assistant", "content": ai_response})
-
-# --- PAGE 2: PROJECTS ---
-elif page == "Projects":
+# --- PAGE 2: CORE PROJECTS ---
+elif page == "Core Projects":
     st.title("Featured Projects 🚀")
-    with st.expander("📊 Project 1: Cloud-Native Portfolio Web App", expanded=True):
-        st.markdown("#### Tech Stack: `Python`, `Streamlit`, `Groq Cloud AI`")
-        st.write("Designed an interactive professional portfolio website incorporating localized AI chatbot chat flows to serve as a 24/7 host.")
+    st.write("Browse through an assortment of my recent professional applications.")
+    
+    # Project 1 Container Card
+    with st.container(border=True):
+        st.markdown("### 📊 Cloud-Native E-Commerce Analytics Tool")
+        st.caption("🛠️ Tech Stack: `Python` | `Streamlit` | `Pandas` | `Plotly`")
+        st.write("""
+        Engineered an enterprise-level dashboard monitoring retail store transactions. 
+        Integrated dynamic clustering logic to automatically segment purchasing personas, increasing retention rates by 18%.
+        """)
+        st.link_button("📂 View Git Repository", "https://github.com")
 
-# --- PAGE 3: SKILLS & EXPERIENCE ---
-elif page == "Skills & Experience":
-    st.title("Technical Skills 🛠️")
+    st.write("") # Spacing
+
+    # Project 2 Container Card
+    with st.container(border=True):
+        st.markdown("### 🤖 Automated Pipeline Scheduling Engine")
+        st.caption("🛠️ Tech Stack: `Python` | `SQL` | `Docker` | `AWS Lambda`")
+        st.write("""
+        Built an automated database validation worker that runs micro-audits across thousands of data points daily, 
+        reducing database formatting errors down to absolute zero.
+        """)
+        st.link_button("📁 Read Technical Documentation", "https://github.com")
+
+# --- PAGE 3: TECHNICAL SKILLS ---
+elif page == "Technical Skills":
+    st.title("Technical Proficiency 🛠️")
+    st.write("A comprehensive breakdown of tools, programming languages, and engineering concepts I use daily.")
+    
+    st.divider()
+    
     col1, col2 = st.columns(2)
     with col1:
-        st.markdown("### Languages")
-        st.markdown("`Python` `SQL` `HTML` `CSS`")
+        st.markdown("### 💻 Core Programming")
+        st.success("**Python** (Advanced Data Engineering)")
+        st.success("**SQL** (Complex Joins & Optimization)")
+        st.success("**HTML & CSS** (Responsive UI Styling)")
+    
     with col2:
-        st.markdown("### Tools & Frameworks")
-        st.markdown("`Streamlit` `Git` `GitHub` `Pandas` `Groq API`")
+        st.markdown("### ⚙️ Frameworks & Infrastructure")
+        st.success("**Streamlit** (Rapid App Development)")
+        st.success("**Pandas & NumPy** (Statistical Calculations)")
+        st.success("**Git & GitHub** (Version Control Strategy)")
 
-# --- PAGE 4: CONTACT ---
-elif page == "Contact":
-    st.title("Get In Touch 📧")
-    st.write("🔗 [LinkedIn](https://linkedin.com)")
-    st.write("🐙 [GitHub](https://github.com)")
+    st.divider()
+    st.markdown("### 🌟 Areas of Focus")
+    st.write("- **Data Architecture:** Designing scalable database management layouts.")
+    st.write("- **Workflow Automation:** Replacing manual data pipelines with automated scripts.")
+
+# --- PAGE 4: CONTACT & LINKS ---
+elif page == "Contact & Links":
+    st.title("Establish Connection 📧")
+    st.write("I am always interested in discussing new freelance agreements, corporate positions, or automation consulting.")
+    
+    st.divider()
+    
+    # Clean professional contact channels
+    col1, col2 = st.columns(2)
+    with col1:
+        st.markdown("#### 👔 Professional Networks")
+        st.link_button("💼 Connect on LinkedIn", "https://linkedin.com")
+    with col2:
+        st.markdown("#### 🐙 Code Repositories")
+        st.link_button("💻 Explore My GitHub", "https://github.com")
+        
+    st.write("")
+    st.write("")
+    st.success("📩 **Direct Contact:** Please feel free to open a conversation or drop professional references through my social channels.")
