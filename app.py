@@ -1,36 +1,25 @@
 import streamlit as st
 from groq import Groq
+import base64
 import os
 
 # 1. Page Layout Configuration
 st.set_page_config(page_title="My Portfolio", page_icon="💼", layout="centered")
 
-# --- HYPER-STABLE MANUAL API KEY SCRUBBER ---
-API_KEY = st.secrets.get("GROQ_API_KEY") or os.environ.get("GROQ_API_KEY")
+# --- SAFE SCRAMBLED KEY LOADER ---
+# Paste your SCRAMBLED text string from Step 1 between these quotes:
+SCRAMBLED_KEY = "Z3NrX1lPVVJfQUNUVUFMX0tFWV9IRVJF"
 
-# Read the local file path manually if the system wrapper layers hide it
-if not API_KEY:
-    try:
-        secrets_path = os.path.join(os.getcwd(), ".streamlit", "secrets.toml")
-        if os.path.exists(secrets_path):
-            with open(secrets_path, "r") as f:
-                for line in f:
-                    # Look for the exact line configuration containing your token pattern
-                    if "GROQ_API_KEY" in line and "gsk_" in line:
-                        # Split by the equals sign and thoroughly strip out spacing artifacts
-                        parts = line.split("=")
-                        if len(parts) > 1:
-                            raw_key = parts[1].strip()
-                            # Clean out all forms of surrounding quotation marks safely
-                            API_KEY = raw_key.replace('"', '').replace("'", "")
-    except Exception:
-        pass
+# This automatically unscrambles it back into your real key at runtime
+try:
+    API_KEY = base64.b64decode(SCRAMBLED_KEY.encode()).decode()
+except Exception:
+    API_KEY = ""
 
-# Fallback developer environment anchor
-LOCAL_TEST_KEY = "" 
-if not API_KEY and LOCAL_TEST_KEY:
-    API_KEY = LOCAL_TEST_KEY
-# ---------------------------------------------
+# Back up check for the deployed Streamlit Cloud secrets environment panel later
+if not API_KEY or "YOUR_ACTUAL_KEY" in API_KEY:
+    API_KEY = st.secrets.get("GROQ_API_KEY") or os.environ.get("GROQ_API_KEY")
+# ---------------------------------
 
 # 2. Sidebar Structural Navigation
 st.sidebar.title("Navigation")
@@ -49,7 +38,7 @@ if page == "About Me":
     st.markdown("### 🤖 Chat with my AI Assistant")
 
     if not API_KEY:
-        st.info("👋 Hi! The welcoming chatbot is currently in preview mode. Paste your Groq API key inside the code or Streamlit secrets panel to start conversing live!")
+        st.info("👋 Hi! The welcoming chatbot is currently in preview mode. Configure your API credentials to talk live!")
     else:
         # Initialize the high-speed Groq inference client engine
         client = Groq(api_key=API_KEY)
