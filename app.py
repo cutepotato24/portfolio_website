@@ -1,103 +1,82 @@
 import streamlit as st
-import time
+from google import genai
+import os
 
 # 1. Page Configuration
-st.set_page_config(
-    page_title="My Portfolio", 
-    page_icon="💼", 
-    layout="centered"
-)
+st.set_page_config(page_title="My Portfolio", page_icon="💼", layout="centered")
 
-# 2. Sidebar Navigation (Removed "AI Chatbot" from options)
+# 2. Secure API Key Initialization
+# Locally: Looks inside your system environment or Streamlit secrets
+# Streamlit Cloud: Reads from the dashboard's "Secrets" configuration
+API_KEY = st.secrets.get("GEMINI_API_KEY") or os.environ.get("GEMINI_API_KEY")
+
+if not API_KEY:
+    st.warning("⚠️ Please configure your GEMINI_API_KEY to activate the welcoming chatbot.")
+
+# 3. Sidebar Navigation
 st.sidebar.title("Navigation")
-page = st.sidebar.radio(
-    "Go to:", 
-    ["About Me", "Projects", "Skills & Experience", "Contact"]
-)
+page = st.sidebar.radio("Go to:", ["About Me", "Projects", "Skills & Experience", "Contact"])
 
-# --- PAGE 1: ABOUT ME (With Welcoming Bot!) ---
+# --- PAGE 1: ABOUT ME (With AI Welcoming Bot!) ---
 if page == "About Me":
     st.title("Hi, I'm a Developer 👋")
     st.subheader("Data Analyst / Software Engineer")
-    
-    st.write("""
-    Welcome to my portfolio! I build web applications and analyze data to solve real-world problems. 
-    Use the sidebar to view my technical details, or talk to my welcoming assistant below!
-    """)
+    st.write("Welcome to my portfolio! I build web applications and analyze data to solve problems.")
     
     st.divider()
-    
-    # --- WELCOMING CHATBOT SECTION ---
     st.markdown("### 🤖 Chat with my AI Assistant")
-    st.caption("Ask me about my background, skills, or projects!")
 
-    # Initialize Chat History for this session if it doesn't exist
-    if "messages" not in st.session_state:
-        st.session_state.messages = [
-            {"role": "assistant", "content": "Hi there! Welcome to this portfolio. Ask me anything about my work!"}
-        ]
+    if API_KEY:
+        # Initialize the official Gemini Client
+        client = genai.Client(api_key=API_KEY)
+        
+        # Set a hardcoded context profile for the bot to read from
+        portfolio_context = """
+        You are a welcoming, enthusiastic AI Assistant hosting the personal portfolio website of 'Alex'.
+        Here are Alex's details:
+        - Role: Data Analyst and Software Engineer specializing in Python, SQL, and Streamlit.
+        - Core Projects: Built a custom interactive portfolio web app (this site) and an upcoming machine learning engine.
+        - Call to Action: Direct users to look at the 'Projects' tab for source code, or the 'Contact' tab to reach out on LinkedIn.
+        Keep answers friendly, professional, concise, and under 3 sentences. Do not hallucinate fields Alex does not know.
+        """
 
-    # Display previous conversation history inside a neat container
-    chat_container = st.container()
-    with chat_container:
+        # Initialize Chat History for the web interface
+        if "messages" not in st.session_state:
+            st.session_state.messages = [
+                {"role": "assistant", "content": "Hi there! I am Alex's AI assistant. Ask me anything about their work!"}
+            ]
+
+        # Display history
         for message in st.session_state.messages:
             with st.chat_message(message["role"]):
                 st.write(message["content"])
 
-    # Handle New User Input
-    if user_prompt := st.chat_input("Ask a question..."):
-        # Display user message
-        with chat_container.chat_message("user"):
-            st.write(user_prompt)
-        st.session_state.messages.append({"role": "user", "content": user_prompt})
+        # Handle Live Inputs via Gemini
+        if user_prompt := st.chat_input("Ask a question about Alex..."):
+            with st.chat_message("user"):
+                st.write(user_prompt)
+            st.session_state.messages.append({"role": "user", "content": user_prompt})
 
-        # Generate Assistant Response
-        with chat_container.chat_message("assistant"):
-            message_placeholder = st.empty()
-            full_response = ""
-            
-            # Simple keyword matching responses
-            user_lower = user_prompt.lower()
-            if "project" in user_lower:
-                assistant_response = "I have built several projects including this web portfolio. Head over to the 'Projects' tab in the sidebar to see them all!"
-            elif "skill" in user_lower or "tech" in user_lower or "python" in user_lower:
-                assistant_response = "I specialize in Python, SQL, Git, and data frameworks like Pandas. Check the 'Skills & Experience' tab for a full breakdown."
-            elif "contact" in user_lower or "email" in user_lower or "hire" in user_lower:
-                assistant_response = "You can easily reach out to me! Just click on the 'Contact' tab in the sidebar for my LinkedIn and GitHub links."
-            else:
-                assistant_response = "Thanks for asking! You can explore the tabs on the left sidebar to learn more details about my journey."
+            # Send prompt to Gemini with system parameters
+            try:
+                response = client.models.generate_content(
+                    model="gemini-2.5-flash",  # Fast, highly optimized free-tier model
+                    contents=user_prompt,
+                    config={"system_instruction": portfolio_context}
+                )
+                ai_response = response.text
+            except Exception as e:
+                ai_response = f"Sorry, I had trouble processing that request right now."
 
-            # Simulate typing animation effect
-            for chunk in assistant_response.split():
-                full_response += chunk + " "
-                time.sleep(0.04)
-                message_placeholder.markdown(full_response + "▌")
+            with st.chat_message("assistant"):
+                st.write(ai_response)
                 
-            message_placeholder.markdown(full_response)
-            
-        st.session_state.messages.append({"role": "assistant", "content": full_response})
-    # ----------------------------------
+            st.session_state.messages.append({"role": "assistant", "content": ai_response})
 
-# --- PAGE 2: PROJECTS ---
+# --- PAGE 2, 3, 4 (Keep your existing structural pages the same) ---
 elif page == "Projects":
     st.title("Featured Projects 🚀")
-    with st.expander("📊 Project 1: Portfolio Web App", expanded=True):
-        st.write("**Tech Stack:** Python, Streamlit, GitHub")
-        st.write("Created an interactive, cloud-deployed professional portfolio website.")
-
-# --- PAGE 3: SKILLS & EXPERIENCE ---
 elif page == "Skills & Experience":
     st.title("Technical Skills 🛠️")
-    col1, col2 = st.columns(2)
-    with col1:
-        st.markdown("### Languages")
-        st.markdown("`Python` `SQL` `HTML` `CSS`")
-    with col2:
-        st.markdown("### Frameworks & Tools")
-        st.markdown("`Streamlit` `Git` `GitHub` `Pandas`")
-
-# --- PAGE 4: CONTACT ---
 elif page == "Contact":
     st.title("Get In Touch 📧")
-    st.write("🔗 [LinkedIn](https://linkedin.com)")
-    st.write("🐙 [GitHub](https://github.com)")
