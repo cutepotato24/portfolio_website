@@ -1,31 +1,33 @@
 import streamlit as st
 from groq import Groq
 import os
-import toml  # Standard library component to read formatting rules
 
 # 1. Page Layout Configuration
 st.set_page_config(page_title="My Portfolio", page_icon="💼", layout="centered")
 
-# --- SECURE APi KEY ROUTING ---
-# Look into native Streamlit runtime parameters first
+# --- HYPER-STABLE MANUAL API KEY SCRUBBER ---
 API_KEY = st.secrets.get("GROQ_API_KEY") or os.environ.get("GROQ_API_KEY")
 
-# Force-read the local file path if Codespaces hides the native environment hook
+# If the automated system checks return empty, extract the raw key string from the file
 if not API_KEY:
     try:
         secrets_path = os.path.join(os.getcwd(), ".streamlit", "secrets.toml")
         if os.path.exists(secrets_path):
             with open(secrets_path, "r") as f:
-                secrets_data = toml.load(f)
-                API_KEY = secrets_data.get("GROQ_API_KEY")
+                for line in f:
+                    # Look for the line containing your key and strip quotes/spaces
+                    if "GROQ_API_KEY" in line and "gsk_" in line:
+                        # Extract everything inside the quotation marks
+                        raw_part = line.split("=")[1].strip()
+                        API_KEY = raw_part.replace('"', '').replace("'", "")
     except Exception:
         pass
 
-# Fallback string placeholder link
+# Fallback developer preview hook
 LOCAL_TEST_KEY = "" 
 if not API_KEY and LOCAL_TEST_KEY:
     API_KEY = LOCAL_TEST_KEY
-# ------------------------------
+# ---------------------------------------------
 
 # 2. Sidebar Structural Navigation
 st.sidebar.title("Navigation")
@@ -46,10 +48,10 @@ if page == "About Me":
     if not API_KEY:
         st.info("👋 Hi! The welcoming chatbot is currently in preview mode. Paste your Groq API key inside the code or Streamlit secrets panel to start conversing live!")
     else:
-        # Connect to the free high-speed Groq inference client engine
+        # Initialize the high-speed Groq engine client
         client = Groq(api_key=API_KEY)
         
-        # System instructions to anchor the chatbot personality boundaries
+        # System instructions parameter mapping
         portfolio_context = """
         You are an enthusiastic AI Assistant hosting the personal portfolio website of a software engineer.
         - Core Stack: Python, SQL, Git, GitHub, Pandas, and Streamlit.
@@ -57,25 +59,25 @@ if page == "About Me":
         - Instructions: Keep responses brief, enthusiastic, friendly, and strictly under 3 sentences. Direct users to the sidebar links for more information.
         """
 
-        # Initialize internal message logs tracking array state
+        # Initialize global persistent session log array storage properties
         if "messages" not in st.session_state:
             st.session_state.messages = [
                 {"role": "assistant", "content": "Hi there! Welcome to this portfolio. What would you like to know about my work?"}
             ]
 
-        # Render conversation block layers
+        # Render sequential conversation viewports
         for message in st.session_state.messages:
             with st.chat_message(message["role"]):
                 st.write(message["content"])
 
-        # Capture interactive interface input entries
+        # Process user chat string inputs
         if user_prompt := st.chat_input("Ask me a question..."):
             with st.chat_message("user"):
                 st.write(user_prompt)
             st.session_state.messages.append({"role": "user", "content": user_prompt})
 
             try:
-                # Query LLama 3 engine cluster using core systems instructions context setup
+                # Dispatch execution model pipeline routing profile variables
                 chat_completion = client.chat.completions.create(
                     messages=[
                         {"role": "system", "content": portfolio_context},
@@ -85,7 +87,8 @@ if page == "About Me":
                 )
                 ai_response = chat_completion.choices.message.content
             except Exception as e:
-                ai_response = "Sorry, I ran into a connection glitch. Please try messaging me again in a moment!"
+                # If an error happens, print out the exact technical error code on screen to find the root cause
+                ai_response = f"⚠️ API Connection Error: {str(e)}"
 
             with st.chat_message("assistant"):
                 st.write(ai_response)
