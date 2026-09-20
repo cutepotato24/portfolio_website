@@ -40,11 +40,40 @@ st.markdown(
         }
 
         .stApp {
+            position: relative;
+            isolation: isolate;
             background: var(--charcoal);
             color: var(--white);
         }
 
+        .stApp::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.18;
+            background-image:
+                radial-gradient(circle at 12% 18%, rgba(245, 247, 250, 0.8) 0 1px, transparent 1.5px),
+                radial-gradient(circle at 68% 34%, rgba(57, 168, 255, 0.8) 0 1px, transparent 1.5px),
+                radial-gradient(circle at 34% 82%, rgba(245, 247, 250, 0.65) 0 1px, transparent 1.5px),
+                radial-gradient(circle at 88% 76%, rgba(57, 168, 255, 0.7) 0 1px, transparent 1.5px);
+            background-size: 280px 280px, 360px 360px, 420px 420px, 520px 520px;
+            animation: space-drift 45s linear infinite;
+        }
+
+        @keyframes space-drift {
+            from {
+                background-position: 0 0, 0 0, 0 0, 0 0;
+            }
+            to {
+                background-position: 280px 180px, -360px 240px, 420px -260px, -520px 320px;
+            }
+        }
+
         [data-testid="stSidebar"] {
+            position: relative;
+            z-index: 2;
             background: #111315;
             border-right: 1px solid var(--border);
         }
@@ -79,7 +108,7 @@ st.markdown(
             color: var(--blue);
             font-size: clamp(4rem, 9vw, 8rem);
             line-height: 1;
-            opacity: 0.1;
+            opacity: 0.07;
             pointer-events: none;
             user-select: none;
             filter: drop-shadow(0 0 18px rgba(57, 168, 255, 0.45));
@@ -140,7 +169,7 @@ st.markdown(
             .astronaut-background {
                 top: 10vh;
                 left: 4vw;
-                opacity: 0.06;
+                opacity: 0.045;
             }
         }
 
