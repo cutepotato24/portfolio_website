@@ -496,9 +496,9 @@ if page == "Profile Overview":
     with col2:
         st.metric(label="Analytics Projects Led", value="15+", delta="More than")
     with col3:
-        st.metric(label="Automation Efficiency", value="40%", delta="Saved Time")
+        st.metric(label="Automation Efficiency", value="70%", delta="Saved Time")
     with col4:
-        st.metric(label="Students Taught Python", value="100+", delta="Learners")
+        st.metric(label="Python Students Taught", value="100+", delta="Learners")
 
 # --- PAGE 2: CORE PROJECTS ---
 elif page == "Core Projects":
