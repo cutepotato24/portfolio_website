@@ -454,11 +454,21 @@ if page == "Profile Overview":
 elif page == "Core Projects":
     st.title("Featured Projects ◈︎")
     st.write("Browse through an assortment of my recent professional applications.")
+    st.info("I am still updating my projects, and more projects will be added soon.")
 
     with st.expander("Personal Portfolio Website", expanded=False):
         st.caption("⚙︎ Tech Stack: `Python` | `Streamlit` | `CSS`")
         st.write("Designed and built this interactive portfolio website to present my professional profile, projects, technical skills, and contact links.")
         st.link_button("↗︎ View GitHub Repository", "https://github.com/cutepotato24/portfolio_website")
+
+    st.write("")
+
+    with st.expander("Airbnb dbt Project", expanded=False):
+        st.caption("⚙︎ Tech Stack: `Snowflake` | `dbt` | `AWS S3`")
+        st.write(
+            "A data engineering project focused on ingesting and transforming Airbnb data from local files and external sources such as AWS S3 using Snowflake and dbt."
+        )
+        st.link_button("↗︎ View GitHub Repository", "https://github.com/cutepotato24/airbnb_dbt_project")
 
     st.write("")
 
