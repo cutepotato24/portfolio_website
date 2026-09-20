@@ -106,7 +106,7 @@ elif page == "Contact & Links":
         st.link_button("💻 Explore My GitHub", "https://github.com/cutepotato24")
     with col3:
         st.markdown("#### 📧 Direct Contact")
-        st.link_button("✉️ Email Me", "mailto:jllegaspicareers@gmail.com")
+        st.link_button("✉️ Email Me", "https://mail.google.com/mail/?view=cm&fs=1&to=jllegaspicareers@gmail.com")
 
     st.write("")
     st.write("")
