@@ -139,6 +139,10 @@ if page == "Profile Overview":
     st.subheader("Analytics & Software Engineer")
 
     st.info("⚡︎ Specialized in building automated data workflows and clean user experiences.")
+    st.link_button(
+        "↓ Download My Updated Resume",
+        "https://drive.google.com/drive/u/0/folders/13-3GENaEQckjtFC8uCGPCZ0jWKzfPDgs",
+    )
 
     st.markdown("### <span class='icon'>◎︎</span> Professional Profile", unsafe_allow_html=True)
     st.write("""
@@ -192,10 +196,17 @@ elif page == "Core Projects":
         the results into an interactive dashboard. This project demonstrates my ability to organize data, identify
         meaningful trends, and communicate insights through clear and engaging visualizations.
         """)
-        st.link_button(
-            "↗︎ View Tableau Dashboard",
-            "https://public.tableau.com/app/profile/john.harold.legaspi6572/viz/MAVENMODELEDDATATableau/Dashboard1#1",
-        )
+        link_col1, link_col2 = st.columns(2)
+        with link_col1:
+            st.link_button(
+                "↗︎ Maven Viz",
+                "https://public.tableau.com/app/profile/john.harold.legaspi6572/viz/MAVENMODELEDDATATableau/Dashboard1#1",
+            )
+        with link_col2:
+            st.link_button(
+                "↗︎ Onyx Viz",
+                "https://public.tableau.com/app/profile/john.harold.legaspi6572/viz/OnyxDataaugust2023DNAChallenge/Dashboard1",
+            )
 
 # --- PAGE 3: TECHNICAL SKILLS ---
 elif page == "Technical Skills":
