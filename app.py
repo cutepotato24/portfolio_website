@@ -22,7 +22,7 @@ if "page" not in st.session_state:
 
 
 # ============================================================
-# CHROME-STYLE CSS
+# CHROME TAB CSS
 # ============================================================
 
 st.markdown(
@@ -30,7 +30,7 @@ st.markdown(
     <style>
 
     /* ========================================================
-       PAGE
+       GENERAL PAGE
        ======================================================== */
 
     .block-container {
@@ -40,78 +40,71 @@ st.markdown(
 
 
     /* ========================================================
-       CHROME TAB BAR
+       TAB BAR
        ======================================================== */
 
-    .chrome-tabs-container {
-        width: 100%;
-        background: #dee1e6;
-        border-bottom: 1px solid #b8bcc2;
-
-        display: flex;
-        align-items: flex-end;
-
-        padding: 8px 8px 0 8px;
-
-        box-sizing: border-box;
-
-        overflow-x: auto;
-
-        margin-bottom: 30px;
-    }
-
-
-    /* Remove scrollbar */
-
-    .chrome-tabs-container::-webkit-scrollbar {
-        height: 0;
+    div[data-testid="stHorizontalBlock"] {
+        gap: 0 !important;
     }
 
 
     /* ========================================================
-       INDIVIDUAL TAB
+       TAB BUTTON CONTAINER
        ======================================================== */
 
-    .chrome-tab-link {
+    .chrome-tabs {
+        background: #dee1e6;
+        border-bottom: 1px solid #b8bcc2;
 
-        position: relative;
+        padding: 8px 8px 0 8px;
 
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        margin-bottom: 30px;
 
-        min-width: 170px;
-        height: 40px;
+        border-radius: 8px 8px 0 0;
+    }
 
-        padding: 0 22px;
 
-        margin-right: 2px;
+    /* ========================================================
+       ALL TAB BUTTONS
+       ======================================================== */
 
-        background: #cfd2d6;
+    .chrome-tabs div[data-testid="stButton"] {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
 
-        color: #3c4043;
 
-        text-decoration: none !important;
+    .chrome-tabs div[data-testid="stButton"] > button {
 
-        font-family: Arial, sans-serif;
+        width: 100% !important;
 
-        font-size: 14px;
+        height: 42px !important;
 
-        font-weight: 500;
+        min-height: 42px !important;
 
-        border: 1px solid #b8bcc2;
+        padding: 0 18px !important;
 
-        border-bottom: none;
+        background: #cfd2d6 !important;
 
-        border-radius: 9px 9px 0 0;
+        color: #3c4043 !important;
+
+        border: 1px solid #b8bcc2 !important;
+
+        border-bottom: none !important;
+
+        border-radius: 9px 9px 0 0 !important;
+
+        box-shadow: none !important;
+
+        font-size: 14px !important;
+
+        font-weight: 500 !important;
+
+        white-space: nowrap !important;
 
         transition:
             background 0.15s ease,
-            color 0.15s ease;
-
-        white-space: nowrap;
-
-        box-sizing: border-box;
+            color 0.15s ease !important;
     }
 
 
@@ -119,13 +112,27 @@ st.markdown(
        TAB HOVER
        ======================================================== */
 
-    .chrome-tab-link:hover {
+    .chrome-tabs div[data-testid="stButton"] > button:hover {
 
-        background: #e3e5e8;
+        background: #e5e7e9 !important;
 
-        color: #202124;
+        color: #202124 !important;
 
-        text-decoration: none !important;
+        border-color: #aeb2b7 !important;
+
+        box-shadow: none !important;
+    }
+
+
+    /* ========================================================
+       TAB FOCUS
+       ======================================================== */
+
+    .chrome-tabs div[data-testid="stButton"] > button:focus {
+
+        box-shadow: none !important;
+
+        outline: none !important;
     }
 
 
@@ -133,21 +140,21 @@ st.markdown(
        ACTIVE TAB
        ======================================================== */
 
-    .chrome-tab-link.active {
+    .chrome-tabs .active-tab div[data-testid="stButton"] > button {
 
-        background: #ffffff;
+        background: #ffffff !important;
 
-        color: #202124;
+        color: #202124 !important;
 
-        border-color: #b8bcc2;
+        border-color: #b8bcc2 !important;
 
-        border-bottom: 1px solid #ffffff;
+        border-bottom: 1px solid #ffffff !important;
 
-        margin-bottom: -1px;
+        font-weight: 600 !important;
 
-        z-index: 2;
+        position: relative;
 
-        font-weight: 600;
+        z-index: 5;
     }
 
 
@@ -155,20 +162,19 @@ st.markdown(
        ACTIVE TAB HOVER
        ======================================================== */
 
-    .chrome-tab-link.active:hover {
+    .chrome-tabs .active-tab div[data-testid="stButton"] > button:hover {
 
-        background: #ffffff;
+        background: #ffffff !important;
 
-        color: #202124;
+        color: #202124 !important;
     }
 
 
     /* ========================================================
-       CONTENT AREA
+       CONTENT
        ======================================================== */
 
-    .content-area {
-
+    .portfolio-content {
         background: #ffffff;
     }
 
@@ -179,23 +185,17 @@ st.markdown(
 
     @media (max-width: 700px) {
 
-        .chrome-tabs-container {
+        .chrome-tabs div[data-testid="stButton"] > button {
 
-            padding-left: 4px;
-            padding-right: 4px;
+            font-size: 12px !important;
+
+            padding: 0 8px !important;
+
+            height: 38px !important;
+
+            min-height: 38px !important;
         }
 
-
-        .chrome-tab-link {
-
-            min-width: 130px;
-
-            height: 38px;
-
-            padding: 0 14px;
-
-            font-size: 12px;
-        }
     }
 
     </style>
@@ -205,59 +205,83 @@ st.markdown(
 
 
 # ============================================================
-# PAGE NAVIGATION
+# NAVIGATION FUNCTION
 # ============================================================
 
-pages = [
-    "Profile Overview",
-    "Core Projects",
-    "Technical Skills",
-    "Contact & Links"
-]
+def tab_button(label):
 
+    is_active = st.session_state.page == label
 
-# ============================================================
-# READ PAGE FROM URL
-# ============================================================
+    if is_active:
 
-if "page" in st.query_params:
+        st.markdown(
+            '<div class="active-tab">',
+            unsafe_allow_html=True
+        )
 
-    requested_page = st.query_params["page"]
+    else:
 
-    if requested_page in pages:
+        st.markdown(
+            '<div>',
+            unsafe_allow_html=True
+        )
 
-        st.session_state.page = requested_page
-
-
-# ============================================================
-# CHROME TAB NAVIGATION
-# ============================================================
-
-tabs_html = '<div class="chrome-tabs-container">'
-
-for page in pages:
-
-    active_class = (
-        "active"
-        if st.session_state.page == page
-        else ""
+    clicked = st.button(
+        label,
+        key=f"tab_{label}",
+        use_container_width=True
     )
 
-    tabs_html += f"""
-        <a
-            class="chrome-tab-link {active_class}"
-            href="?page={page}"
-        >
-            {page}
-        </a>
-    """
+    st.markdown(
+        "</div>",
+        unsafe_allow_html=True
+    )
+
+    if clicked:
+
+        st.session_state.page = label
+
+        st.rerun()
 
 
-tabs_html += "</div>"
+# ============================================================
+# CHROME TAB BAR
+# ============================================================
+
+st.markdown(
+    '<div class="chrome-tabs">',
+    unsafe_allow_html=True
+)
+
+
+tab1, tab2, tab3, tab4 = st.columns(
+    [1, 1, 1, 1],
+    gap="small"
+)
+
+
+with tab1:
+
+    tab_button("Profile Overview")
+
+
+with tab2:
+
+    tab_button("Core Projects")
+
+
+with tab3:
+
+    tab_button("Technical Skills")
+
+
+with tab4:
+
+    tab_button("Contact & Links")
 
 
 st.markdown(
-    tabs_html,
+    "</div>",
     unsafe_allow_html=True
 )
 
@@ -314,10 +338,6 @@ if st.session_state.page == "Profile Overview":
             """
         )
 
-
-    # --------------------------------------------------------
-    # HIGHLIGHT
-    # --------------------------------------------------------
 
     st.info(
         "🚀 Specialized in building automated data workflows "
@@ -497,7 +517,7 @@ elif st.session_state.page == "Technical Skills":
 
 
     # --------------------------------------------------------
-    # CORE PROGRAMMING
+    # PROGRAMMING
     # --------------------------------------------------------
 
     with col1:
@@ -622,10 +642,6 @@ elif st.session_state.page == "Contact & Links":
     st.write("")
     st.write("")
 
-
-    # --------------------------------------------------------
-    # CONTACT
-    # --------------------------------------------------------
 
     st.success(
         "📩 **Direct Contact:** Please feel free to open "
