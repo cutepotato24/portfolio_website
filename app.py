@@ -45,7 +45,7 @@ st.markdown(
         }
 
         [data-testid="stSidebar"] {
-            background: #111315;
+            background: rgba(17, 19, 21, 0.55) !important;
             border-right: 1px solid var(--border);
         }
 
@@ -93,7 +93,7 @@ st.markdown(
             height: 100%;
             object-fit: cover;
             object-position: center;
-            opacity: 0.58;
+            opacity: 0.32;
         }
 
         @media (prefers-reduced-motion: reduce) {
