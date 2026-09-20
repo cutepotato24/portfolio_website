@@ -147,7 +147,7 @@ if page == "Profile Overview":
     """)
     st.markdown(
         '<a href="https://drive.google.com/drive/u/0/folders/13-3GENaEQckjtFC8uCGPCZ0jWKzfPDgs" '
-        'target="_blank" style="text-decoration: underline;">Download My Updated Resume</a>',
+        'target="_blank" style="text-decoration: underline;">⇩ Download My Updated Resume</a>',
         unsafe_allow_html=True,
     )
 
@@ -197,7 +197,7 @@ elif page == "Core Projects":
         the results into an interactive dashboard. This project demonstrates my ability to organize data, identify
         meaningful trends, and communicate insights through clear and engaging visualizations.
         """)
-        link_col1, link_col2 = st.columns(2)
+        link_col1, link_col2 = st.columns(2, gap="small")
         with link_col1:
             st.link_button(
                 "↗︎ Maven Viz",
