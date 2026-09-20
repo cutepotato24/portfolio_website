@@ -1,10 +1,14 @@
 import streamlit as st
+import urllib.error
 import urllib.request
 
 
 def brand_logo(brand: str, color: str, size: int = 30):
     url = f"https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/{brand}.svg"
-    svg = urllib.request.urlopen(url, timeout=15).read().decode("utf-8")
+    try:
+        svg = urllib.request.urlopen(url, timeout=15).read().decode("utf-8")
+    except (urllib.error.HTTPError, urllib.error.URLError):
+        return ""
     svg = svg.replace("<svg", f'<svg fill="{color}" color="{color}" style="width:{size}px;height:{size}px;display:block;"', 1)
     svg = svg.replace('fill="currentColor"', f'fill="{color}"')
     svg = svg.replace('fill="none"', f'fill="{color}"')
@@ -403,7 +407,7 @@ elif page == "Technical Skills":
         <div class='skill-badge-wrapper'>
             <div class='skill-pill' data-tooltip='ChatGPT' title='ChatGPT' aria-label='ChatGPT' tabindex='0'>""" + brand_logo('openai', '#74AA9C') + """</div>
             <div class='skill-pill' data-tooltip='GitHub Copilot' title='GitHub Copilot' aria-label='GitHub Copilot' tabindex='0'>""" + brand_logo('githubcopilot', '#FFFFFF') + """</div>
-            <div class='skill-pill' data-tooltip='Claude AI' title='Claude AI' aria-label='Claude AI' tabindex='0'>""" + brand_logo('claude', '#D97757') + """</div>
+            <div class='skill-pill' data-tooltip='Claude AI' title='Claude AI' aria-label='Claude AI' tabindex='0'>""" + brand_logo('anthropic', '#D97757') + """</div>
         </div>
         """,
         unsafe_allow_html=True,
