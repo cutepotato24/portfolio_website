@@ -41,18 +41,8 @@ st.markdown(
 
         .stApp {
             position: relative;
-            isolation: isolate;
             background: var(--charcoal);
             color: var(--white);
-        }
-
-        .stApp::before {
-            content: "";
-            position: fixed;
-            inset: 0;
-            z-index: 0;
-            pointer-events: none;
-            opacity: 0.18;
             background-image:
                 radial-gradient(circle at 12% 18%, rgba(245, 247, 250, 0.8) 0 1px, transparent 1.5px),
                 radial-gradient(circle at 68% 34%, rgba(57, 168, 255, 0.8) 0 1px, transparent 1.5px),
@@ -179,6 +169,7 @@ st.markdown(
         }
 
         @media (prefers-reduced-motion: reduce) {
+            .stApp,
             .astronaut-background,
             .astronaut-background img {
                 animation: none;
