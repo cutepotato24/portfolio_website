@@ -453,8 +453,9 @@ if page == "Profile Overview":
 # --- PAGE 2: CORE PROJECTS ---
 elif page == "Core Projects":
     st.title("Featured Projects ◈︎")
-    st.write("Browse through an assortment of my recent professional applications.")
-    st.info("I am still updating my projects, and more projects will be added soon.")
+    st.write(
+        "Browse through an assortment of my recent professional applications. I am still updating my projects, and more projects will be added soon."
+    )
 
     with st.expander("Personal Portfolio Website", expanded=False):
         st.caption("⚙︎ Tech Stack: `Python` | `Streamlit` | `CSS`")
