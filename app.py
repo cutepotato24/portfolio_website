@@ -449,15 +449,6 @@ components.html(
     </style>
     <div class="local-clock" id="local-clock" role="status" aria-live="polite">Detecting local time...</div>
     <script>
-        try {
-            const frame = window.frameElement;
-            const parentDocument = window.parent.document;
-            if (frame && parentDocument.body) {
-                parentDocument.body.appendChild(frame);
-                frame.style.cssText = "position: fixed !important; top: auto !important; right: auto !important; left: 0 !important; bottom: 0 !important; width: 17rem !important; height: 32px !important; z-index: 999999 !important; border: 0 !important; margin: 0 !important;";
-            }
-        } catch (error) {}
-
         const clock = document.getElementById("local-clock");
         const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
         const formatter = new Intl.DateTimeFormat([], {
