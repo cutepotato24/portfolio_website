@@ -395,6 +395,20 @@ elif page == "Technical Skills":
         unsafe_allow_html=True,
     )
 
+    st.write("")
+
+    st.markdown("<h3 class='skill-section-title'>Generative AI</h3>", unsafe_allow_html=True)
+    st.markdown(
+        """
+        <div class='skill-badge-wrapper'>
+            <div class='skill-pill' data-tooltip='ChatGPT' title='ChatGPT' aria-label='ChatGPT' tabindex='0'>""" + brand_logo('openai', '#74AA9C') + """</div>
+            <div class='skill-pill' data-tooltip='GitHub Copilot' title='GitHub Copilot' aria-label='GitHub Copilot' tabindex='0'>""" + brand_logo('githubcopilot', '#FFFFFF') + """</div>
+            <div class='skill-pill' data-tooltip='Claude AI' title='Claude AI' aria-label='Claude AI' tabindex='0'>""" + brand_logo('claude', '#D97757') + """</div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
     st.divider()
     st.markdown("### Areas of Focus")
     st.write("- **Data Architecture:** Designing scalable database management layouts.")
