@@ -1,4 +1,17 @@
 import streamlit as st
+import urllib.request
+
+
+def brand_logo(brand: str, color: str, size: int = 30):
+    url = f"https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/{brand}.svg"
+    svg = urllib.request.urlopen(url, timeout=15).read().decode("utf-8")
+    svg = svg.replace("<svg", f'<svg fill="{color}" color="{color}" style="width:{size}px;height:{size}px;display:block;"', 1)
+    svg = svg.replace('fill="currentColor"', f'fill="{color}"')
+    svg = svg.replace('fill="none"', f'fill="{color}"')
+    svg = svg.replace('fill="#000000"', f'fill="{color}"')
+    svg = svg.replace('fill="#000"', f'fill="{color}"')
+    return svg
+
 
 # 1. Page Configuration (Must be the first command)
 st.set_page_config(
@@ -90,13 +103,12 @@ st.markdown(
             opacity: 0.9;
         }
 
-        .skill-pill img {
+        .skill-pill svg {
             width: 30px;
             height: 30px;
-            object-fit: contain;
             display: block;
             background: transparent;
-            filter: none;
+            vertical-align: middle;
         }
 
         h1 {
@@ -262,10 +274,10 @@ elif page == "Technical Skills":
         st.markdown(
             """
             <div class='skill-badge-wrapper'>
-                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/python.svg' alt='Python'></div>
-                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/mysql.svg' alt='SQL'></div>
-                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/html5.svg' alt='HTML'></div>
-                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/css3.svg' alt='CSS'></div>
+                <div class='skill-pill'>""" + brand_logo('python', '#3776AB') + """</div>
+                <div class='skill-pill'>""" + brand_logo('mysql', '#4479A1') + """</div>
+                <div class='skill-pill'>""" + brand_logo('html5', '#E34F26') + """</div>
+                <div class='skill-pill'>""" + brand_logo('css3', '#1572B6') + """</div>
             </div>
             """,
             unsafe_allow_html=True,
@@ -276,9 +288,9 @@ elif page == "Technical Skills":
         st.markdown(
             """
             <div class='skill-badge-wrapper'>
-                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/streamlit.svg' alt='Streamlit'></div>
-                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/python.svg' alt='Python Libraries'></div>
-                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/github.svg' alt='GitHub'></div>
+                <div class='skill-pill'>""" + brand_logo('streamlit', '#FF4B4B') + """</div>
+                <div class='skill-pill'>""" + brand_logo('python', '#3776AB') + """</div>
+                <div class='skill-pill'>""" + brand_logo('github', '#181717') + """</div>
             </div>
             """,
             unsafe_allow_html=True,
@@ -292,9 +304,9 @@ elif page == "Technical Skills":
         st.markdown(
             """
             <div class='skill-badge-wrapper'>
-                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/tableau.svg' alt='Tableau'></div>
-                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/powerbi.svg' alt='Power BI'></div>
-                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/python.svg' alt='Python'></div>
+                <div class='skill-pill'>""" + brand_logo('tableau', '#E97627') + """</div>
+                <div class='skill-pill'>""" + brand_logo('powerbi', '#F2C811') + """</div>
+                <div class='skill-pill'>""" + brand_logo('python', '#3776AB') + """</div>
             </div>
             """,
             unsafe_allow_html=True,
@@ -305,9 +317,9 @@ elif page == "Technical Skills":
         st.markdown(
             """
             <div class='skill-badge-wrapper'>
-                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/python.svg' alt='Python'></div>
-                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/knime.svg' alt='KNIME'></div>
-                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/snowflake.svg' alt='Snowflake'></div>
+                <div class='skill-pill'>""" + brand_logo('python', '#3776AB') + """</div>
+                <div class='skill-pill'>""" + brand_logo('knime', '#3B82F6') + """</div>
+                <div class='skill-pill'>""" + brand_logo('snowflake', '#29B5E8') + """</div>
             </div>
             """,
             unsafe_allow_html=True,
@@ -321,9 +333,9 @@ elif page == "Technical Skills":
         st.markdown(
             """
             <div class='skill-badge-wrapper'>
-                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/snowflake.svg' alt='Snowflake'></div>
-                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/oracle.svg' alt='Oracle'></div>
-                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/googlebigquery.svg' alt='BigQuery'></div>
+                <div class='skill-pill'>""" + brand_logo('snowflake', '#29B5E8') + """</div>
+                <div class='skill-pill'>""" + brand_logo('oracle', '#F80000') + """</div>
+                <div class='skill-pill'>""" + brand_logo('googlebigquery', '#4285F4') + """</div>
             </div>
             """,
             unsafe_allow_html=True,
@@ -332,9 +344,9 @@ elif page == "Technical Skills":
         st.markdown(
             """
             <div class='skill-badge-wrapper'>
-                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/microsoftsqlserver.svg' alt='SQL Server'></div>
-                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/postgresql.svg' alt='PostgreSQL'></div>
-                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/mysql.svg' alt='MySQL'></div>
+                <div class='skill-pill'>""" + brand_logo('microsoftsqlserver', '#CC2927') + """</div>
+                <div class='skill-pill'>""" + brand_logo('postgresql', '#4169E1') + """</div>
+                <div class='skill-pill'>""" + brand_logo('mysql', '#4479A1') + """</div>
             </div>
             """,
             unsafe_allow_html=True,
