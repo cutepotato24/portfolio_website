@@ -17,6 +17,14 @@ def brand_logo(brand: str, color: str, size: int = 30):
     return svg
 
 
+@st.dialog("Power BI dashboard", width="large")
+def show_power_bi_picture(project):
+    st.image(f"assets/{project['file']}", caption=project["name"], use_container_width=True)
+    if st.button("Hide picture", key=f"hide_{project['file']}"):
+        st.session_state[f"show_{project['file']}"] = False
+        st.rerun()
+
+
 # 1. Page Configuration (Must be the first command)
 st.set_page_config(
     page_title="Professional Portfolio",
@@ -322,6 +330,12 @@ st.markdown(
             color: #07131d !important;
         }
 
+        div[role="dialog"],
+        [data-testid="stDialog"] {
+            width: min(75vw, 1000px) !important;
+            max-width: 75vw !important;
+        }
+
         .contact-card {
             min-height: 164px;
             display: flex;
@@ -488,10 +502,8 @@ elif page == "Core Projects":
                     if show_picture:
                         visible_projects.append(project)
 
-        for project in visible_projects:
-            image_columns = st.columns([1, 6, 1])
-            with image_columns[1]:
-                st.image(f"assets/{project['file']}", caption=project["name"], use_container_width=True)
+        if visible_projects:
+            show_power_bi_picture(visible_projects[0])
 
 # --- PAGE 3: TECHNICAL SKILLS ---
 elif page == "Technical Skills":
