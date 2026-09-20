@@ -13,8 +13,8 @@ page = st.sidebar.radio("Go to:", ["Profile Overview", "Core Projects", "Technic
 
 # --- PAGE 1: PROFILE OVERVIEW ---
 if page == "Profile Overview":
-    st.title("Hi, I'm a Developer 👋")
-    st.subheader("Data Analyst & Software Engineer")
+    st.title("Hi, I'm Harold, how are you today? 👋")
+    st.subheader("Analytics & Software Engineer")
     
     # Highlight Banner
     st.info("🚀 Specialized in building automated data workflows and clean user experiences.")
