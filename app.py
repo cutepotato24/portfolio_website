@@ -425,23 +425,10 @@ elif page == "Core Projects":
     st.title("Featured Projects ◈︎")
     st.write("Browse through an assortment of my recent professional applications.")
 
-    with st.expander("Cloud-Native E-Commerce Analytics Tool", expanded=False):
-        st.caption("⚙︎ Tech Stack: `Python` | `Streamlit` | `Pandas` | `Plotly`")
-        st.write("""
-        Engineered an enterprise-level dashboard monitoring retail store transactions.
-        Integrated dynamic clustering logic to automatically segment purchasing personas, increasing retention rates by 18%.
-        """)
-        st.link_button("↗︎ View Git Repository", "https://github.com")
-
-    st.write("")
-
-    with st.expander("Automated Pipeline Scheduling Engine", expanded=False):
-        st.caption("⚙︎ Tech Stack: `Python` | `SQL` | `Docker` | `AWS Lambda`")
-        st.write("""
-        Built an automated database validation worker that runs micro-audits across thousands of data points daily,
-        reducing database formatting errors down to absolute zero.
-        """)
-        st.link_button("↗︎ Read Technical Documentation", "https://github.com")
+    with st.expander("Personal Portfolio Website", expanded=False):
+        st.caption("⚙︎ Tech Stack: `Python` | `Streamlit` | `CSS`")
+        st.write("Designed and built this interactive portfolio website to present my professional profile, projects, technical skills, and contact links.")
+        st.link_button("↗︎ View GitHub Repository", "https://github.com/cutepotato24/portfolio_website")
 
     st.write("")
 
@@ -465,13 +452,6 @@ elif page == "Core Projects":
                 "https://public.tableau.com/app/profile/john.harold.legaspi6572/viz/OnyxDataaugust2023DNAChallenge/Dashboard1",
                 use_container_width=True,
             )
-
-    st.write("")
-
-    with st.expander("Personal Portfolio Website", expanded=False):
-        st.caption("⚙︎ Tech Stack: `Python` | `Streamlit` | `CSS`")
-        st.write("Designed and built this interactive portfolio website to present my professional profile, projects, technical skills, and contact links.")
-        st.link_button("↗︎ View GitHub Repository", "https://github.com/cutepotato24/portfolio_website")
 
 # --- PAGE 3: TECHNICAL SKILLS ---
 elif page == "Technical Skills":
