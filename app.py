@@ -14,9 +14,9 @@ st.markdown(
     <style>
     div[data-testid="stTabs"] div[data-baseweb="tab-list"],
     div[data-testid="stTabs"] [role="tablist"] {
-        gap: 0;
+        column-gap: 8px;
         border-bottom: 1px solid #c8ccd1;
-        padding: 0 8px;
+        padding: 0 4px;
     }
 
     div[data-testid="stTabs"] button[data-baseweb="tab"],
@@ -24,10 +24,10 @@ st.markdown(
         flex: 0 1 auto;
         background: #e8eaed !important;
         border: 1px solid #c8ccd1 !important;
-        border-bottom: none !important;
-        border-radius: 9px 9px 0 0;
+        border-bottom: 1px solid #c8ccd1 !important;
+        border-radius: 8px 8px 0 0;
         color: #5f6368 !important;
-        margin: 0 3px -1px 0;
+        margin: 0;
         padding: 0.65rem 1rem;
         transition: background 150ms ease, color 150ms ease;
     }
@@ -44,6 +44,7 @@ st.markdown(
         border-bottom: 1px solid #ffffff !important;
         color: #202124 !important;
         font-weight: 600;
+        margin-bottom: -1px;
     }
 
     div[data-testid="stTabs"] div[data-baseweb="tab-highlight"] {
