@@ -78,6 +78,11 @@ st.markdown(
             border-right: 1px solid var(--border);
         }
 
+        .main {
+            position: relative;
+            z-index: 1;
+        }
+
         [data-testid="stSidebar"] h1,
         [data-testid="stSidebar"] h2,
         [data-testid="stSidebar"] label,
