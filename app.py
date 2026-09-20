@@ -3,7 +3,7 @@ from pathlib import Path
 
 
 # ============================================================
-# 1. PAGE CONFIGURATION
+# PAGE CONFIGURATION
 # ============================================================
 
 st.set_page_config(
@@ -14,7 +14,15 @@ st.set_page_config(
 
 
 # ============================================================
-# 2. CUSTOM CSS
+# SESSION STATE
+# ============================================================
+
+if "page" not in st.session_state:
+    st.session_state.page = "Profile Overview"
+
+
+# ============================================================
+# CUSTOM CSS
 # ============================================================
 
 st.markdown(
@@ -22,7 +30,7 @@ st.markdown(
     <style>
 
     /* ========================================================
-       GENERAL PAGE
+       MAIN PAGE
        ======================================================== */
 
     .block-container {
@@ -32,168 +40,126 @@ st.markdown(
 
 
     /* ========================================================
-       TAB BAR
+       NAVIGATION BUTTONS
        ======================================================== */
 
-    div[data-baseweb="tab-list"] {
-        display: flex !important;
-
-        gap: 10px !important;
-
-        padding: 10px 5px !important;
-
-        border: none !important;
-
-        background: transparent !important;
-
-        justify-content: center !important;
+    div[data-testid="stHorizontalBlock"] {
+        gap: 10px;
     }
 
 
-    /* ========================================================
-       INDIVIDUAL TABS
-       ======================================================== */
+    /* Navigation button */
+    .nav-button button {
+        width: 100% !important;
 
-    div[data-baseweb="tab-list"] > button {
-        background-color: #d3d3d3 !important;
-
-        color: #333333 !important;
-
-        border: 2px solid #a9a9a9 !important;
+        min-height: 48px !important;
 
         border-radius: 12px !important;
 
-        padding: 10px 18px !important;
+        border: 2px solid #b5b5b5 !important;
 
-        margin: 0 !important;
+        background-color: #d9d9d9 !important;
 
-        min-height: 45px !important;
-
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08) !important;
-
-        transition:
-            background-color 0.2s ease,
-            border-color 0.2s ease,
-            box-shadow 0.2s ease,
-            transform 0.2s ease !important;
-    }
-
-
-    /* ========================================================
-       TAB TEXT
-       ======================================================== */
-
-    div[data-baseweb="tab-list"] > button div {
         color: #333333 !important;
 
-        font-weight: 500 !important;
+        font-size: 15px !important;
+
+        font-weight: 600 !important;
+
+        box-shadow:
+            0 2px 4px rgba(0, 0, 0, 0.10) !important;
+
+        transition:
+            all 0.2s ease !important;
     }
 
 
-    /* ========================================================
-       TAB HOVER
-       ======================================================== */
-
-    div[data-baseweb="tab-list"] > button:hover {
-        background-color: #bdbdbd !important;
+    /* Hover */
+    .nav-button button:hover {
+        background-color: #bcbcbc !important;
 
         border-color: #8f8f8f !important;
 
-        box-shadow: 0 3px 7px rgba(0, 0, 0, 0.15) !important;
+        color: #111111 !important;
 
-        transform: translateY(-1px);
+        transform: translateY(-2px) !important;
+
+        box-shadow:
+            0 4px 8px rgba(0, 0, 0, 0.15) !important;
     }
 
 
     /* ========================================================
-       ACTIVE TAB
+       ACTIVE NAVIGATION BUTTON
        ======================================================== */
 
-    div[data-baseweb="tab-list"]
-    > button[aria-selected="true"] {
+    .active-nav button {
+        width: 100% !important;
+
+        min-height: 48px !important;
+
+        border-radius: 12px !important;
+
+        border: 2px solid #555555 !important;
 
         background-color: #707070 !important;
 
         color: white !important;
 
-        border: 2px solid #5c5c5c !important;
-
-        border-radius: 12px !important;
+        font-size: 15px !important;
 
         font-weight: 700 !important;
 
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.20) !important;
+        box-shadow:
+            0 4px 8px rgba(0, 0, 0, 0.20) !important;
     }
 
 
     /* ========================================================
-       ACTIVE TAB TEXT
+       PAGE TITLE
        ======================================================== */
 
-    div[data-baseweb="tab-list"]
-    > button[aria-selected="true"] div {
-
-        color: white !important;
-
-        font-weight: 700 !important;
+    .page-title {
+        margin-top: 25px;
     }
 
 
     /* ========================================================
-       REMOVE STREAMLIT DEFAULT TAB UNDERLINE
+       PROJECT CARDS
        ======================================================== */
 
-    div[data-baseweb="tab-highlight"] {
-        display: none !important;
+    .project-card {
+        padding: 20px;
+
+        border: 1px solid #d0d0d0;
+
+        border-radius: 14px;
+
+        background-color: #fafafa;
+
+        margin-bottom: 20px;
+
+        box-shadow:
+            0 2px 6px rgba(0, 0, 0, 0.06);
     }
 
 
     /* ========================================================
-       REMOVE DEFAULT TAB BORDER
-       ======================================================== */
-
-    div[data-baseweb="tab-border"] {
-        display: none !important;
-    }
-
-
-    /* ========================================================
-       LINK BUTTONS
-       ======================================================== */
-
-    div[data-testid="stLinkButton"] a {
-        border-radius: 8px !important;
-    }
-
-
-    /* ========================================================
-       MOBILE RESPONSIVE DESIGN
+       MOBILE NAVIGATION
        ======================================================== */
 
     @media (max-width: 700px) {
 
-        div[data-baseweb="tab-list"] {
+        .nav-button button,
+        .active-nav button {
 
-            gap: 6px !important;
+            min-height: 42px !important;
 
-            justify-content: flex-start !important;
+            font-size: 13px !important;
 
-            overflow-x: auto !important;
-
-            padding: 8px 3px !important;
+            padding: 5px !important;
         }
 
-
-        div[data-baseweb="tab-list"] > button {
-
-            padding: 8px 12px !important;
-
-            min-height: 40px !important;
-
-            white-space: nowrap !important;
-
-            border-radius: 10px !important;
-        }
     }
 
     </style>
@@ -203,16 +169,88 @@ st.markdown(
 
 
 # ============================================================
-# 3. TAB NAVIGATION
+# NAVIGATION FUNCTION
 # ============================================================
 
-profile_tab, projects_tab, skills_tab, contact_tab = st.tabs(
-    [
-        "Profile Overview",
-        "Core Projects",
-        "Technical Skills",
-        "Contact & Links"
-    ]
+def navigation_button(label):
+
+    if st.session_state.page == label:
+
+        st.markdown(
+            '<div class="active-nav">',
+            unsafe_allow_html=True
+        )
+
+        clicked = st.button(
+            label,
+            key=f"nav_{label}"
+        )
+
+        st.markdown(
+            '</div>',
+            unsafe_allow_html=True
+        )
+
+    else:
+
+        st.markdown(
+            '<div class="nav-button">',
+            unsafe_allow_html=True
+        )
+
+        clicked = st.button(
+            label,
+            key=f"nav_{label}"
+        )
+
+        st.markdown(
+            '</div>',
+            unsafe_allow_html=True
+        )
+
+    if clicked:
+
+        st.session_state.page = label
+
+        st.rerun()
+
+
+# ============================================================
+# NAVIGATION BAR
+# ============================================================
+
+nav1, nav2, nav3, nav4 = st.columns(4)
+
+
+with nav1:
+    navigation_button("Profile Overview")
+
+
+with nav2:
+    navigation_button("Core Projects")
+
+
+with nav3:
+    navigation_button("Technical Skills")
+
+
+with nav4:
+    navigation_button("Contact & Links")
+
+
+# ============================================================
+# SEPARATOR
+# ============================================================
+
+st.markdown(
+    """
+    <div style="
+        height: 1px;
+        background-color: #d0d0d0;
+        margin: 20px 0 25px 0;
+    "></div>
+    """,
+    unsafe_allow_html=True
 )
 
 
@@ -220,14 +258,10 @@ profile_tab, projects_tab, skills_tab, contact_tab = st.tabs(
 # PAGE 1 — PROFILE OVERVIEW
 # ============================================================
 
-with profile_tab:
+if st.session_state.page == "Profile Overview":
 
     st.title("Hi, I'm Harold, how are you today? 👋")
 
-
-    # --------------------------------------------------------
-    # PROFILE SECTION
-    # --------------------------------------------------------
 
     profile_image = Path("assets/profile.png")
 
@@ -264,19 +298,11 @@ with profile_tab:
         )
 
 
-    # --------------------------------------------------------
-    # HIGHLIGHT BANNER
-    # --------------------------------------------------------
-
     st.info(
         "🚀 Specialized in building automated data workflows "
         "and clean user experiences."
     )
 
-
-    # --------------------------------------------------------
-    # PROFESSIONAL PROFILE
-    # --------------------------------------------------------
 
     st.markdown("### 🎯 Professional Profile")
 
@@ -295,12 +321,8 @@ with profile_tab:
 
     st.divider()
 
-
-    # --------------------------------------------------------
-    # CAREER STATISTICS
-    # --------------------------------------------------------
-
     st.markdown("### 📊 Career Statistics")
+
 
     col1, col2, col3 = st.columns(3)
 
@@ -336,7 +358,7 @@ with profile_tab:
 # PAGE 2 — CORE PROJECTS
 # ============================================================
 
-with projects_tab:
+elif st.session_state.page == "Core Projects":
 
     st.title("Featured Projects 🚀")
 
@@ -417,7 +439,7 @@ with projects_tab:
 # PAGE 3 — TECHNICAL SKILLS
 # ============================================================
 
-with skills_tab:
+elif st.session_state.page == "Technical Skills":
 
     st.title("Technical Proficiency 🛠️")
 
@@ -435,10 +457,6 @@ with skills_tab:
     col1, col2 = st.columns(2)
 
 
-    # --------------------------------------------------------
-    # CORE PROGRAMMING
-    # --------------------------------------------------------
-
     with col1:
 
         st.markdown("### 💻 Core Programming")
@@ -455,10 +473,6 @@ with skills_tab:
             "**HTML & CSS** (Responsive UI Styling)"
         )
 
-
-    # --------------------------------------------------------
-    # FRAMEWORKS & INFRASTRUCTURE
-    # --------------------------------------------------------
 
     with col2:
 
@@ -479,11 +493,6 @@ with skills_tab:
 
     st.divider()
 
-
-    # --------------------------------------------------------
-    # AREAS OF FOCUS
-    # --------------------------------------------------------
-
     st.markdown("### 🌟 Areas of Focus")
 
     st.write(
@@ -501,7 +510,7 @@ with skills_tab:
 # PAGE 4 — CONTACT & LINKS
 # ============================================================
 
-with contact_tab:
+elif st.session_state.page == "Contact & Links":
 
     st.title("Establish Connection 📧")
 
@@ -519,10 +528,6 @@ with contact_tab:
     col1, col2 = st.columns(2)
 
 
-    # --------------------------------------------------------
-    # PROFESSIONAL NETWORKS
-    # --------------------------------------------------------
-
     with col1:
 
         st.markdown("#### 👔 Professional Networks")
@@ -532,10 +537,6 @@ with contact_tab:
             "https://linkedin.com"
         )
 
-
-    # --------------------------------------------------------
-    # CODE REPOSITORIES
-    # --------------------------------------------------------
 
     with col2:
 
@@ -551,12 +552,21 @@ with contact_tab:
     st.write("")
 
 
-    # --------------------------------------------------------
-    # DIRECT CONTACT
-    # --------------------------------------------------------
-
     st.success(
         "📩 **Direct Contact:** Please feel free to open "
         "a conversation or drop professional references "
         "through my social channels."
     )
+
+The result
+
+Instead of relying on st.tabs(), the navigation is now made from actual Streamlit buttons:
+
+┌───────────────────┐  ┌─────────────────┐  ┌────────────────────┐  ┌───────────────────┐
+│  Profile Overview │  │  Core Projects  │  │  Technical Skills  │  │  Contact & Links  │
+└───────────────────┘  └─────────────────┘  └────────────────────┘  └───────────────────┘
+
+
+The current page is dark gray, while the other navigation buttons are light gray with visible borders and rounded corners.
+
+This approach is much more reliable than trying to override Streamlit's internal st.tabs() styling.
