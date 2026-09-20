@@ -338,6 +338,18 @@ st.markdown(
             margin-right: auto !important;
         }
 
+        div[role="dialog"] [data-testid="stImage"],
+        [data-testid="stDialog"] [data-testid="stImage"] {
+            display: flex;
+            justify-content: center;
+        }
+
+        div[role="dialog"] [data-testid="stImage"] img,
+        [data-testid="stDialog"] [data-testid="stImage"] img {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         .contact-card {
             min-height: 164px;
             display: flex;
