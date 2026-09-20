@@ -64,6 +64,7 @@ st.markdown(
         [data-testid="stSidebar"] {
             background: #111315 !important;
             border-right: 1px solid var(--border);
+            z-index: 100 !important;
         }
 
         [data-testid="stSidebar"] > div:first-child {
@@ -91,7 +92,7 @@ st.markdown(
             right: auto !important;
             left: 0 !important;
             bottom: 0 !important;
-            z-index: 1100 !important;
+            z-index: 1000 !important;
             width: 17rem !important;
             height: 32px !important;
             max-width: 100vw;
@@ -103,7 +104,6 @@ st.markdown(
             max-width: 1000px;
             padding: 3rem 2.5rem 5rem;
             position: relative;
-            z-index: 1;
         }
 
         .site-background {
