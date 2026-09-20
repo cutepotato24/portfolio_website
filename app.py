@@ -393,6 +393,8 @@ elif page == "Technical Skills":
     st.markdown("### Areas of Focus")
     st.write("- **Data Architecture:** Designing scalable database management layouts.")
     st.write("- **Workflow Automation:** Replacing manual data pipelines with automated scripts.")
+    st.write("- **Data Analysis & Metric Reporting:** Transforming data into reliable metrics, recurring reports, and actionable insights.")
+    st.write("- **End-to-End Analytics Pipelines:** Managing the full-stack analytics workflow from source data and transformation through dashboards and reporting.")
 
 # --- PAGE 4: CONTACT & LINKS ---
 elif page == "Contact & Links":
