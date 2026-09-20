@@ -335,7 +335,7 @@ elif page == "Technical Skills":
                 <div class='skill-pill' data-tooltip='Streamlit' title='Streamlit' aria-label='Streamlit' tabindex='0'>""" + brand_logo('streamlit', '#FF4B4B') + """</div>
                 <div class='skill-pill' data-tooltip='Python Libraries' title='Python Libraries' aria-label='Python Libraries' tabindex='0'>""" + brand_logo('python', '#3776AB') + """</div>
                 <div class='skill-pill' data-tooltip='GitHub' title='GitHub' aria-label='GitHub' tabindex='0'>""" + brand_logo('github', '#FFFFFF') + """</div>
-                <div class='skill-pill' data-tooltip='dbt' title='dbt' aria-label='dbt' tabindex='0'>""" + brand_logo('dbt', '#FFFFFF') + """</div>
+                <div class='skill-pill' data-tooltip='dbt' title='dbt' aria-label='dbt' tabindex='0'>""" + brand_logo('dbt', '#FF694A') + """</div>
             </div>
             """,
             unsafe_allow_html=True,
@@ -383,7 +383,7 @@ elif page == "Technical Skills":
             <div class='skill-pill' data-tooltip='MS SQL Server' title='MS SQL Server' aria-label='MS SQL Server' tabindex='0'>""" + brand_logo('microsoftsqlserver', '#CC2927') + """</div>
             <div class='skill-pill' data-tooltip='PostgreSQL' title='PostgreSQL' aria-label='PostgreSQL' tabindex='0'>""" + brand_logo('postgresql', '#4169E1') + """</div>
             <div class='skill-pill' data-tooltip='MySQL' title='MySQL' aria-label='MySQL' tabindex='0'>""" + brand_logo('mysql', '#4479A1') + """</div>
-            <div class='skill-pill' data-tooltip='DBeaver' title='DBeaver' aria-label='DBeaver' tabindex='0'>""" + brand_logo('dbeaver', '#382923') + """</div>
+            <div class='skill-pill' data-tooltip='DBeaver' title='DBeaver' aria-label='DBeaver' tabindex='0'>""" + brand_logo('dbeaver', '#FFFFFF') + """</div>
         </div>
         """,
         unsafe_allow_html=True,
