@@ -139,16 +139,17 @@ if page == "Profile Overview":
     st.subheader("Analytics & Software Engineer")
 
     st.info("⚡︎ Specialized in building automated data workflows and clean user experiences.")
-    st.link_button(
-        "↓ Download My Updated Resume",
-        "https://drive.google.com/drive/u/0/folders/13-3GENaEQckjtFC8uCGPCZ0jWKzfPDgs",
-    )
 
     st.markdown("### <span class='icon'>◎︎</span> Professional Profile", unsafe_allow_html=True)
     st.write("""
     I am a results-driven professional dedicated to transforming complex data sets into clear, actionable business strategies.
     By leveraging cloud-native python workflows, I design and implement reliable pipeline structures that help organizations scale.
     """)
+    st.markdown(
+        '<a href="https://drive.google.com/drive/u/0/folders/13-3GENaEQckjtFC8uCGPCZ0jWKzfPDgs" '
+        'target="_blank" style="text-decoration: underline;">Download My Updated Resume</a>',
+        unsafe_allow_html=True,
+    )
 
     st.divider()
     st.markdown("### <span class='icon'>▣︎</span> Career Statistics", unsafe_allow_html=True)
