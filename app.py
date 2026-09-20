@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 import urllib.error
 import urllib.request
 
@@ -427,9 +428,41 @@ st.markdown(
     <div class="astronaut-background astronaut-secondary" aria-hidden="true">
         <img src="https://static.vecteezy.com/system/resources/thumbnails/077/495/720/small/floating-astronaut-icon-waving-in-zero-gravity-silhouette-free-png.png" alt="">
     </div>
-    <iframe class="local-clock-frame" title="Local time" srcdoc='<!doctype html><style>html,body{margin:0;background:transparent;overflow:hidden}.clock{box-sizing:border-box;padding:.35rem .5rem;color:#aeb6c2;font:600 .74rem/1.2 monospace;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap}.clock strong{color:#39a8ff;font-weight:700}</style><div class="clock" id="clock" role="status" aria-live="polite">Detecting local time...</div><script>const clock=document.getElementById("clock");const timeZone=Intl.DateTimeFormat().resolvedOptions().timeZone;const formatter=new Intl.DateTimeFormat([], {hour:"numeric",minute:"2-digit",second:"2-digit",timeZoneName:"short"});function updateClock(){clock.innerHTML="Local time <strong>"+formatter.format(new Date())+"</strong> · "+(timeZone||"your location")}updateClock();setInterval(updateClock,1000)</script>'></iframe>
     """,
     unsafe_allow_html=True,
+)
+
+components.html(
+    """
+    <style>
+        html, body { margin: 0; background: transparent; overflow: hidden; }
+        .local-clock {
+            box-sizing: border-box;
+            padding: 0.35rem 0.5rem;
+            color: #aeb6c2;
+            font: 600 0.74rem/1.2 monospace;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+        .local-clock strong { color: #39a8ff; font-weight: 700; }
+    </style>
+    <div class="local-clock" id="local-clock" role="status" aria-live="polite">Detecting local time...</div>
+    <script>
+        const clock = document.getElementById("local-clock");
+        const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        const formatter = new Intl.DateTimeFormat([], {
+            hour: "numeric", minute: "2-digit", second: "2-digit", timeZoneName: "short"
+        });
+        function updateClock() {
+            clock.innerHTML = "Local time <strong>" + formatter.format(new Date()) + "</strong> · " + (timeZone || "your location");
+        }
+        updateClock();
+        setInterval(updateClock, 1000);
+    </script>
+    """,
+    height=32,
+    scrolling=False,
 )
 
 # 2. Sidebar Structural Navigation
