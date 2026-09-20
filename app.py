@@ -66,6 +66,46 @@ st.markdown(
         .main .block-container {
             max-width: 1000px;
             padding: 3rem 2.5rem 5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .astronaut-background {
+            position: fixed;
+            top: 18vh;
+            right: 4vw;
+            z-index: 0;
+            color: var(--blue);
+            font-size: clamp(4rem, 9vw, 8rem);
+            line-height: 1;
+            opacity: 0.1;
+            pointer-events: none;
+            user-select: none;
+            filter: drop-shadow(0 0 18px rgba(57, 168, 255, 0.45));
+            animation: astronaut-drift 14s ease-in-out infinite;
+        }
+
+        @keyframes astronaut-drift {
+            0%, 100% {
+                transform: translate3d(0, 0, 0) rotate(-8deg);
+            }
+            50% {
+                transform: translate3d(-2.5rem, 2rem, 0) rotate(8deg);
+            }
+        }
+
+        @media (max-width: 700px) {
+            .astronaut-background {
+                top: 10vh;
+                right: 2vw;
+                opacity: 0.06;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .astronaut-background {
+                animation: none;
+            }
         }
 
         h1, h2, h3, h4 {
@@ -269,6 +309,11 @@ st.markdown(
         }
     </style>
     """,
+    unsafe_allow_html=True,
+)
+
+st.markdown(
+    '<div class="astronaut-background" aria-hidden="true">🧑‍🚀</div>',
     unsafe_allow_html=True,
 )
 
