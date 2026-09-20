@@ -8,12 +8,13 @@ st.set_page_config(
     layout="centered"
 )
 
-# 2. Sidebar Structural Navigation
-st.sidebar.markdown("## 🧭 Navigation")
-page = st.sidebar.radio("Go to:", ["Profile Overview", "Core Projects", "Technical Skills", "Contact & Links"])
+# 2. Tab Navigation
+profile_tab, projects_tab, skills_tab, contact_tab = st.tabs(
+    ["Profile Overview", "Core Projects", "Technical Skills", "Contact & Links"]
+)
 
 # --- PAGE 1: PROFILE OVERVIEW ---
-if page == "Profile Overview":
+with profile_tab:
     st.title("Hi, I'm Harold, how are you today? 👋")
 
     profile_image = Path("assets/profile.png")
@@ -50,7 +51,7 @@ if page == "Profile Overview":
         st.metric(label="Automation Efficiency", value="40%", delta="Saved Time")
 
 # --- PAGE 2: CORE PROJECTS ---
-elif page == "Core Projects":
+with projects_tab:
     st.title("Featured Projects 🚀")
     st.write("Browse through an assortment of my recent professional applications.")
     
@@ -77,7 +78,7 @@ elif page == "Core Projects":
         st.link_button("📁 Read Technical Documentation", "https://github.com")
 
 # --- PAGE 3: TECHNICAL SKILLS ---
-elif page == "Technical Skills":
+with skills_tab:
     st.title("Technical Proficiency 🛠️")
     st.write("A comprehensive breakdown of tools, programming languages, and engineering concepts I use daily.")
     
@@ -102,7 +103,7 @@ elif page == "Technical Skills":
     st.write("- **Workflow Automation:** Replacing manual data pipelines with automated scripts.")
 
 # --- PAGE 4: CONTACT & LINKS ---
-elif page == "Contact & Links":
+with contact_tab:
     st.title("Establish Connection 📧")
     st.write("I am always interested in discussing new freelance agreements, corporate positions, or automation consulting.")
     
