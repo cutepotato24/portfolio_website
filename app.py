@@ -19,27 +19,26 @@ st.markdown(
         padding: 0 4px;
     }
 
-    div[data-testid="stTabs"] button[data-baseweb="tab"],
-    div[data-testid="stTabs"] button[role="tab"] {
+    div[data-testid="stTabs"] [role="tab"] {
+        display: block;
         flex: 0 1 auto;
         background: #e5e7eb !important;
         border: 1px solid #c8ccd1 !important;
         border-bottom: 1px solid #c8ccd1 !important;
         border-radius: 8px !important;
+        box-sizing: border-box;
         color: #5f6368 !important;
         margin: 0;
         padding: 0.65rem 1rem;
         transition: background 150ms ease, color 150ms ease;
     }
 
-    div[data-testid="stTabs"] button[data-baseweb="tab"]:hover,
-    div[data-testid="stTabs"] button[role="tab"]:hover {
+    div[data-testid="stTabs"] [role="tab"]:hover {
         background: #f1f3f4 !important;
         color: #202124 !important;
     }
 
-    div[data-testid="stTabs"] button[data-baseweb="tab"][aria-selected="true"],
-    div[data-testid="stTabs"] button[role="tab"][aria-selected="true"] {
+    div[data-testid="stTabs"] [role="tab"][aria-selected="true"] {
         background: #d1d5db !important;
         border-color: #9ca3af !important;
         color: #202124 !important;
