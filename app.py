@@ -77,7 +77,7 @@ st.markdown(
 
         [data-testid="stSidebar"] iframe {
             position: fixed !important;
-            top: 0 !important;
+            top: 0.35rem !important;
             right: 5.5rem !important;
             left: auto !important;
             bottom: auto !important;
@@ -446,7 +446,7 @@ with st.sidebar:
 
             .local-clock {
                 box-sizing: border-box;
-                padding: 0.45rem 0.75rem;
+                padding: 0.35rem 0.5rem;
                 color: #aeb6c2;
                 font: 600 0.74rem/1.2 monospace;
                 letter-spacing: 0.04em;
@@ -464,12 +464,12 @@ with st.sidebar:
             const frame = window.frameElement;
             if (frame) {
                 frame.style.position = "fixed";
-                frame.style.top = "0";
+                frame.style.top = "0.35rem";
                 frame.style.right = "5.5rem";
                 frame.style.bottom = "auto";
                 frame.style.left = "auto";
                 frame.style.width = "17rem";
-                frame.style.height = "42px";
+                frame.style.height = "32px";
                 frame.style.zIndex = "999";
             }
 
@@ -491,7 +491,7 @@ with st.sidebar:
             setInterval(updateClock, 1000);
         </script>
         """,
-        height=42,
+        height=32,
         scrolling=False,
     )
 
