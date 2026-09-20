@@ -146,8 +146,8 @@ if page == "Profile Overview":
     By leveraging cloud-native python workflows, I design and implement reliable pipeline structures that help organizations scale.
     """)
     st.markdown(
-        '<a href="https://drive.google.com/drive/u/0/folders/13-3GENaEQckjtFC8uCGPCZ0jWKzfPDgs" '
-        'target="_blank" style="text-decoration: underline;">⇩ Download My Updated Resume</a>',
+        '<a href="https://drive.google.com/uc?export=download&id=1XKYToQWmjtwlD5xTLvT9n21h9b0xeWY7" '
+        'style="text-decoration: underline;">⇩ Download My Updated Resume</a>',
         unsafe_allow_html=True,
     )
 
