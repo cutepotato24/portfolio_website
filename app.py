@@ -182,6 +182,21 @@ elif page == "Core Projects":
         """)
         st.link_button("↗︎ Read Technical Documentation", "https://github.com")
 
+    st.write("")
+
+    with st.container(border=True):
+        st.markdown("### <span class='icon'>◈︎</span> Maven Analytics Hospital rating Viz Challenge, unsafe_allow_html=True)
+        st.caption("⚙︎ Tools: `Microsoft Excel` | `Tableau` | `Data Visualization` | `Dashboard Design`")
+        st.write("""
+        Created a data visualization project using Excel for data preparation and analysis, then Tableau to transform
+        the results into an interactive dashboard. This project demonstrates my ability to organize data, identify
+        meaningful trends, and communicate insights through clear and engaging visualizations.
+        """)
+        st.link_button(
+            "↗︎ View Tableau Dashboard",
+            "https://public.tableau.com/app/profile/john.harold.legaspi6572/viz/MAVENMODELEDDATATableau/Dashboard1#1",
+        )
+
 # --- PAGE 3: TECHNICAL SKILLS ---
 elif page == "Technical Skills":
     st.title("Technical Proficiency ⌘︎")
