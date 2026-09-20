@@ -77,12 +77,12 @@ st.markdown(
 
         [data-testid="stSidebar"] iframe {
             position: fixed !important;
-            top: auto !important;
-            right: auto !important;
-            left: 0 !important;
-            bottom: 0 !important;
+            top: 0 !important;
+            right: 5.5rem !important;
+            left: auto !important;
+            bottom: auto !important;
             z-index: 999 !important;
-            width: 21rem !important;
+            width: 17rem !important;
             max-width: 100vw;
             margin: 0 !important;
         }
@@ -464,11 +464,11 @@ with st.sidebar:
             const frame = window.frameElement;
             if (frame) {
                 frame.style.position = "fixed";
-                frame.style.top = "auto";
-                frame.style.right = "auto";
-                frame.style.bottom = "0";
-                frame.style.left = "0";
-                frame.style.width = "21rem";
+                frame.style.top = "0";
+                frame.style.right = "5.5rem";
+                frame.style.bottom = "auto";
+                frame.style.left = "auto";
+                frame.style.width = "17rem";
                 frame.style.height = "42px";
                 frame.style.zIndex = "999";
             }
