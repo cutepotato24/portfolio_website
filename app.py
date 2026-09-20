@@ -80,9 +80,16 @@ st.markdown(
         .skill-badge-wrapper {
             display: flex;
             flex-wrap: wrap;
+            justify-content: center;
             gap: 0.8rem;
-            margin-top: 0.9rem;
+            min-height: 54px;
+            margin-top: 0.6rem;
             align-items: center;
+        }
+
+        .skill-section-title {
+            margin: 0;
+            text-align: center;
         }
 
         .rdbms-row {
@@ -106,11 +113,38 @@ st.markdown(
             box-shadow: none;
             transition: transform 0.2s ease, opacity 0.2s ease;
             cursor: pointer;
+            position: relative;
         }
 
         .skill-pill:hover {
             transform: translateY(-1px);
             opacity: 0.9;
+        }
+
+        .skill-pill::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            left: 50%;
+            bottom: calc(100% + 0.45rem);
+            transform: translateX(-50%) translateY(0.2rem);
+            background: var(--charcoal-soft);
+            border: 1px solid var(--border);
+            border-radius: 3px;
+            color: var(--white);
+            font-size: 0.75rem;
+            line-height: 1;
+            padding: 0.45rem 0.55rem;
+            pointer-events: none;
+            opacity: 0;
+            white-space: nowrap;
+            transition: opacity 0.15s ease, transform 0.15s ease;
+            z-index: 2;
+        }
+
+        .skill-pill:hover::after,
+        .skill-pill:focus-visible::after {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
         }
 
         .skill-pill svg {
@@ -280,27 +314,27 @@ elif page == "Technical Skills":
 
     col1, col2 = st.columns(2)
     with col1:
-        st.markdown("### Programming")
+        st.markdown("<h3 class='skill-section-title'>Programming</h3>", unsafe_allow_html=True)
         st.markdown(
             """
             <div class='skill-badge-wrapper'>
-                <div class='skill-pill' title='Python'>""" + brand_logo('python', '#3776AB') + """</div>
-                <div class='skill-pill' title='SQL'>""" + brand_logo('mysql', '#4479A1') + """</div>
-                <div class='skill-pill' title='HTML'>""" + brand_logo('html5', '#E34F26') + """</div>
-                <div class='skill-pill' title='CSS'>""" + brand_logo('css3', '#1572B6') + """</div>
+                <div class='skill-pill' data-tooltip='Python' title='Python' aria-label='Python' tabindex='0'>""" + brand_logo('python', '#3776AB') + """</div>
+                <div class='skill-pill' data-tooltip='SQL' title='SQL' aria-label='SQL' tabindex='0'>""" + brand_logo('mysql', '#4479A1') + """</div>
+                <div class='skill-pill' data-tooltip='HTML' title='HTML' aria-label='HTML' tabindex='0'>""" + brand_logo('html5', '#E34F26') + """</div>
+                <div class='skill-pill' data-tooltip='CSS' title='CSS' aria-label='CSS' tabindex='0'>""" + brand_logo('css3', '#1572B6') + """</div>
             </div>
             """,
             unsafe_allow_html=True,
         )
 
     with col2:
-        st.markdown("### Frameworks")
+        st.markdown("<h3 class='skill-section-title'>Frameworks</h3>", unsafe_allow_html=True)
         st.markdown(
             """
             <div class='skill-badge-wrapper'>
-                <div class='skill-pill' title='Streamlit'>""" + brand_logo('streamlit', '#FF4B4B') + """</div>
-                <div class='skill-pill' title='Python Libraries'>""" + brand_logo('python', '#3776AB') + """</div>
-                <div class='skill-pill' title='GitHub'>""" + brand_logo('github', '#181717') + """</div>
+                <div class='skill-pill' data-tooltip='Streamlit' title='Streamlit' aria-label='Streamlit' tabindex='0'>""" + brand_logo('streamlit', '#FF4B4B') + """</div>
+                <div class='skill-pill' data-tooltip='Python Libraries' title='Python Libraries' aria-label='Python Libraries' tabindex='0'>""" + brand_logo('python', '#3776AB') + """</div>
+                <div class='skill-pill' data-tooltip='GitHub' title='GitHub' aria-label='GitHub' tabindex='0'>""" + brand_logo('github', '#181717') + """</div>
             </div>
             """,
             unsafe_allow_html=True,
@@ -310,26 +344,26 @@ elif page == "Technical Skills":
 
     col3, col4 = st.columns(2)
     with col3:
-        st.markdown("### Data Visualization")
+        st.markdown("<h3 class='skill-section-title'>Data Visualization</h3>", unsafe_allow_html=True)
         st.markdown(
             """
             <div class='skill-badge-wrapper'>
-                <div class='skill-pill' title='Tableau'>""" + brand_logo('tableau', '#E97627') + """</div>
-                <div class='skill-pill' title='Power BI'>""" + brand_logo('powerbi', '#F2C811') + """</div>
-                <div class='skill-pill' title='Python'>""" + brand_logo('python', '#3776AB') + """</div>
+                <div class='skill-pill' data-tooltip='Tableau' title='Tableau' aria-label='Tableau' tabindex='0'>""" + brand_logo('tableau', '#E97627') + """</div>
+                <div class='skill-pill' data-tooltip='Power BI' title='Power BI' aria-label='Power BI' tabindex='0'>""" + brand_logo('powerbi', '#F2C811') + """</div>
+                <div class='skill-pill' data-tooltip='Python' title='Python' aria-label='Python' tabindex='0'>""" + brand_logo('python', '#3776AB') + """</div>
             </div>
             """,
             unsafe_allow_html=True,
         )
 
     with col4:
-        st.markdown("### Automation")
+        st.markdown("<h3 class='skill-section-title'>Automation</h3>", unsafe_allow_html=True)
         st.markdown(
             """
             <div class='skill-badge-wrapper'>
-                <div class='skill-pill' title='Python'>""" + brand_logo('python', '#3776AB') + """</div>
-                <div class='skill-pill' title='KNIME Analytics'>""" + brand_logo('knime', '#3B82F6') + """</div>
-                <div class='skill-pill' title='Snowflake'>""" + brand_logo('snowflake', '#29B5E8') + """</div>
+                <div class='skill-pill' data-tooltip='Python' title='Python' aria-label='Python' tabindex='0'>""" + brand_logo('python', '#3776AB') + """</div>
+                <div class='skill-pill' data-tooltip='KNIME Analytics' title='KNIME Analytics' aria-label='KNIME Analytics' tabindex='0'>""" + brand_logo('knime', '#3B82F6') + """</div>
+                <div class='skill-pill' data-tooltip='Snowflake' title='Snowflake' aria-label='Snowflake' tabindex='0'>""" + brand_logo('snowflake', '#29B5E8') + """</div>
             </div>
             """,
             unsafe_allow_html=True,
@@ -337,16 +371,16 @@ elif page == "Technical Skills":
 
     st.write("")
 
-    st.markdown("### RDBMS")
+    st.markdown("<h3 class='skill-section-title'>RDBMS</h3>", unsafe_allow_html=True)
     st.markdown(
         """
         <div class='rdbms-row'>
-            <div class='skill-pill' title='Snowflake'>""" + brand_logo('snowflake', '#29B5E8') + """</div>
-            <div class='skill-pill' title='Oracle'>""" + brand_logo('oracle', '#F80000') + """</div>
-            <div class='skill-pill' title='BigQuery'>""" + brand_logo('googlebigquery', '#4285F4') + """</div>
-            <div class='skill-pill' title='MS SQL Server'>""" + brand_logo('microsoftsqlserver', '#CC2927') + """</div>
-            <div class='skill-pill' title='PostgreSQL'>""" + brand_logo('postgresql', '#4169E1') + """</div>
-            <div class='skill-pill' title='MySQL'>""" + brand_logo('mysql', '#4479A1') + """</div>
+            <div class='skill-pill' data-tooltip='Snowflake' title='Snowflake' aria-label='Snowflake' tabindex='0'>""" + brand_logo('snowflake', '#29B5E8') + """</div>
+            <div class='skill-pill' data-tooltip='Oracle' title='Oracle' aria-label='Oracle' tabindex='0'>""" + brand_logo('oracle', '#F80000') + """</div>
+            <div class='skill-pill' data-tooltip='BigQuery' title='BigQuery' aria-label='BigQuery' tabindex='0'>""" + brand_logo('googlebigquery', '#4285F4') + """</div>
+            <div class='skill-pill' data-tooltip='MS SQL Server' title='MS SQL Server' aria-label='MS SQL Server' tabindex='0'>""" + brand_logo('microsoftsqlserver', '#CC2927') + """</div>
+            <div class='skill-pill' data-tooltip='PostgreSQL' title='PostgreSQL' aria-label='PostgreSQL' tabindex='0'>""" + brand_logo('postgresql', '#4169E1') + """</div>
+            <div class='skill-pill' data-tooltip='MySQL' title='MySQL' aria-label='MySQL' tabindex='0'>""" + brand_logo('mysql', '#4479A1') + """</div>
         </div>
         """,
         unsafe_allow_html=True,
