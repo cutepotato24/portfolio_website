@@ -15,17 +15,17 @@ st.markdown(
     div[data-testid="stTabs"] div[data-baseweb="tab-list"],
     div[data-testid="stTabs"] [role="tablist"] {
         column-gap: 8px;
-        border-bottom: 1px solid #c8ccd1;
+        border-bottom: none;
         padding: 0 4px;
     }
 
     div[data-testid="stTabs"] button[data-baseweb="tab"],
     div[data-testid="stTabs"] button[role="tab"] {
         flex: 0 1 auto;
-        background: #e8eaed !important;
+        background: #e5e7eb !important;
         border: 1px solid #c8ccd1 !important;
         border-bottom: 1px solid #c8ccd1 !important;
-        border-radius: 8px 8px 0 0;
+        border-radius: 8px !important;
         color: #5f6368 !important;
         margin: 0;
         padding: 0.65rem 1rem;
@@ -40,11 +40,10 @@ st.markdown(
 
     div[data-testid="stTabs"] button[data-baseweb="tab"][aria-selected="true"],
     div[data-testid="stTabs"] button[role="tab"][aria-selected="true"] {
-        background: #ffffff !important;
-        border-bottom: 1px solid #ffffff !important;
+        background: #d1d5db !important;
+        border-color: #9ca3af !important;
         color: #202124 !important;
         font-weight: 600;
-        margin-bottom: -1px;
     }
 
     div[data-testid="stTabs"] div[data-baseweb="tab-highlight"] {
