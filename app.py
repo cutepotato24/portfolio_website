@@ -12,37 +12,41 @@ st.set_page_config(
 st.markdown(
     """
     <style>
-    div[data-baseweb="tab-list"] {
+    div[data-testid="stTabs"] div[data-baseweb="tab-list"],
+    div[data-testid="stTabs"] [role="tablist"] {
         gap: 0;
         border-bottom: 1px solid #c8ccd1;
         padding: 0 8px;
     }
 
-    button[data-baseweb="tab"] {
+    div[data-testid="stTabs"] button[data-baseweb="tab"],
+    div[data-testid="stTabs"] button[role="tab"] {
         flex: 0 1 auto;
-        background: #e8eaed;
-        border: 1px solid #c8ccd1;
-        border-bottom: none;
+        background: #e8eaed !important;
+        border: 1px solid #c8ccd1 !important;
+        border-bottom: none !important;
         border-radius: 9px 9px 0 0;
-        color: #5f6368;
+        color: #5f6368 !important;
         margin: 0 3px -1px 0;
         padding: 0.65rem 1rem;
         transition: background 150ms ease, color 150ms ease;
     }
 
-    button[data-baseweb="tab"]:hover {
-        background: #f1f3f4;
-        color: #202124;
+    div[data-testid="stTabs"] button[data-baseweb="tab"]:hover,
+    div[data-testid="stTabs"] button[role="tab"]:hover {
+        background: #f1f3f4 !important;
+        color: #202124 !important;
     }
 
-    button[data-baseweb="tab"][aria-selected="true"] {
-        background: #ffffff;
-        border-bottom: 1px solid #ffffff;
-        color: #202124;
+    div[data-testid="stTabs"] button[data-baseweb="tab"][aria-selected="true"],
+    div[data-testid="stTabs"] button[role="tab"][aria-selected="true"] {
+        background: #ffffff !important;
+        border-bottom: 1px solid #ffffff !important;
+        color: #202124 !important;
         font-weight: 600;
     }
 
-    div[data-baseweb="tab-highlight"] {
+    div[data-testid="stTabs"] div[data-baseweb="tab-highlight"] {
         display: none;
     }
     </style>
