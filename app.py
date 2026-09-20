@@ -202,7 +202,7 @@ if page == "Profile Overview":
 
     st.info("⚡︎ I specialized in building automated data workflows and clean user experiences for data and business intelligence applications.")
 
-    st.markdown("### <span class='icon'>◎︎</span> Professional Profile", unsafe_allow_html=True)
+    st.markdown("### Professional Profile")
     st.write("""
     I am a results-driven data professional dedicated to transforming complex data sets into clear, actionable business strategies.
     By leveraging cloud-native workflows, I design and implement reliable pipeline structures that help organizations scale.
@@ -214,7 +214,7 @@ if page == "Profile Overview":
     )
 
     st.divider()
-    st.markdown("### <span class='icon'>▣︎</span> Career Statistics", unsafe_allow_html=True)
+    st.markdown("### Career Statistics")
 
     col1, col2, col3 = st.columns(3)
     with col1:
@@ -230,7 +230,7 @@ elif page == "Core Projects":
     st.write("Browse through an assortment of my recent professional applications.")
 
     with st.container(border=True):
-        st.markdown("### <span class='icon'>◈︎</span> Cloud-Native E-Commerce Analytics Tool", unsafe_allow_html=True)
+        st.markdown("### Cloud-Native E-Commerce Analytics Tool")
         st.caption("⚙︎ Tech Stack: `Python` | `Streamlit` | `Pandas` | `Plotly`")
         st.write("""
         Engineered an enterprise-level dashboard monitoring retail store transactions.
@@ -241,7 +241,7 @@ elif page == "Core Projects":
     st.write("")
 
     with st.container(border=True):
-        st.markdown("### <span class='icon'>◈︎</span> Automated Pipeline Scheduling Engine", unsafe_allow_html=True)
+        st.markdown("### Automated Pipeline Scheduling Engine")
         st.caption("⚙︎ Tech Stack: `Python` | `SQL` | `Docker` | `AWS Lambda`")
         st.write("""
         Built an automated database validation worker that runs micro-audits across thousands of data points daily,
@@ -252,7 +252,7 @@ elif page == "Core Projects":
     st.write("")
 
     with st.container(border=True):
-        st.markdown("### <span class='icon'>◈︎</span> Maven Analytics Hospital rating Viz Challenge", unsafe_allow_html=True)
+        st.markdown("### Maven Analytics Hospital rating Viz Challenge")
         st.caption("⚙︎ Tools: `Microsoft Excel` | `Tableau` | `Data Visualization` | `Dashboard Design`")
         st.write("""
         Created a data visualization project using Excel for data preparation and analysis, then Tableau to transform
@@ -280,7 +280,7 @@ elif page == "Technical Skills":
 
     col1, col2 = st.columns(2)
     with col1:
-        st.markdown("### <span class='icon skill-heading-icon'>💻</span> Programming", unsafe_allow_html=True)
+        st.markdown("### Programming")
         st.markdown(
             """
             <div class='skill-badge-wrapper'>
@@ -294,7 +294,7 @@ elif page == "Technical Skills":
         )
 
     with col2:
-        st.markdown("### <span class='icon skill-heading-icon'>⚙️</span> Frameworks & Infrastructure", unsafe_allow_html=True)
+        st.markdown("### Frameworks")
         st.markdown(
             """
             <div class='skill-badge-wrapper'>
@@ -310,7 +310,7 @@ elif page == "Technical Skills":
 
     col3, col4 = st.columns(2)
     with col3:
-        st.markdown("### <span class='icon skill-heading-icon'>📊</span> Data Visualization", unsafe_allow_html=True)
+        st.markdown("### Data Visualization")
         st.markdown(
             """
             <div class='skill-badge-wrapper'>
@@ -323,7 +323,7 @@ elif page == "Technical Skills":
         )
 
     with col4:
-        st.markdown("### <span class='icon skill-heading-icon'>🤖</span> Automation", unsafe_allow_html=True)
+        st.markdown("### Automation")
         st.markdown(
             """
             <div class='skill-badge-wrapper'>
@@ -337,7 +337,7 @@ elif page == "Technical Skills":
 
     st.write("")
 
-    st.markdown("### <span class='icon skill-heading-icon'>🗃️</span> RDBMS", unsafe_allow_html=True)
+    st.markdown("### RDBMS")
     st.markdown(
         """
         <div class='rdbms-row'>
@@ -353,7 +353,7 @@ elif page == "Technical Skills":
     )
 
     st.divider()
-    st.markdown("### <span class='icon'>✦︎</span> Areas of Focus", unsafe_allow_html=True)
+    st.markdown("### Areas of Focus")
     st.write("- **Data Architecture:** Designing scalable database management layouts.")
     st.write("- **Workflow Automation:** Replacing manual data pipelines with automated scripts.")
 
@@ -366,13 +366,13 @@ elif page == "Contact & Links":
 
     col1, col2, col3 = st.columns(3)
     with col1:
-        st.markdown("#### <span class='icon'>♙︎</span> Professional Networks", unsafe_allow_html=True)
+        st.markdown("#### Professional Networks")
         st.link_button("↗︎ Connect on LinkedIn", "https://www.linkedin.com/in/jharold-legaspi/")
     with col2:
-        st.markdown("#### <span class='icon'>⌘︎</span> Code Repositories", unsafe_allow_html=True)
+        st.markdown("#### Code Repositories")
         st.link_button("↗︎ Explore My GitHub", "https://github.com/cutepotato24")
     with col3:
-        st.markdown("#### <span class='icon'>✉︎</span> Direct Email Contact", unsafe_allow_html=True)
+        st.markdown("#### Direct Email Contact")
         st.link_button("↗︎ Email Me", "https://mail.google.com/mail/?view=cm&fs=1&to=jllegaspicareers@gmail.com")
 
     st.write("")
