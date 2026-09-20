@@ -470,7 +470,7 @@ elif page == "Contact & Links":
             """
             <div class="contact-card">
                 <h4>Professional Networks</h4>
-                <a class="contact-action" href="https://www.linkedin.com/in/jharold-legaspi/" target="_blank" rel="noopener noreferrer">↗︎ Connect on LinkedIn</a>
+                <a class="contact-action" href="https://www.linkedin.com/in/jharold-legaspi/" target="_blank" rel="noopener noreferrer">↗︎ Go to LinkedIn</a>
             </div>
             """,
             unsafe_allow_html=True,
