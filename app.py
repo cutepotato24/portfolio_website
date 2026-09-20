@@ -93,18 +93,79 @@ st.markdown(
             height: 100%;
             object-fit: cover;
             object-position: center;
-            opacity: 0.32;
+            opacity: 0.20;
+        }
+
+        .astronaut-background {
+            position: fixed;
+            top: 10vh;
+            left: 5vw;
+            z-index: 0;
+            pointer-events: none;
+            user-select: none;
+            opacity: 0.88;
+            filter: drop-shadow(0 0 18px rgba(57, 168, 255, 0.45));
+            animation: astronaut-bounce 18s linear infinite;
+        }
+
+        .astronaut-background img {
+            display: block;
+            width: clamp(7rem, 14vw, 13rem);
+            height: auto;
+            transform-origin: center;
+            animation: astronaut-float 4.5s ease-in-out infinite;
+        }
+
+        .astronaut-secondary {
+            animation-delay: -9s;
+        }
+
+        @keyframes astronaut-float {
+            0%, 100% {
+                transform: translateY(0) rotate(-4deg);
+            }
+            50% {
+                transform: translateY(-0.7rem) rotate(4deg);
+            }
+        }
+
+        @keyframes astronaut-bounce {
+            0% {
+                top: 10vh;
+                left: 5vw;
+                transform: rotate(-12deg);
+            }
+            25% {
+                top: 78vh;
+                left: 88vw;
+                transform: rotate(24deg);
+            }
+            50% {
+                top: 16vh;
+                left: 88vw;
+                transform: rotate(112deg);
+            }
+            75% {
+                top: 78vh;
+                left: 5vw;
+                transform: rotate(204deg);
+            }
+            100% {
+                top: 10vh;
+                left: 5vw;
+                transform: rotate(348deg);
+            }
         }
 
         @media (prefers-reduced-motion: reduce) {
             .site-background img {
                 visibility: hidden;
             }
-        }
 
-        /* Keep the page content above the full-screen background. */
-        .site-background img {
-            display: block;
+            .astronaut-background,
+            .astronaut-background img {
+                animation: none;
+            }
         }
 
         h1, h2, h3, h4 {
@@ -315,6 +376,12 @@ st.markdown(
     """
     <div class="site-background" aria-hidden="true">
         <img src="https://i.pinimg.com/originals/cb/51/d4/cb51d4d903138dd276f63538e422c855.gif" alt="">
+    </div>
+    <div class="astronaut-background" aria-hidden="true">
+        <img src="https://static.vecteezy.com/system/resources/thumbnails/077/495/720/small/floating-astronaut-icon-waving-in-zero-gravity-silhouette-free-png.png" alt="">
+    </div>
+    <div class="astronaut-background astronaut-secondary" aria-hidden="true">
+        <img src="https://static.vecteezy.com/system/resources/thumbnails/077/495/720/small/floating-astronaut-icon-waving-in-zero-gravity-silhouette-free-png.png" alt="">
     </div>
     """,
     unsafe_allow_html=True,
