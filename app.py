@@ -75,6 +75,13 @@ st.markdown(
             color: var(--blue);
         }
 
+        [data-testid="stSidebar"] iframe {
+            position: sticky;
+            bottom: 0;
+            z-index: 2;
+            width: 100% !important;
+        }
+
         .main .block-container {
             max-width: 1000px;
             padding: 3rem 2.5rem 5rem;
@@ -422,6 +429,55 @@ st.markdown(
 st.sidebar.markdown("## <span class='icon'>☰︎</span> Navigation", unsafe_allow_html=True)
 page = st.sidebar.radio("Go to:", ["Profile Overview", "Core Projects", "Technical Skills", "Contact & Links"])
 
+with st.sidebar:
+    components.html(
+        """
+        <style>
+            html, body {
+                margin: 0;
+                background: transparent;
+                overflow: hidden;
+            }
+
+            .local-clock {
+                box-sizing: border-box;
+                padding: 0.45rem 0.75rem;
+                color: #aeb6c2;
+                font: 600 0.74rem/1.2 monospace;
+                letter-spacing: 0.04em;
+                text-transform: uppercase;
+                white-space: nowrap;
+            }
+
+            .local-clock strong {
+                color: #39a8ff;
+                font-weight: 700;
+            }
+        </style>
+        <div class="local-clock" id="local-clock" role="status" aria-live="polite">Detecting local time...</div>
+        <script>
+            const clock = document.getElementById("local-clock");
+            const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+            const timeFormatter = new Intl.DateTimeFormat([], {
+                hour: "numeric",
+                minute: "2-digit",
+                second: "2-digit",
+                timeZoneName: "short"
+            });
+
+            function updateClock() {
+                const location = timeZone || "your location";
+                clock.innerHTML = "Local time <strong>" + timeFormatter.format(new Date()) + "</strong> · " + location;
+            }
+
+            updateClock();
+            setInterval(updateClock, 1000);
+        </script>
+        """,
+        height=42,
+        scrolling=False,
+    )
+
 # --- PAGE 1: PROFILE OVERVIEW ---
 if page == "Profile Overview":
     st.title("Hi, Thanks for visiting! ✦︎")
@@ -680,52 +736,3 @@ elif page == "Contact & Links":
 
     st.write("")
     st.success("✉︎ **Direct Contact:** Please feel free to open a conversation or drop professional references through my social channels.")
-
-
-components.html(
-    """
-    <style>
-        html, body {
-            margin: 0;
-            background: transparent;
-            overflow: hidden;
-        }
-
-        .local-clock {
-            box-sizing: border-box;
-            padding: 0.45rem 0.75rem;
-            color: #aeb6c2;
-            font: 600 0.74rem/1.2 monospace;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-            white-space: nowrap;
-        }
-
-        .local-clock strong {
-            color: #39a8ff;
-            font-weight: 700;
-        }
-    </style>
-    <div class="local-clock" id="local-clock" role="status" aria-live="polite">Detecting local time...</div>
-    <script>
-        const clock = document.getElementById("local-clock");
-        const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-        const timeFormatter = new Intl.DateTimeFormat([], {
-            hour: "numeric",
-            minute: "2-digit",
-            second: "2-digit",
-            timeZoneName: "short"
-        });
-
-        function updateClock() {
-            const location = timeZone || "your location";
-            clock.innerHTML = "Local time <strong>" + timeFormatter.format(new Date()) + "</strong> · " + location;
-        }
-
-        updateClock();
-        setInterval(updateClock, 1000);
-    </script>
-    """,
-    height=42,
-    scrolling=False,
-)
