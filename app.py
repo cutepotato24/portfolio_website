@@ -135,15 +135,15 @@ page = st.sidebar.radio("Go to:", ["Profile Overview", "Core Projects", "Technic
 
 # --- PAGE 1: PROFILE OVERVIEW ---
 if page == "Profile Overview":
-    st.title("Hi, I'm Harold, how are you today? ✦︎")
-    st.subheader("Analytics & Software Engineer")
+    st.title("Hi, Thanks for visiting! ✦︎")
+    st.subheader("I'm Harold, Analytics & vibe Software Engineer")
 
-    st.info("⚡︎ Specialized in building automated data workflows and clean user experiences.")
+    st.info("⚡︎ I specialized in building automated data workflows and clean user experiences for data and business intelligence applications.")
 
     st.markdown("### <span class='icon'>◎︎</span> Professional Profile", unsafe_allow_html=True)
     st.write("""
-    I am a results-driven professional dedicated to transforming complex data sets into clear, actionable business strategies.
-    By leveraging cloud-native python workflows, I design and implement reliable pipeline structures that help organizations scale.
+    I am a results-driven data professional dedicated to transforming complex data sets into clear, actionable business strategies.
+    By leveraging cloud-native workflows, I design and implement reliable pipeline structures that help organizations scale.
     """)
     st.markdown(
         '<a href="https://drive.google.com/uc?export=download&id=1XKYToQWmjtwlD5xTLvT9n21h9b0xeWY7" '
