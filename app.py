@@ -332,8 +332,10 @@ st.markdown(
 
         div[role="dialog"],
         [data-testid="stDialog"] {
-            width: min(75vw, 1000px) !important;
-            max-width: 75vw !important;
+            width: min(50vw, 800px) !important;
+            max-width: 50vw !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
         }
 
         .contact-card {
