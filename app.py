@@ -334,8 +334,8 @@ elif page == "Technical Skills":
             <div class='skill-badge-wrapper'>
                 <div class='skill-pill' data-tooltip='Streamlit' title='Streamlit' aria-label='Streamlit' tabindex='0'>""" + brand_logo('streamlit', '#FF4B4B') + """</div>
                 <div class='skill-pill' data-tooltip='Python Libraries' title='Python Libraries' aria-label='Python Libraries' tabindex='0'>""" + brand_logo('python', '#3776AB') + """</div>
-                <div class='skill-pill' data-tooltip='GitHub' title='GitHub' aria-label='GitHub' tabindex='0'>""" + brand_logo('github', '#181717') + """</div>
-                <div class='skill-pill' data-tooltip='dbt' title='dbt' aria-label='dbt' tabindex='0'>""" + brand_logo('dbt', '#FF694A') + """</div>
+                <div class='skill-pill' data-tooltip='GitHub' title='GitHub' aria-label='GitHub' tabindex='0'>""" + brand_logo('github', '#FFFFFF') + """</div>
+                <div class='skill-pill' data-tooltip='dbt' title='dbt' aria-label='dbt' tabindex='0'>""" + brand_logo('dbt', '#FFFFFF') + """</div>
             </div>
             """,
             unsafe_allow_html=True,
