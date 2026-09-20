@@ -77,10 +77,10 @@ st.markdown(
 
         .local-clock-frame {
             position: fixed !important;
-            top: 0.35rem !important;
-            right: 5.5rem !important;
-            left: auto !important;
-            bottom: auto !important;
+            top: auto !important;
+            right: auto !important;
+            left: 0 !important;
+            bottom: 0 !important;
             z-index: 999 !important;
             width: 17rem !important;
             height: 32px !important;
@@ -454,7 +454,7 @@ components.html(
             const parentDocument = window.parent.document;
             if (frame && parentDocument.body) {
                 parentDocument.body.appendChild(frame);
-                frame.style.cssText = "position: fixed !important; top: 0.35rem !important; right: 5.5rem !important; left: auto !important; bottom: auto !important; width: 17rem !important; height: 32px !important; z-index: 999999 !important; border: 0 !important; margin: 0 !important;";
+                frame.style.cssText = "position: fixed !important; top: auto !important; right: auto !important; left: 0 !important; bottom: 0 !important; width: 17rem !important; height: 32px !important; z-index: 999999 !important; border: 0 !important; margin: 0 !important;";
             }
         } catch (error) {}
 
@@ -464,7 +464,7 @@ components.html(
             hour: "numeric", minute: "2-digit", second: "2-digit", timeZoneName: "short"
         });
         function updateClock() {
-            clock.innerHTML = "Local time <strong>" + formatter.format(new Date()) + "</strong> · " + (timeZone || "your location");
+            clock.innerHTML = "<strong>" + formatter.format(new Date()) + "</strong> · " + (timeZone || "your location");
         }
         updateClock();
         setInterval(updateClock, 1000);
