@@ -71,84 +71,40 @@ st.markdown(
             z-index: 1;
         }
 
-        .astronaut-background {
+        .site-background {
             position: fixed;
-            top: 18vh;
-            left: 5vw;
+            inset: 0;
             z-index: 0;
-            color: var(--blue);
-            font-size: clamp(4rem, 9vw, 8rem);
-            line-height: 1;
-            opacity: 0.1;
             pointer-events: none;
-            user-select: none;
-            filter: drop-shadow(0 0 18px rgba(57, 168, 255, 0.45));
-            animation: astronaut-bounce 18s linear infinite;
+            overflow: hidden;
+            background: rgba(23, 25, 28, 0.58);
         }
 
-        .astronaut-background img {
+        .site-background::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(8, 11, 14, 0.58);
+        }
+
+        .site-background img {
             display: block;
-            width: clamp(4rem, 9vw, 8rem);
-            height: auto;
-            overflow: visible;
-            transform-origin: center;
-            animation: astronaut-float 4.5s ease-in-out infinite;
-        }
-
-        .astronaut-secondary {
-            animation-delay: -9s;
-        }
-
-        @keyframes astronaut-float {
-            0%, 100% {
-                transform: translateY(0) rotate(-4deg);
-            }
-            50% {
-                transform: translateY(-0.7rem) rotate(4deg);
-            }
-        }
-
-        @keyframes astronaut-bounce {
-            0% {
-                top: 10vh;
-                left: 5vw;
-                transform: rotate(-12deg);
-            }
-            25% {
-                top: 78vh;
-                left: 88vw;
-                transform: rotate(24deg);
-            }
-            50% {
-                top: 16vh;
-                left: 88vw;
-                transform: rotate(112deg);
-            }
-            75% {
-                top: 78vh;
-                left: 5vw;
-                transform: rotate(204deg);
-            }
-            100% {
-                top: 10vh;
-                left: 5vw;
-                transform: rotate(348deg);
-            }
-        }
-
-        @media (max-width: 700px) {
-            .astronaut-background {
-                top: 10vh;
-                left: 4vw;
-                opacity: 0.06;
-            }
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            opacity: 0.58;
         }
 
         @media (prefers-reduced-motion: reduce) {
-            .astronaut-background,
-            .astronaut-background img {
-                animation: none;
+            .site-background img {
+                visibility: hidden;
             }
+        }
+
+        /* Keep the page content above the full-screen background. */
+        .site-background img {
+            display: block;
         }
 
         h1, h2, h3, h4 {
@@ -357,11 +313,8 @@ st.markdown(
 
 st.markdown(
     """
-    <div class="astronaut-background" aria-hidden="true">
-        <img src="https://static.vecteezy.com/system/resources/thumbnails/077/495/720/small/floating-astronaut-icon-waving-in-zero-gravity-silhouette-free-png.png" alt="">
-    </div>
-    <div class="astronaut-background astronaut-secondary" aria-hidden="true">
-        <img src="https://static.vecteezy.com/system/resources/thumbnails/077/495/720/small/floating-astronaut-icon-waving-in-zero-gravity-silhouette-free-png.png" alt="">
+    <div class="site-background" aria-hidden="true">
+        <img src="https://i.pinimg.com/originals/cb/51/d4/cb51d4d903138dd276f63538e422c855.gif" alt="">
     </div>
     """,
     unsafe_allow_html=True,
