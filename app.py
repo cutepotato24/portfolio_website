@@ -97,14 +97,18 @@ elif page == "Contact & Links":
     st.divider()
     
     # Clean professional contact channels
-    col1, col2 = st.columns(2)
+    col1, col2 = st.columns(3)
     with col1:
         st.markdown("#### 👔 Professional Networks")
-        st.link_button("💼 Connect on LinkedIn", "https://linkedin.com")
+        st.link_button("💼 Connect on LinkedIn", "https://www.linkedin.com/in/jharold-legaspi/")
     with col2:
         st.markdown("#### 🐙 Code Repositories")
-        st.link_button("💻 Explore My GitHub", "https://github.com")
+        st.link_button("💻 Explore My GitHub", "https://github.com/cutepotato24")
+    with col3:
+        st.markdown("#### 📧 Direct Contact")
+        st.link_button("� Send an Email", "jllegaspicareers@gmail.com")
         
+    st.write("")
     st.write("")
     st.write("")
     st.success("📩 **Direct Contact:** Please feel free to open a conversation or drop professional references through my social channels.")
