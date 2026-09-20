@@ -312,7 +312,13 @@ st.markdown(
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
         }
 
-        [data-testid="stMetricLabel"],
+        [data-testid="stMetricLabel"] {
+            color: var(--muted) !important;
+            font-size: 0.68rem !important;
+            line-height: 1.2 !important;
+            white-space: normal !important;
+        }
+
         [data-testid="stMetricDelta"] {
             color: var(--muted) !important;
         }
