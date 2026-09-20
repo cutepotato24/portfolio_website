@@ -453,6 +453,21 @@ elif page == "Core Projects":
                 use_container_width=True,
             )
 
+    st.write("")
+
+    st.subheader("Power BI Data visualization")
+    st.write("Select a dashboard project to view its screenshot.")
+
+    power_bi_projects = [
+        "Commercial_Revenue_PBI.png",
+        "Regional_Sales_PBI.png",
+        "US_Adidas_PBI.png",
+    ]
+
+    for project_name in power_bi_projects:
+        with st.expander(project_name, expanded=False):
+            st.image(f"assets/{project_name}", caption=project_name, use_container_width=True)
+
 # --- PAGE 3: TECHNICAL SKILLS ---
 elif page == "Technical Skills":
     st.title("Technical Know-Hows ⌘︎")
