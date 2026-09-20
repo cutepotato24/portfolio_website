@@ -263,10 +263,10 @@ elif page == "Technical Skills":
         st.markdown(
             """
             <div class='skill-badge-wrapper'>
-                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/python.svg' alt='Python'> Python</div>
-                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/mysql.svg' alt='SQL'> SQL</div>
-                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/html5.svg' alt='HTML'> HTML</div>
-                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/css3.svg' alt='CSS'> CSS</div>
+                <div class='skill-pill'><img src='https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white' alt='Python'> Python</div>
+                <div class='skill-pill'><img src='https://img.shields.io/badge/SQL-4479A1?logo=mysql&logoColor=white' alt='SQL'> SQL</div>
+                <div class='skill-pill'><img src='https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white' alt='HTML'> HTML</div>
+                <div class='skill-pill'><img src='https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white' alt='CSS'> CSS</div>
             </div>
             """,
             unsafe_allow_html=True,
@@ -277,9 +277,9 @@ elif page == "Technical Skills":
         st.markdown(
             """
             <div class='skill-badge-wrapper'>
-                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/streamlit.svg' alt='Streamlit'> Streamlit</div>
-                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/python.svg' alt='Python Libraries'> Python Libraries</div>
-                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/github.svg' alt='GitHub'> GitHub</div>
+                <div class='skill-pill'><img src='https://img.shields.io/badge/Streamlit-FF4B4B?logo=streamlit&logoColor=white' alt='Streamlit'> Streamlit</div>
+                <div class='skill-pill'><img src='https://img.shields.io/badge/Python_Libraries-3776AB?logo=python&logoColor=white' alt='Python Libraries'> Python Libraries</div>
+                <div class='skill-pill'><img src='https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=white' alt='GitHub'> GitHub</div>
             </div>
             """,
             unsafe_allow_html=True,
@@ -293,9 +293,9 @@ elif page == "Technical Skills":
         st.markdown(
             """
             <div class='skill-badge-wrapper'>
-                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/tableau.svg' alt='Tableau'> Tableau</div>
-                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/powerbi.svg' alt='Power BI'> Power BI</div>
-                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/python.svg' alt='Python'> Python</div>
+                <div class='skill-pill'><img src='https://img.shields.io/badge/Tableau-E97627?logo=tableau&logoColor=white' alt='Tableau'> Tableau</div>
+                <div class='skill-pill'><img src='https://img.shields.io/badge/Power_BI-F2C811?logo=powerbi&logoColor=black' alt='Power BI'> Power BI</div>
+                <div class='skill-pill'><img src='https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white' alt='Python'> Python</div>
             </div>
             """,
             unsafe_allow_html=True,
@@ -306,9 +306,9 @@ elif page == "Technical Skills":
         st.markdown(
             """
             <div class='skill-badge-wrapper'>
-                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/python.svg' alt='Python'> Python</div>
-                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/knime.svg' alt='KNIME'> KNIME Analytics</div>
-                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/snowflake.svg' alt='Snowflake'> Snowflake</div>
+                <div class='skill-pill'><img src='https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white' alt='Python'> Python</div>
+                <div class='skill-pill'><img src='https://img.shields.io/badge/KNIME-3B82F6?logo=knime&logoColor=white' alt='KNIME'> KNIME Analytics</div>
+                <div class='skill-pill'><img src='https://img.shields.io/badge/Snowflake-29B5E8?logo=snowflake&logoColor=white' alt='Snowflake'> Snowflake</div>
             </div>
             """,
             unsafe_allow_html=True,
@@ -322,9 +322,9 @@ elif page == "Technical Skills":
         st.markdown(
             """
             <div class='skill-badge-wrapper'>
-                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/snowflake.svg' alt='Snowflake'> Snowflake</div>
-                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/oracle.svg' alt='Oracle'> Oracle</div>
-                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/googlebigquery.svg' alt='BigQuery'> BigQuery</div>
+                <div class='skill-pill'><img src='https://img.shields.io/badge/Snowflake-29B5E8?logo=snowflake&logoColor=white' alt='Snowflake'> Snowflake</div>
+                <div class='skill-pill'><img src='https://img.shields.io/badge/Oracle-F80000?logo=oracle&logoColor=white' alt='Oracle'> Oracle</div>
+                <div class='skill-pill'><img src='https://img.shields.io/badge/BigQuery-4285F4?logo=googlebigquery&logoColor=white' alt='BigQuery'> BigQuery</div>
             </div>
             """,
             unsafe_allow_html=True,
@@ -333,9 +333,9 @@ elif page == "Technical Skills":
         st.markdown(
             """
             <div class='skill-badge-wrapper'>
-                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/microsoftsqlserver.svg' alt='SQL Server'> MS SQL Server</div>
-                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/postgresql.svg' alt='PostgreSQL'> PostgreSQL</div>
-                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/mysql.svg' alt='MySQL'> MySQL</div>
+                <div class='skill-pill'><img src='https://img.shields.io/badge/SQL_Server-CC2927?logo=microsoftsqlserver&logoColor=white' alt='SQL Server'> MS SQL Server</div>
+                <div class='skill-pill'><img src='https://img.shields.io/badge/PostgreSQL-4169E1?logo=postgresql&logoColor=white' alt='PostgreSQL'> PostgreSQL</div>
+                <div class='skill-pill'><img src='https://img.shields.io/badge/MySQL-4479A1?logo=mysql&logoColor=white' alt='MySQL'> MySQL</div>
             </div>
             """,
             unsafe_allow_html=True,
