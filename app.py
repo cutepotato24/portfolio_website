@@ -455,18 +455,22 @@ elif page == "Core Projects":
 
     st.write("")
 
-    st.subheader("Power BI Data visualization")
-    st.write("Select a dashboard project to view its screenshot.")
+    with st.expander("Power BI Data visualization", expanded=False):
+        st.caption("⚙︎ Tools: `Power BI` | `Data Visualization` | `Dashboard Design`")
+        st.write("Select a dashboard tile to view its screenshot.")
 
-    power_bi_projects = [
-        "Commercial_Revenue_PBI.png",
-        "Regional_Sales_PBI.png",
-        "US_Adidas_PBI.png",
-    ]
+        power_bi_projects = [
+            "Commercial_Revenue_PBI.png",
+            "Regional_Sales_PBI.png",
+            "US_Adidas_PBI.png",
+        ]
 
-    for project_name in power_bi_projects:
-        with st.expander(project_name, expanded=False):
-            st.image(f"assets/{project_name}", caption=project_name, use_container_width=True)
+        project_columns = st.columns(2, gap="small")
+        for project_index, project_name in enumerate(power_bi_projects):
+            with project_columns[project_index % 2]:
+                with st.container(border=True):
+                    st.markdown(f"### {project_name}")
+                    st.image(f"assets/{project_name}", use_container_width=True)
 
 # --- PAGE 3: TECHNICAL SKILLS ---
 elif page == "Technical Skills":
