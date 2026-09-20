@@ -270,8 +270,7 @@ elif page == "Core Projects":
     st.title("Featured Projects ◈︎")
     st.write("Browse through an assortment of my recent professional applications.")
 
-    with st.container(border=True):
-        st.markdown("### Cloud-Native E-Commerce Analytics Tool")
+    with st.expander("Cloud-Native E-Commerce Analytics Tool", expanded=False):
         st.caption("⚙︎ Tech Stack: `Python` | `Streamlit` | `Pandas` | `Plotly`")
         st.write("""
         Engineered an enterprise-level dashboard monitoring retail store transactions.
@@ -281,8 +280,7 @@ elif page == "Core Projects":
 
     st.write("")
 
-    with st.container(border=True):
-        st.markdown("### Automated Pipeline Scheduling Engine")
+    with st.expander("Automated Pipeline Scheduling Engine", expanded=False):
         st.caption("⚙︎ Tech Stack: `Python` | `SQL` | `Docker` | `AWS Lambda`")
         st.write("""
         Built an automated database validation worker that runs micro-audits across thousands of data points daily,
@@ -292,8 +290,7 @@ elif page == "Core Projects":
 
     st.write("")
 
-    with st.container(border=True):
-        st.markdown("### Maven Analytics Hospital rating Viz Challenge")
+    with st.expander("Maven Analytics Hospital rating Viz Challenge", expanded=False):
         st.caption("⚙︎ Tools: `Microsoft Excel` | `Tableau` | `Data Visualization` | `Dashboard Design`")
         st.write("""
         Created a data visualization project using Excel for data preparation and analysis, then Tableau to transform
