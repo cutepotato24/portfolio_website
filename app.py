@@ -222,6 +222,42 @@ st.markdown(
             color: #07131d !important;
         }
 
+        .contact-card {
+            min-height: 164px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 1.25rem;
+            padding: 1.25rem;
+            background: var(--charcoal-soft);
+            border: 1px solid var(--border);
+            border-top: 2px solid var(--blue);
+            border-radius: 3px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+        }
+
+        .contact-card h4 {
+            margin: 0;
+            color: var(--white) !important;
+        }
+
+        .contact-action {
+            display: block;
+            padding: 0.65rem 0.8rem;
+            background: var(--blue);
+            border-radius: 3px;
+            color: #07131d !important;
+            font-weight: 700;
+            line-height: 1.3;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .contact-action:hover {
+            background: var(--white);
+            color: #07131d !important;
+        }
+
         [data-testid="stAlert"] {
             background: var(--blue-dark) !important;
             border: 1px solid #194766 !important;
@@ -430,14 +466,35 @@ elif page == "Contact & Links":
 
     col1, col2, col3 = st.columns(3)
     with col1:
-        st.markdown("#### Professional Networks")
-        st.link_button("↗︎ Connect on LinkedIn", "https://www.linkedin.com/in/jharold-legaspi/")
+        st.markdown(
+            """
+            <div class="contact-card">
+                <h4>Professional Networks</h4>
+                <a class="contact-action" href="https://www.linkedin.com/in/jharold-legaspi/" target="_blank" rel="noopener noreferrer">↗︎ Connect on LinkedIn</a>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
     with col2:
-        st.markdown("#### Code Repositories")
-        st.link_button("↗︎ Explore My GitHub", "https://github.com/cutepotato24")
+        st.markdown(
+            """
+            <div class="contact-card">
+                <h4>Code Repositories</h4>
+                <a class="contact-action" href="https://github.com/cutepotato24" target="_blank" rel="noopener noreferrer">↗︎ Explore My GitHub</a>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
     with col3:
-        st.markdown("#### Direct Email Contact")
-        st.link_button("↗︎ Email Me", "https://mail.google.com/mail/?view=cm&fs=1&to=jllegaspicareers@gmail.com")
+        st.markdown(
+            """
+            <div class="contact-card">
+                <h4>Direct Email Contact</h4>
+                <a class="contact-action" href="https://mail.google.com/mail/?view=cm&fs=1&to=jllegaspicareers@gmail.com" target="_blank" rel="noopener noreferrer">↗︎ Email Me</a>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
 
     st.write("")
     st.success("✉︎ **Direct Contact:** Please feel free to open a conversation or drop professional references through my social channels.")
