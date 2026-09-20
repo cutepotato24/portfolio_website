@@ -103,9 +103,9 @@ st.markdown(
             z-index: 0;
             pointer-events: none;
             user-select: none;
-            opacity: 0.22;
+            opacity: 0.10;
             filter: drop-shadow(0 0 18px rgba(57, 168, 255, 0.45));
-            animation: astronaut-bounce 120s linear infinite;
+            animation: astronaut-bounce 240s linear infinite;
         }
 
         .astronaut-background img {
@@ -113,7 +113,7 @@ st.markdown(
             width: clamp(7rem, 14vw, 13rem);
             height: auto;
             transform-origin: center;
-            animation: astronaut-float 24s ease-in-out infinite;
+            animation: astronaut-float 60s ease-in-out infinite;
         }
 
         .astronaut-secondary {
