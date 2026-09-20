@@ -117,7 +117,7 @@ st.markdown(
         }
 
         .astronaut-secondary {
-            animation-delay: -9s;
+            animation-delay: -150s;
         }
 
         @keyframes astronaut-float {
