@@ -1,4 +1,5 @@
 import streamlit as st
+from pathlib import Path
 
 # 1. Page Configuration (Must be the first command)
 st.set_page_config(
@@ -14,11 +15,22 @@ page = st.sidebar.radio("Go to:", ["Profile Overview", "Core Projects", "Technic
 # --- PAGE 1: PROFILE OVERVIEW ---
 if page == "Profile Overview":
     st.title("Hi, I'm Harold, how are you today? 👋")
-    st.subheader("Analytics & Software Engineer")
-    
+
+    profile_image = Path("assets/profile.png")
+    left_col, right_col = st.columns([1, 2])
+
+    with left_col:
+        if profile_image.exists():
+            st.image(str(profile_image), width=220, caption="Harold")
+        else:
+            st.warning("Add your photo to `assets/profile.jpg` to show it here.")
+
+    with right_col:
+        st.subheader("Analytics & Software Engineer")
+
     # Highlight Banner
     st.info("🚀 Specialized in building automated data workflows and clean user experiences.")
-    
+
     st.markdown("### 🎯 Professional Profile")
     st.write("""
     I am a results-driven professional dedicated to transforming complex data sets into clear, actionable business strategies. 
