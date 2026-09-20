@@ -29,26 +29,20 @@ st.markdown(
     """
     <style>
 
-    /* ========================================================
-       MAIN PAGE
-       ======================================================== */
-
+    /* Main page */
     .block-container {
         padding-top: 2rem;
         padding-bottom: 3rem;
     }
 
 
-    /* ========================================================
-       NAVIGATION BUTTONS
-       ======================================================== */
-
+    /* Navigation button containers */
     div[data-testid="stHorizontalBlock"] {
         gap: 10px;
     }
 
 
-    /* Navigation button */
+    /* Normal navigation buttons */
     .nav-button button {
         width: 100% !important;
 
@@ -56,9 +50,9 @@ st.markdown(
 
         border-radius: 12px !important;
 
-        border: 2px solid #b5b5b5 !important;
+        border: 2px solid #aaaaaa !important;
 
-        background-color: #d9d9d9 !important;
+        background-color: #d8d8d8 !important;
 
         color: #333333 !important;
 
@@ -66,33 +60,27 @@ st.markdown(
 
         font-weight: 600 !important;
 
-        box-shadow:
-            0 2px 4px rgba(0, 0, 0, 0.10) !important;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12) !important;
 
-        transition:
-            all 0.2s ease !important;
+        transition: all 0.2s ease !important;
     }
 
 
     /* Hover */
     .nav-button button:hover {
-        background-color: #bcbcbc !important;
+        background-color: #bdbdbd !important;
 
-        border-color: #8f8f8f !important;
+        border-color: #888888 !important;
 
         color: #111111 !important;
 
         transform: translateY(-2px) !important;
 
-        box-shadow:
-            0 4px 8px rgba(0, 0, 0, 0.15) !important;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.18) !important;
     }
 
 
-    /* ========================================================
-       ACTIVE NAVIGATION BUTTON
-       ======================================================== */
-
+    /* Active navigation button */
     .active-nav button {
         width: 100% !important;
 
@@ -110,44 +98,33 @@ st.markdown(
 
         font-weight: 700 !important;
 
-        box-shadow:
-            0 4px 8px rgba(0, 0, 0, 0.20) !important;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.22) !important;
     }
 
 
-    /* ========================================================
-       PAGE TITLE
-       ======================================================== */
+    /* Active button hover */
+    .active-nav button:hover {
+        background-color: #5f5f5f !important;
 
-    .page-title {
-        margin-top: 25px;
+        border-color: #444444 !important;
+
+        color: white !important;
     }
 
 
-    /* ========================================================
-       PROJECT CARDS
-       ======================================================== */
+    /* Horizontal separator */
+    .navigation-divider {
+        height: 1px;
 
-    .project-card {
-        padding: 20px;
+        background-color: #d0d0d0;
 
-        border: 1px solid #d0d0d0;
+        margin-top: 20px;
 
-        border-radius: 14px;
-
-        background-color: #fafafa;
-
-        margin-bottom: 20px;
-
-        box-shadow:
-            0 2px 6px rgba(0, 0, 0, 0.06);
+        margin-bottom: 25px;
     }
 
 
-    /* ========================================================
-       MOBILE NAVIGATION
-       ======================================================== */
-
+    /* Mobile */
     @media (max-width: 700px) {
 
         .nav-button button,
@@ -155,16 +132,17 @@ st.markdown(
 
             min-height: 42px !important;
 
-            font-size: 13px !important;
+            font-size: 12px !important;
 
             padding: 5px !important;
-        }
 
+            border-radius: 10px !important;
+        }
     }
 
     </style>
     """,
-    unsafe_allow_html=True,
+    unsafe_allow_html=True
 )
 
 
@@ -183,7 +161,7 @@ def navigation_button(label):
 
         clicked = st.button(
             label,
-            key=f"nav_{label}"
+            key=f"navigation_{label}"
         )
 
         st.markdown(
@@ -200,7 +178,7 @@ def navigation_button(label):
 
         clicked = st.button(
             label,
-            key=f"nav_{label}"
+            key=f"navigation_{label}"
         )
 
         st.markdown(
@@ -209,9 +187,7 @@ def navigation_button(label):
         )
 
     if clicked:
-
         st.session_state.page = label
-
         st.rerun()
 
 
@@ -239,23 +215,17 @@ with nav4:
 
 
 # ============================================================
-# SEPARATOR
+# NAVIGATION DIVIDER
 # ============================================================
 
 st.markdown(
-    """
-    <div style="
-        height: 1px;
-        background-color: #d0d0d0;
-        margin: 20px 0 25px 0;
-    "></div>
-    """,
+    '<div class="navigation-divider"></div>',
     unsafe_allow_html=True
 )
 
 
 # ============================================================
-# PAGE 1 — PROFILE OVERVIEW
+# PROFILE OVERVIEW
 # ============================================================
 
 if st.session_state.page == "Profile Overview":
@@ -321,8 +291,8 @@ if st.session_state.page == "Profile Overview":
 
     st.divider()
 
-    st.markdown("### 📊 Career Statistics")
 
+    st.markdown("### 📊 Career Statistics")
 
     col1, col2, col3 = st.columns(3)
 
@@ -355,7 +325,7 @@ if st.session_state.page == "Profile Overview":
 
 
 # ============================================================
-# PAGE 2 — CORE PROJECTS
+# CORE PROJECTS
 # ============================================================
 
 elif st.session_state.page == "Core Projects":
@@ -368,10 +338,7 @@ elif st.session_state.page == "Core Projects":
     )
 
 
-    # --------------------------------------------------------
-    # PROJECT 1
-    # --------------------------------------------------------
-
+    # Project 1
     with st.container(border=True):
 
         st.markdown(
@@ -403,10 +370,7 @@ elif st.session_state.page == "Core Projects":
     st.write("")
 
 
-    # --------------------------------------------------------
-    # PROJECT 2
-    # --------------------------------------------------------
-
+    # Project 2
     with st.container(border=True):
 
         st.markdown(
@@ -425,7 +389,7 @@ elif st.session_state.page == "Core Projects":
             daily.
 
             The system helps reduce database formatting errors
-            and improves data quality across automated workflows.
+            and improve data quality across automated workflows.
             """
         )
 
@@ -436,7 +400,7 @@ elif st.session_state.page == "Core Projects":
 
 
 # ============================================================
-# PAGE 3 — TECHNICAL SKILLS
+# TECHNICAL SKILLS
 # ============================================================
 
 elif st.session_state.page == "Technical Skills":
@@ -493,6 +457,7 @@ elif st.session_state.page == "Technical Skills":
 
     st.divider()
 
+
     st.markdown("### 🌟 Areas of Focus")
 
     st.write(
@@ -507,7 +472,7 @@ elif st.session_state.page == "Technical Skills":
 
 
 # ============================================================
-# PAGE 4 — CONTACT & LINKS
+# CONTACT & LINKS
 # ============================================================
 
 elif st.session_state.page == "Contact & Links":
@@ -557,16 +522,3 @@ elif st.session_state.page == "Contact & Links":
         "a conversation or drop professional references "
         "through my social channels."
     )
-
-The result
-
-Instead of relying on st.tabs(), the navigation is now made from actual Streamlit buttons:
-
-┌───────────────────┐  ┌─────────────────┐  ┌────────────────────┐  ┌───────────────────┐
-│  Profile Overview │  │  Core Projects  │  │  Technical Skills  │  │  Contact & Links  │
-└───────────────────┘  └─────────────────┘  └────────────────────┘  └───────────────────┘
-
-
-The current page is dark gray, while the other navigation buttons are light gray with visible borders and rounded corners.
-
-This approach is much more reliable than trying to override Streamlit's internal st.tabs() styling.
