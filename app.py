@@ -95,6 +95,10 @@ st.markdown(
             animation: astronaut-float 4.5s ease-in-out infinite;
         }
 
+        .astronaut-secondary {
+            animation-delay: -9s;
+        }
+
         @keyframes astronaut-float {
             0%, 100% {
                 transform: translateY(0) rotate(-4deg);
@@ -354,7 +358,10 @@ st.markdown(
 st.markdown(
     """
     <div class="astronaut-background" aria-hidden="true">
-        <img src="https://static.vecteezy.com/system/resources/previews/067/804/658/non_2x/astronaut-floating-in-space-silhouette-icon-vector.jpg" alt="">
+        <img src="https://static.vecteezy.com/system/resources/thumbnails/077/495/720/small/floating-astronaut-icon-waving-in-zero-gravity-silhouette-free-png.png" alt="">
+    </div>
+    <div class="astronaut-background astronaut-secondary" aria-hidden="true">
+        <img src="https://static.vecteezy.com/system/resources/thumbnails/077/495/720/small/floating-astronaut-icon-waving-in-zero-gravity-silhouette-free-png.png" alt="">
     </div>
     """,
     unsafe_allow_html=True,
