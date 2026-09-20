@@ -490,13 +490,15 @@ if page == "Profile Overview":
     st.divider()
     st.markdown("### Career Statistics")
 
-    col1, col2, col3 = st.columns(3)
+    col1, col2, col3, col4 = st.columns(4)
     with col1:
         st.metric(label="Years of Analytics Experience", value="3.5+", delta="Professional")
     with col2:
         st.metric(label="Analytics Projects Led", value="15+", delta="More than")
     with col3:
         st.metric(label="Automation Efficiency", value="40%", delta="Saved Time")
+    with col4:
+        st.metric(label="Students Taught Python", value="100+", delta="Learners")
 
 # --- PAGE 2: CORE PROJECTS ---
 elif page == "Core Projects":
