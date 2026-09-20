@@ -62,8 +62,12 @@ st.markdown(
         }
 
         [data-testid="stSidebar"] {
-            background: rgba(17, 19, 21, 0.55) !important;
+            background: #111315 !important;
             border-right: 1px solid var(--border);
+        }
+
+        [data-testid="stSidebar"] > div:first-child {
+            background: #111315 !important;
         }
 
         [data-testid="stSidebar"] h1,
