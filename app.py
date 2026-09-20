@@ -22,127 +22,234 @@ if "page" not in st.session_state:
 
 
 # ============================================================
-# CUSTOM CSS
+# CHROME-STYLE CSS
 # ============================================================
 
 st.markdown(
     """
     <style>
 
-    /* Main page */
+    /* ========================================================
+       PAGE
+       ======================================================== */
+
     .block-container {
-        padding-top: 2rem;
+        padding-top: 1.5rem;
         padding-bottom: 3rem;
     }
 
 
-    /* Navigation button containers */
-    div[data-testid="stHorizontalBlock"] {
-        gap: 10px;
+    /* ========================================================
+       CHROME TAB BAR
+       ======================================================== */
+
+    .chrome-tab-bar {
+        display: flex;
+
+        align-items: flex-end;
+
+        width: 100%;
+
+        height: 52px;
+
+        background: #e8eaed;
+
+        border-bottom: 1px solid #c4c7c5;
+
+        padding-left: 8px;
+
+        margin-bottom: 25px;
+
+        overflow-x: auto;
     }
 
 
-    /* Normal navigation buttons */
-    .nav-button button {
+    /* ========================================================
+       TAB WRAPPER
+       ======================================================== */
+
+    .chrome-tab {
+        position: relative;
+
+        margin-right: 2px;
+
+        min-width: 150px;
+
+        height: 43px;
+    }
+
+
+    /* ========================================================
+       NORMAL TAB
+       ======================================================== */
+
+    .chrome-tab button {
+
+        position: absolute;
+
+        left: 0;
+        right: 0;
+        bottom: 0;
+
         width: 100% !important;
 
-        min-height: 48px !important;
+        height: 43px !important;
 
-        border-radius: 12px !important;
+        padding: 0 18px !important;
 
-        border: 2px solid #aaaaaa !important;
+        background: #d5d8dc !important;
 
-        background-color: #d8d8d8 !important;
+        color: #4a4d50 !important;
 
-        color: #333333 !important;
+        border: 1px solid #c0c3c6 !important;
 
-        font-size: 15px !important;
+        border-bottom: none !important;
+
+        border-radius: 10px 10px 0 0 !important;
+
+        box-shadow: none !important;
+
+        font-size: 14px !important;
+
+        font-weight: 500 !important;
+
+        white-space: nowrap !important;
+
+        transition:
+            background 0.15s ease,
+            color 0.15s ease !important;
+    }
+
+
+    /* ========================================================
+       NORMAL TAB HOVER
+       ======================================================== */
+
+    .chrome-tab button:hover {
+
+        background: #e1e3e6 !important;
+
+        color: #202124 !important;
+
+        border-color: #b5b8bb !important;
+    }
+
+
+    /* ========================================================
+       ACTIVE CHROME TAB
+       ======================================================== */
+
+    .chrome-active button {
+
+        position: absolute;
+
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        width: 100% !important;
+
+        height: 45px !important;
+
+        padding: 0 18px !important;
+
+        background: #ffffff !important;
+
+        color: #202124 !important;
+
+        border: 1px solid #c4c7c5 !important;
+
+        border-bottom: 1px solid #ffffff !important;
+
+        border-radius: 10px 10px 0 0 !important;
+
+        box-shadow: none !important;
+
+        font-size: 14px !important;
 
         font-weight: 600 !important;
 
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12) !important;
+        white-space: nowrap !important;
 
-        transition: all 0.2s ease !important;
+        z-index: 5 !important;
     }
 
 
-    /* Hover */
-    .nav-button button:hover {
-        background-color: #bdbdbd !important;
+    /* ========================================================
+       ACTIVE TAB HOVER
+       ======================================================== */
 
-        border-color: #888888 !important;
+    .chrome-active button:hover {
 
-        color: #111111 !important;
+        background: #ffffff !important;
 
-        transform: translateY(-2px) !important;
-
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.18) !important;
+        color: #202124 !important;
     }
 
 
-    /* Active navigation button */
-    .active-nav button {
-        width: 100% !important;
+    /* ========================================================
+       REMOVE STREAMLIT BUTTON EXTRA SPACING
+       ======================================================== */
 
-        min-height: 48px !important;
+    .chrome-tab div[data-testid="stButton"],
+    .chrome-active div[data-testid="stButton"] {
 
-        border-radius: 12px !important;
+        margin: 0 !important;
 
-        border: 2px solid #555555 !important;
-
-        background-color: #707070 !important;
-
-        color: white !important;
-
-        font-size: 15px !important;
-
-        font-weight: 700 !important;
-
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.22) !important;
+        padding: 0 !important;
     }
 
 
-    /* Active button hover */
-    .active-nav button:hover {
-        background-color: #5f5f5f !important;
+    /* ========================================================
+       CONTENT AREA
+       ======================================================== */
 
-        border-color: #444444 !important;
+    .content-area {
 
-        color: white !important;
+        background: #ffffff;
+
+        border-radius: 0 0 10px 10px;
     }
 
 
-    /* Horizontal separator */
-    .navigation-divider {
-        height: 1px;
+    /* ========================================================
+       MOBILE
+       ======================================================== */
 
-        background-color: #d0d0d0;
-
-        margin-top: 20px;
-
-        margin-bottom: 25px;
-    }
-
-
-    /* Mobile */
     @media (max-width: 700px) {
 
-        .nav-button button,
-        .active-nav button {
+        .chrome-tab-bar {
 
-            min-height: 42px !important;
+            height: 50px;
+
+            justify-content: flex-start;
+
+            overflow-x: auto;
+
+            padding-left: 5px;
+        }
+
+        .chrome-tab {
+
+            min-width: 130px;
+
+            height: 41px;
+        }
+
+        .chrome-tab button,
+        .chrome-active button {
+
+            height: 41px !important;
 
             font-size: 12px !important;
 
-            padding: 5px !important;
-
-            border-radius: 10px !important;
+            padding: 0 12px !important;
         }
     }
 
     </style>
     """,
-    unsafe_allow_html=True
+    unsafe_allow_html=True,
 )
 
 
@@ -150,76 +257,75 @@ st.markdown(
 # NAVIGATION FUNCTION
 # ============================================================
 
-def navigation_button(label):
+def chrome_tab(label):
 
-    if st.session_state.page == label:
+    is_active = st.session_state.page == label
 
-        st.markdown(
-            '<div class="active-nav">',
-            unsafe_allow_html=True
-        )
-
-        clicked = st.button(
-            label,
-            key=f"navigation_{label}"
-        )
+    if is_active:
 
         st.markdown(
-            '</div>',
+            '<div class="chrome-tab chrome-active">',
             unsafe_allow_html=True
         )
 
     else:
 
         st.markdown(
-            '<div class="nav-button">',
+            '<div class="chrome-tab">',
             unsafe_allow_html=True
         )
 
-        clicked = st.button(
-            label,
-            key=f"navigation_{label}"
-        )
+    clicked = st.button(
+        label,
+        key=f"chrome_{label}",
+        use_container_width=True
+    )
 
-        st.markdown(
-            '</div>',
-            unsafe_allow_html=True
-        )
+    st.markdown(
+        "</div>",
+        unsafe_allow_html=True
+    )
 
     if clicked:
+
         st.session_state.page = label
+
         st.rerun()
 
 
 # ============================================================
-# NAVIGATION BAR
-# ============================================================
-
-nav1, nav2, nav3, nav4 = st.columns(4)
-
-
-with nav1:
-    navigation_button("Profile Overview")
-
-
-with nav2:
-    navigation_button("Core Projects")
-
-
-with nav3:
-    navigation_button("Technical Skills")
-
-
-with nav4:
-    navigation_button("Contact & Links")
-
-
-# ============================================================
-# NAVIGATION DIVIDER
+# CHROME TAB NAVIGATION
 # ============================================================
 
 st.markdown(
-    '<div class="navigation-divider"></div>',
+    '<div class="chrome-tab-bar">',
+    unsafe_allow_html=True
+)
+
+tab1, tab2, tab3, tab4 = st.columns(
+    [1, 1, 1, 1],
+    gap="small"
+)
+
+
+with tab1:
+    chrome_tab("Profile Overview")
+
+
+with tab2:
+    chrome_tab("Core Projects")
+
+
+with tab3:
+    chrome_tab("Technical Skills")
+
+
+with tab4:
+    chrome_tab("Contact & Links")
+
+
+st.markdown(
+    "</div>",
     unsafe_allow_html=True
 )
 
@@ -231,7 +337,6 @@ st.markdown(
 if st.session_state.page == "Profile Overview":
 
     st.title("Hi, I'm Harold, how are you today? 👋")
-
 
     profile_image = Path("assets/profile.png")
 
@@ -291,7 +396,6 @@ if st.session_state.page == "Profile Overview":
 
     st.divider()
 
-
     st.markdown("### 📊 Career Statistics")
 
     col1, col2, col3 = st.columns(3)
@@ -338,7 +442,6 @@ elif st.session_state.page == "Core Projects":
     )
 
 
-    # Project 1
     with st.container(border=True):
 
         st.markdown(
@@ -370,7 +473,6 @@ elif st.session_state.page == "Core Projects":
     st.write("")
 
 
-    # Project 2
     with st.container(border=True):
 
         st.markdown(
@@ -414,9 +516,7 @@ elif st.session_state.page == "Technical Skills":
         """
     )
 
-
     st.divider()
-
 
     col1, col2 = st.columns(2)
 
@@ -457,7 +557,6 @@ elif st.session_state.page == "Technical Skills":
 
     st.divider()
 
-
     st.markdown("### 🌟 Areas of Focus")
 
     st.write(
@@ -486,9 +585,7 @@ elif st.session_state.page == "Contact & Links":
         """
     )
 
-
     st.divider()
-
 
     col1, col2 = st.columns(2)
 
@@ -516,9 +613,10 @@ elif st.session_state.page == "Contact & Links":
     st.write("")
     st.write("")
 
-
     st.success(
         "📩 **Direct Contact:** Please feel free to open "
         "a conversation or drop professional references "
         "through my social channels."
     )
+
+
