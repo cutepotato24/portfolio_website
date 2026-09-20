@@ -59,6 +59,11 @@ st.markdown(
             color: var(--blue);
         }
 
+        .skill-heading-icon {
+            color: var(--muted) !important;
+            opacity: 0.95;
+        }
+
         .skill-badge-wrapper {
             display: flex;
             flex-wrap: wrap;
@@ -254,7 +259,7 @@ elif page == "Technical Skills":
 
     col1, col2 = st.columns(2)
     with col1:
-        st.markdown("### <span class='icon'>💻</span> Programming", unsafe_allow_html=True)
+        st.markdown("### <span class='icon skill-heading-icon'>💻</span> Programming", unsafe_allow_html=True)
         st.markdown(
             """
             <div class='skill-badge-wrapper'>
@@ -268,7 +273,7 @@ elif page == "Technical Skills":
         )
 
     with col2:
-        st.markdown("### <span class='icon'>⚙️</span> Frameworks & Infrastructure", unsafe_allow_html=True)
+        st.markdown("### <span class='icon skill-heading-icon'>⚙️</span> Frameworks & Infrastructure", unsafe_allow_html=True)
         st.markdown(
             """
             <div class='skill-badge-wrapper'>
@@ -284,7 +289,7 @@ elif page == "Technical Skills":
 
     col3, col4 = st.columns(2)
     with col3:
-        st.markdown("### <span class='icon'>📊</span> Data Visualization", unsafe_allow_html=True)
+        st.markdown("### <span class='icon skill-heading-icon'>📊</span> Data Visualization", unsafe_allow_html=True)
         st.markdown(
             """
             <div class='skill-badge-wrapper'>
@@ -297,7 +302,7 @@ elif page == "Technical Skills":
         )
 
     with col4:
-        st.markdown("### <span class='icon'>🤖</span> Automation", unsafe_allow_html=True)
+        st.markdown("### <span class='icon skill-heading-icon'>🤖</span> Automation", unsafe_allow_html=True)
         st.markdown(
             """
             <div class='skill-badge-wrapper'>
@@ -311,7 +316,7 @@ elif page == "Technical Skills":
 
     st.write("")
 
-    st.markdown("### <span class='icon'>🗃️</span> RDBMS", unsafe_allow_html=True)
+    st.markdown("### <span class='icon skill-heading-icon'>🗃️</span> RDBMS", unsafe_allow_html=True)
     col5, col6 = st.columns(2)
     with col5:
         st.markdown(
