@@ -478,6 +478,7 @@ elif page == "Core Projects":
         ]
 
         project_columns = st.columns(2, gap="small")
+        visible_projects = []
         for project_index, project in enumerate(power_bi_projects):
             with project_columns[project_index % 2]:
                 with st.container(border=True):
@@ -485,7 +486,12 @@ elif page == "Core Projects":
                     st.write(project["description"])
                     show_picture = st.checkbox("Show picture", key=f"show_{project['file']}")
                     if show_picture:
-                        st.image(f"assets/{project['file']}", use_container_width=True)
+                        visible_projects.append(project)
+
+        for project in visible_projects:
+            image_columns = st.columns([1, 6, 1])
+            with image_columns[1]:
+                st.image(f"assets/{project['file']}", caption=project["name"], use_container_width=True)
 
 # --- PAGE 3: TECHNICAL SKILLS ---
 elif page == "Technical Skills":
