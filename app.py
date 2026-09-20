@@ -178,7 +178,9 @@ st.markdown(
             background: var(--charcoal-soft);
             border: 1px solid var(--border);
             border-top: 2px solid var(--blue);
-            padding: 1rem;
+            min-height: 126px;
+            padding: 1.1rem 1rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
         }
 
         [data-testid="stMetricLabel"],
@@ -188,6 +190,11 @@ st.markdown(
 
         [data-testid="stMetricValue"] {
             color: var(--white) !important;
+            font-size: 2.25rem !important;
+            font-weight: 800 !important;
+            letter-spacing: 0 !important;
+            line-height: 1.1 !important;
+            text-shadow: 0 0 18px rgba(57, 168, 255, 0.22);
         }
 
         [data-testid="stVerticalBlockBorderWrapper"] {
