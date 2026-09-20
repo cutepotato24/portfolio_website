@@ -8,6 +8,48 @@ st.set_page_config(
     layout="centered"
 )
 
+# Browser-style tab treatment for the main navigation.
+st.markdown(
+    """
+    <style>
+    div[data-baseweb="tab-list"] {
+        gap: 0;
+        border-bottom: 1px solid #c8ccd1;
+        padding: 0 8px;
+    }
+
+    button[data-baseweb="tab"] {
+        flex: 0 1 auto;
+        background: #e8eaed;
+        border: 1px solid #c8ccd1;
+        border-bottom: none;
+        border-radius: 9px 9px 0 0;
+        color: #5f6368;
+        margin: 0 3px -1px 0;
+        padding: 0.65rem 1rem;
+        transition: background 150ms ease, color 150ms ease;
+    }
+
+    button[data-baseweb="tab"]:hover {
+        background: #f1f3f4;
+        color: #202124;
+    }
+
+    button[data-baseweb="tab"][aria-selected="true"] {
+        background: #ffffff;
+        border-bottom: 1px solid #ffffff;
+        color: #202124;
+        font-weight: 600;
+    }
+
+    div[data-baseweb="tab-highlight"] {
+        display: none;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
 # 2. Tab Navigation
 profile_tab, projects_tab, skills_tab, contact_tab = st.tabs(
     ["Profile Overview", "Core Projects", "Technical Skills", "Contact & Links"]
