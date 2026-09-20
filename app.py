@@ -40,21 +40,13 @@ st.markdown(
         }
 
         .stApp {
-            position: relative;
             background: var(--charcoal);
             color: var(--white);
         }
 
         [data-testid="stSidebar"] {
-            position: relative;
-            z-index: 2;
             background: #111315;
             border-right: 1px solid var(--border);
-        }
-
-        .main {
-            position: relative;
-            z-index: 1;
         }
 
         [data-testid="stSidebar"] h1,
@@ -87,7 +79,7 @@ st.markdown(
             color: var(--blue);
             font-size: clamp(4rem, 9vw, 8rem);
             line-height: 1;
-            opacity: 0.07;
+            opacity: 0.1;
             pointer-events: none;
             user-select: none;
             filter: drop-shadow(0 0 18px rgba(57, 168, 255, 0.45));
@@ -148,7 +140,7 @@ st.markdown(
             .astronaut-background {
                 top: 10vh;
                 left: 4vw;
-                opacity: 0.045;
+                opacity: 0.06;
             }
         }
 
