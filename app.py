@@ -407,6 +407,7 @@ elif page == "Technical Skills":
         <div class='skill-badge-wrapper'>
             <div class='skill-pill' data-tooltip='ChatGPT' title='ChatGPT' aria-label='ChatGPT' tabindex='0'>""" + brand_logo('openai', '#74AA9C') + """</div>
             <div class='skill-pill' data-tooltip='GitHub Copilot' title='GitHub Copilot' aria-label='GitHub Copilot' tabindex='0'>""" + brand_logo('githubcopilot', '#FFFFFF') + """</div>
+            <div class='skill-pill' data-tooltip='Microsoft Copilot' title='Microsoft Copilot' aria-label='Microsoft Copilot' tabindex='0'>""" + brand_logo('microsoft', '#FFFFFF') + """</div>
             <div class='skill-pill' data-tooltip='Claude AI' title='Claude AI' aria-label='Claude AI' tabindex='0'>""" + brand_logo('anthropic', '#D97757') + """</div>
         </div>
         """,
