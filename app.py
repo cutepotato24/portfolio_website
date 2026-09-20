@@ -55,6 +55,10 @@ st.markdown(
             color: var(--white) !important;
         }
 
+        .icon {
+            color: var(--blue);
+        }
+
         h1 {
             letter-spacing: -0.03em;
         }
@@ -126,24 +130,24 @@ st.markdown(
 )
 
 # 2. Sidebar Structural Navigation
-st.sidebar.markdown("## 🔷 Navigation")
+st.sidebar.markdown("## <span class='icon'>☰︎</span> Navigation", unsafe_allow_html=True)
 page = st.sidebar.radio("Go to:", ["Profile Overview", "Core Projects", "Technical Skills", "Contact & Links"])
 
 # --- PAGE 1: PROFILE OVERVIEW ---
 if page == "Profile Overview":
-    st.title("Hi, I'm Harold, how are you today? 👋")
+    st.title("Hi, I'm Harold, how are you today? ✦︎")
     st.subheader("Analytics & Software Engineer")
 
-    st.info("🔷 Specialized in building automated data workflows and clean user experiences.")
+    st.info("⚡︎ Specialized in building automated data workflows and clean user experiences.")
 
-    st.markdown("### 🔷 Professional Profile")
+    st.markdown("### <span class='icon'>◎︎</span> Professional Profile", unsafe_allow_html=True)
     st.write("""
     I am a results-driven professional dedicated to transforming complex data sets into clear, actionable business strategies.
     By leveraging cloud-native python workflows, I design and implement reliable pipeline structures that help organizations scale.
     """)
 
     st.divider()
-    st.markdown("### 🔷 Career Statistics")
+    st.markdown("### <span class='icon'>▣︎</span> Career Statistics", unsafe_allow_html=True)
 
     col1, col2, col3 = st.columns(3)
     with col1:
@@ -155,71 +159,71 @@ if page == "Profile Overview":
 
 # --- PAGE 2: CORE PROJECTS ---
 elif page == "Core Projects":
-    st.title("Featured Projects 🔷")
+    st.title("Featured Projects ◈︎")
     st.write("Browse through an assortment of my recent professional applications.")
 
     with st.container(border=True):
-        st.markdown("### 🔷 Cloud-Native E-Commerce Analytics Tool")
-        st.caption("▸ Tech Stack: `Python` | `Streamlit` | `Pandas` | `Plotly`")
+        st.markdown("### <span class='icon'>◈︎</span> Cloud-Native E-Commerce Analytics Tool", unsafe_allow_html=True)
+        st.caption("⚙︎ Tech Stack: `Python` | `Streamlit` | `Pandas` | `Plotly`")
         st.write("""
         Engineered an enterprise-level dashboard monitoring retail store transactions.
         Integrated dynamic clustering logic to automatically segment purchasing personas, increasing retention rates by 18%.
         """)
-        st.link_button("↗ View Git Repository", "https://github.com")
+        st.link_button("↗︎ View Git Repository", "https://github.com")
 
     st.write("")
 
     with st.container(border=True):
-        st.markdown("### 🔷 Automated Pipeline Scheduling Engine")
-        st.caption("▸ Tech Stack: `Python` | `SQL` | `Docker` | `AWS Lambda`")
+        st.markdown("### <span class='icon'>◈︎</span> Automated Pipeline Scheduling Engine", unsafe_allow_html=True)
+        st.caption("⚙︎ Tech Stack: `Python` | `SQL` | `Docker` | `AWS Lambda`")
         st.write("""
         Built an automated database validation worker that runs micro-audits across thousands of data points daily,
         reducing database formatting errors down to absolute zero.
         """)
-        st.link_button("↗ Read Technical Documentation", "https://github.com")
+        st.link_button("↗︎ Read Technical Documentation", "https://github.com")
 
 # --- PAGE 3: TECHNICAL SKILLS ---
 elif page == "Technical Skills":
-    st.title("Technical Proficiency 🔷")
+    st.title("Technical Proficiency ⌘︎")
     st.write("A comprehensive breakdown of tools, programming languages, and engineering concepts I use daily.")
 
     st.divider()
 
     col1, col2 = st.columns(2)
     with col1:
-        st.markdown("### 🔷 Core Programming")
+        st.markdown("### <span class='icon'>⌘︎</span> Core Programming", unsafe_allow_html=True)
         st.success("**Python** (Advanced Data Engineering)")
         st.success("**SQL** (Complex Joins & Optimization)")
         st.success("**HTML & CSS** (Responsive UI Styling)")
 
     with col2:
-        st.markdown("### 🔷 Frameworks & Infrastructure")
+        st.markdown("### <span class='icon'>⚙︎</span> Frameworks & Infrastructure", unsafe_allow_html=True)
         st.success("**Streamlit** (Rapid App Development)")
         st.success("**Pandas & NumPy** (Statistical Calculations)")
         st.success("**Git & GitHub** (Version Control Strategy)")
 
     st.divider()
-    st.markdown("### 🔷 Areas of Focus")
+    st.markdown("### <span class='icon'>✦︎</span> Areas of Focus", unsafe_allow_html=True)
     st.write("- **Data Architecture:** Designing scalable database management layouts.")
     st.write("- **Workflow Automation:** Replacing manual data pipelines with automated scripts.")
 
 # --- PAGE 4: CONTACT & LINKS ---
 elif page == "Contact & Links":
-    st.title("Establish Connection 🔷")
+    st.title("Establish Connection ✉︎")
     st.write("I am always interested in discussing new freelance agreements, corporate positions, or automation consulting.")
 
     st.divider()
 
     col1, col2, col3 = st.columns(3)
     with col1:
-        st.markdown("#### 🔷 Professional Networks")
-        st.link_button("↗ Connect on LinkedIn", "https://www.linkedin.com/in/jharold-legaspi/")
+        st.markdown("#### <span class='icon'>♙︎</span> Professional Networks", unsafe_allow_html=True)
+        st.link_button("↗︎ Connect on LinkedIn", "https://www.linkedin.com/in/jharold-legaspi/")
     with col2:
-        st.markdown("#### 🔷 Code Repositories")
-        st.link_button("↗ Explore My GitHub", "https://github.com/cutepotato24")
+        st.markdown("#### <span class='icon'>⌘︎</span> Code Repositories", unsafe_allow_html=True)
+        st.link_button("↗︎ Explore My GitHub", "https://github.com/cutepotato24")
     with col3:
-        st.markdown("#### 🔷 Direct Email Contact")
-        st.link_button("↗ Email Me", "https://mail.google.com/mail/?view=cm&fs=1&to=jllegaspicareers@gmail.com")
+        st.markdown("#### <span class='icon'>✉︎</span> Direct Email Contact", unsafe_allow_html=True)
+        st.link_button("↗︎ Email Me", "https://mail.google.com/mail/?view=cm&fs=1&to=jllegaspicareers@gmail.com")
 
     st.write("")
-    st.success("🔷 **Direct Contact:** Please feel free to open a conversation or drop professional references through my social channels.")
+    st.success("✉︎ **Direct Contact:** Please feel free to open a conversation or drop professional references through my social channels.")
