@@ -9,7 +9,7 @@ from pathlib import Path
 st.set_page_config(
     page_title="Professional Portfolio",
     page_icon="💼",
-    layout="centered"
+    layout="centered",
 )
 
 
@@ -22,7 +22,7 @@ if "page" not in st.session_state:
 
 
 # ============================================================
-# CHROME TAB CSS
+# CHROME-STYLE TAB CSS
 # ============================================================
 
 st.markdown(
@@ -34,77 +34,84 @@ st.markdown(
        ======================================================== */
 
     .block-container {
+        max-width: 1150px;
         padding-top: 1.5rem;
         padding-bottom: 3rem;
     }
 
 
     /* ========================================================
-       TAB BAR
-       ======================================================== */
-
-    div[data-testid="stHorizontalBlock"] {
-        gap: 0 !important;
-    }
-
-
-    /* ========================================================
-       TAB BUTTON CONTAINER
+       CHROME TAB STRIP
        ======================================================== */
 
     .chrome-tabs {
-        background: #dee1e6;
-        border-bottom: 1px solid #b8bcc2;
+        background: #bfc1c4;
+        border-bottom: 1px solid #8f9296;
 
         padding: 8px 8px 0 8px;
-
         margin-bottom: 30px;
 
-        border-radius: 8px 8px 0 0;
+        border-radius: 12px 12px 0 0;
+        overflow-x: auto;
+    }
+
+
+    /* Only affect columns inside the tab bar */
+    .chrome-tabs [data-testid="stHorizontalBlock"] {
+        gap: 4px !important;
+        align-items: flex-end !important;
+    }
+
+
+    .chrome-tabs [data-testid="column"] {
+        padding: 0 !important;
+        min-width: 0 !important;
     }
 
 
     /* ========================================================
-       ALL TAB BUTTONS
+       TAB BUTTON CONTAINERS
        ======================================================== */
 
-    .chrome-tabs div[data-testid="stButton"] {
+    .chrome-tabs [data-testid="stButton"] {
         margin: 0 !important;
         padding: 0 !important;
     }
 
 
-    .chrome-tabs div[data-testid="stButton"] > button {
+    /* ========================================================
+       INACTIVE TABS
+       ======================================================== */
 
+    .chrome-tabs button {
         width: 100% !important;
 
         height: 42px !important;
-
         min-height: 42px !important;
 
-        padding: 0 18px !important;
+        padding: 0 16px !important;
 
-        background: #cfd2d6 !important;
-
+        background: #d2d4d7 !important;
         color: #3c4043 !important;
 
-        border: 1px solid #b8bcc2 !important;
-
+        border: 1px solid #aeb1b5 !important;
         border-bottom: none !important;
 
-        border-radius: 9px 9px 0 0 !important;
+        border-radius: 11px 11px 0 0 !important;
 
-        box-shadow: none !important;
+        box-shadow:
+            0 -1px 0 rgba(255, 255, 255, 0.35) inset,
+            0 1px 2px rgba(0, 0, 0, 0.08) !important;
 
         font-size: 14px !important;
-
         font-weight: 500 !important;
 
         white-space: nowrap !important;
 
         transition:
             background 0.15s ease,
-            color 0.15s ease !important;
+            color 0.15s ease,
+            transform 0.15s ease !important;
     }
 
 
@@ -112,15 +119,13 @@ st.markdown(
        TAB HOVER
        ======================================================== */
 
-    .chrome-tabs div[data-testid="stButton"] > button:hover {
-
-        background: #e5e7e9 !important;
-
+    .chrome-tabs button:hover {
+        background: #e7e8ea !important;
         color: #202124 !important;
 
-        border-color: #aeb2b7 !important;
+        border-color: #999da2 !important;
 
-        box-shadow: none !important;
+        transform: translateY(-1px);
     }
 
 
@@ -128,11 +133,13 @@ st.markdown(
        TAB FOCUS
        ======================================================== */
 
-    .chrome-tabs div[data-testid="stButton"] > button:focus {
-
-        box-shadow: none !important;
-
+    .chrome-tabs button:focus,
+    .chrome-tabs button:focus-visible {
         outline: none !important;
+
+        box-shadow:
+            0 -1px 0 rgba(255, 255, 255, 0.35) inset,
+            0 1px 2px rgba(0, 0, 0, 0.08) !important;
     }
 
 
@@ -140,38 +147,32 @@ st.markdown(
        ACTIVE TAB
        ======================================================== */
 
-    .chrome-tabs .active-tab div[data-testid="stButton"] > button {
+    .chrome-tabs .active-tab button {
+        position: relative;
+        z-index: 3;
 
         background: #ffffff !important;
-
         color: #202124 !important;
 
-        border-color: #b8bcc2 !important;
-
+        border-color: #aeb1b5 !important;
         border-bottom: 1px solid #ffffff !important;
 
         font-weight: 600 !important;
 
-        position: relative;
-
-        z-index: 5;
+        box-shadow: none !important;
     }
 
 
-    /* ========================================================
-       ACTIVE TAB HOVER
-       ======================================================== */
-
-    .chrome-tabs .active-tab div[data-testid="stButton"] > button:hover {
-
+    .chrome-tabs .active-tab button:hover {
         background: #ffffff !important;
-
         color: #202124 !important;
+
+        transform: none !important;
     }
 
 
     /* ========================================================
-       CONTENT
+       PAGE CONTENT
        ======================================================== */
 
     .portfolio-content {
@@ -180,22 +181,27 @@ st.markdown(
 
 
     /* ========================================================
-       MOBILE
+       MOBILE RESPONSIVENESS
        ======================================================== */
 
     @media (max-width: 700px) {
 
-        .chrome-tabs div[data-testid="stButton"] > button {
+        .chrome-tabs {
+            padding: 6px 5px 0 5px;
+        }
 
-            font-size: 12px !important;
+        .chrome-tabs [data-testid="stHorizontalBlock"] {
+            gap: 2px !important;
+        }
+
+        .chrome-tabs button {
+            height: 38px !important;
+            min-height: 38px !important;
 
             padding: 0 8px !important;
 
-            height: 38px !important;
-
-            min-height: 38px !important;
+            font-size: 11px !important;
         }
-
     }
 
     </style>
@@ -209,38 +215,32 @@ st.markdown(
 # ============================================================
 
 def tab_button(label):
-
     is_active = st.session_state.page == label
 
     if is_active:
-
         st.markdown(
             '<div class="active-tab">',
-            unsafe_allow_html=True
+            unsafe_allow_html=True,
         )
-
     else:
-
         st.markdown(
-            '<div>',
-            unsafe_allow_html=True
+            '<div class="inactive-tab">',
+            unsafe_allow_html=True,
         )
 
     clicked = st.button(
         label,
         key=f"tab_{label}",
-        use_container_width=True
+        use_container_width=True,
     )
 
     st.markdown(
         "</div>",
-        unsafe_allow_html=True
+        unsafe_allow_html=True,
     )
 
-    if clicked:
-
+    if clicked and st.session_state.page != label:
         st.session_state.page = label
-
         st.rerun()
 
 
@@ -250,39 +250,29 @@ def tab_button(label):
 
 st.markdown(
     '<div class="chrome-tabs">',
-    unsafe_allow_html=True
+    unsafe_allow_html=True,
 )
-
 
 tab1, tab2, tab3, tab4 = st.columns(
-    [1, 1, 1, 1],
-    gap="small"
+    [1.2, 1, 1, 1],
+    gap="small",
 )
 
-
 with tab1:
-
     tab_button("Profile Overview")
 
-
 with tab2:
-
     tab_button("Core Projects")
 
-
 with tab3:
-
     tab_button("Technical Skills")
 
-
 with tab4:
-
     tab_button("Contact & Links")
-
 
 st.markdown(
     "</div>",
-    unsafe_allow_html=True
+    unsafe_allow_html=True,
 )
 
 
@@ -294,12 +284,9 @@ if st.session_state.page == "Profile Overview":
 
     st.title("Hi, I'm Harold, how are you today? 👋")
 
-
     profile_image = Path("assets/profile.png")
 
-
     left_col, right_col = st.columns([1, 2])
-
 
     # --------------------------------------------------------
     # PROFILE IMAGE
@@ -308,20 +295,17 @@ if st.session_state.page == "Profile Overview":
     with left_col:
 
         if profile_image.exists():
-
             st.image(
                 str(profile_image),
                 width=220,
-                caption="Harold"
+                caption="Harold",
             )
 
         else:
-
             st.warning(
                 "Add your photo to "
                 "`assets/profile.png` to show it here."
             )
-
 
     # --------------------------------------------------------
     # INTRODUCTION
@@ -338,19 +322,16 @@ if st.session_state.page == "Profile Overview":
             """
         )
 
-
     st.info(
         "🚀 Specialized in building automated data workflows "
         "and clean user experiences."
     )
-
 
     # --------------------------------------------------------
     # PROFESSIONAL PROFILE
     # --------------------------------------------------------
 
     st.markdown("### 🎯 Professional Profile")
-
 
     st.write(
         """
@@ -364,9 +345,7 @@ if st.session_state.page == "Profile Overview":
         """
     )
 
-
     st.divider()
-
 
     # --------------------------------------------------------
     # CAREER STATISTICS
@@ -374,34 +353,27 @@ if st.session_state.page == "Profile Overview":
 
     st.markdown("### 📊 Career Statistics")
 
-
     col1, col2, col3 = st.columns(3)
 
-
     with col1:
-
         st.metric(
             label="Python Projects",
             value="12+",
-            delta="Active"
+            delta="Active",
         )
 
-
     with col2:
-
         st.metric(
             label="Data Processed",
             value="100M+",
-            delta="Rows"
+            delta="Rows",
         )
 
-
     with col3:
-
         st.metric(
             label="Automation Efficiency",
             value="40%",
-            delta="Saved Time"
+            delta="Saved Time",
         )
 
 
@@ -413,12 +385,10 @@ elif st.session_state.page == "Core Projects":
 
     st.title("Featured Projects 🚀")
 
-
     st.write(
         "Browse through an assortment of my recent "
         "professional applications."
     )
-
 
     # --------------------------------------------------------
     # PROJECT 1
@@ -430,12 +400,10 @@ elif st.session_state.page == "Core Projects":
             "### 📊 Cloud-Native E-Commerce Analytics Tool"
         )
 
-
         st.caption(
             "🛠️ Tech Stack: "
             "`Python` | `Streamlit` | `Pandas` | `Plotly`"
         )
-
 
         st.write(
             """
@@ -448,15 +416,12 @@ elif st.session_state.page == "Core Projects":
             """
         )
 
-
         st.link_button(
             "📂 View Git Repository",
-            "https://github.com"
+            "https://github.com",
         )
 
-
     st.write("")
-
 
     # --------------------------------------------------------
     # PROJECT 2
@@ -468,12 +433,10 @@ elif st.session_state.page == "Core Projects":
             "### 🤖 Automated Pipeline Scheduling Engine"
         )
 
-
         st.caption(
             "🛠️ Tech Stack: "
             "`Python` | `SQL` | `Docker` | `AWS Lambda`"
         )
-
 
         st.write(
             """
@@ -486,10 +449,9 @@ elif st.session_state.page == "Core Projects":
             """
         )
 
-
         st.link_button(
             "📁 Read Technical Documentation",
-            "https://github.com"
+            "https://github.com",
         )
 
 
@@ -501,7 +463,6 @@ elif st.session_state.page == "Technical Skills":
 
     st.title("Technical Proficiency 🛠️")
 
-
     st.write(
         """
         A comprehensive breakdown of tools, programming
@@ -509,12 +470,9 @@ elif st.session_state.page == "Technical Skills":
         """
     )
 
-
     st.divider()
 
-
     col1, col2 = st.columns(2)
-
 
     # --------------------------------------------------------
     # PROGRAMMING
@@ -524,21 +482,17 @@ elif st.session_state.page == "Technical Skills":
 
         st.markdown("### 💻 Core Programming")
 
-
         st.success(
             "**Python** (Advanced Data Engineering)"
         )
-
 
         st.success(
             "**SQL** (Complex Joins & Optimization)"
         )
 
-
         st.success(
             "**HTML & CSS** (Responsive UI Styling)"
         )
-
 
     # --------------------------------------------------------
     # FRAMEWORKS
@@ -548,24 +502,19 @@ elif st.session_state.page == "Technical Skills":
 
         st.markdown("### ⚙️ Frameworks & Infrastructure")
 
-
         st.success(
             "**Streamlit** (Rapid App Development)"
         )
-
 
         st.success(
             "**Pandas & NumPy** (Statistical Calculations)"
         )
 
-
         st.success(
             "**Git & GitHub** (Version Control Strategy)"
         )
 
-
     st.divider()
-
 
     # --------------------------------------------------------
     # AREAS OF FOCUS
@@ -573,12 +522,10 @@ elif st.session_state.page == "Technical Skills":
 
     st.markdown("### 🌟 Areas of Focus")
 
-
     st.write(
         "- **Data Architecture:** Designing scalable "
         "database management layouts."
     )
-
 
     st.write(
         "- **Workflow Automation:** Replacing manual data "
@@ -594,7 +541,6 @@ elif st.session_state.page == "Contact & Links":
 
     st.title("Establish Connection 📧")
 
-
     st.write(
         """
         I am always interested in discussing new freelance
@@ -602,12 +548,9 @@ elif st.session_state.page == "Contact & Links":
         """
     )
 
-
     st.divider()
 
-
     col1, col2 = st.columns(2)
-
 
     # --------------------------------------------------------
     # LINKEDIN
@@ -617,12 +560,10 @@ elif st.session_state.page == "Contact & Links":
 
         st.markdown("#### 👔 Professional Networks")
 
-
         st.link_button(
             "💼 Connect on LinkedIn",
-            "https://linkedin.com"
+            "https://linkedin.com",
         )
-
 
     # --------------------------------------------------------
     # GITHUB
@@ -632,16 +573,13 @@ elif st.session_state.page == "Contact & Links":
 
         st.markdown("#### 🐙 Code Repositories")
 
-
         st.link_button(
             "💻 Explore My GitHub",
-            "https://github.com"
+            "https://github.com",
         )
 
-
     st.write("")
     st.write("")
-
 
     st.success(
         "📩 **Direct Contact:** Please feel free to open "
