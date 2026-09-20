@@ -461,6 +461,18 @@ with st.sidebar:
         </style>
         <div class="local-clock" id="local-clock" role="status" aria-live="polite">Detecting local time...</div>
         <script>
+            const frame = window.frameElement;
+            if (frame) {
+                frame.style.position = "fixed";
+                frame.style.top = "auto";
+                frame.style.right = "auto";
+                frame.style.bottom = "0";
+                frame.style.left = "0";
+                frame.style.width = "21rem";
+                frame.style.height = "42px";
+                frame.style.zIndex = "999";
+            }
+
             const clock = document.getElementById("local-clock");
             const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
             const timeFormatter = new Intl.DateTimeFormat([], {
