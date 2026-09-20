@@ -445,7 +445,7 @@ elif page == "Core Projects":
 
     st.write("")
 
-    with st.expander("Maven Analytics Hospital rating Viz Challenge", expanded=False):
+    with st.expander("Tableau Data Visualizations", expanded=False):
         st.caption("⚙︎ Tools: `Microsoft Excel` | `Tableau` | `Data Visualization` | `Dashboard Design`")
         st.write("""
         Created a data visualization project using Excel for data preparation and analysis, then Tableau to transform
@@ -465,6 +465,13 @@ elif page == "Core Projects":
                 "https://public.tableau.com/app/profile/john.harold.legaspi6572/viz/OnyxDataaugust2023DNAChallenge/Dashboard1",
                 use_container_width=True,
             )
+
+    st.write("")
+
+    with st.expander("Personal Portfolio Website", expanded=False):
+        st.caption("⚙︎ Tech Stack: `Python` | `Streamlit` | `CSS`")
+        st.write("Designed and built this interactive portfolio website to present my professional profile, projects, technical skills, and contact links.")
+        st.link_button("↗︎ View GitHub Repository", "https://github.com/cutepotato24/portfolio_website")
 
 # --- PAGE 3: TECHNICAL SKILLS ---
 elif page == "Technical Skills":
