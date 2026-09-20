@@ -91,7 +91,7 @@ st.markdown(
             right: auto !important;
             left: 0 !important;
             bottom: 0 !important;
-            z-index: 999 !important;
+            z-index: 1100 !important;
             width: 17rem !important;
             height: 32px !important;
             max-width: 100vw;
