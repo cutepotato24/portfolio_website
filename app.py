@@ -307,8 +307,8 @@ elif page == "Core Projects":
 
 # --- PAGE 3: TECHNICAL SKILLS ---
 elif page == "Technical Skills":
-    st.title("Technical Proficiency ⌘︎")
-    st.write("A comprehensive breakdown of tools, programming languages, and engineering concepts I use daily.")
+    st.title("Technical Know-Hows ⌘︎")
+    st.write("A comprehensive breakdown of tools, programming languages, and engineering concepts I used throughout my career.")
 
     st.divider()
 
@@ -335,6 +335,7 @@ elif page == "Technical Skills":
                 <div class='skill-pill' data-tooltip='Streamlit' title='Streamlit' aria-label='Streamlit' tabindex='0'>""" + brand_logo('streamlit', '#FF4B4B') + """</div>
                 <div class='skill-pill' data-tooltip='Python Libraries' title='Python Libraries' aria-label='Python Libraries' tabindex='0'>""" + brand_logo('python', '#3776AB') + """</div>
                 <div class='skill-pill' data-tooltip='GitHub' title='GitHub' aria-label='GitHub' tabindex='0'>""" + brand_logo('github', '#181717') + """</div>
+                <div class='skill-pill' data-tooltip='dbt' title='dbt' aria-label='dbt' tabindex='0'>""" + brand_logo('dbt', '#FF694A') + """</div>
             </div>
             """,
             unsafe_allow_html=True,
@@ -350,6 +351,7 @@ elif page == "Technical Skills":
             <div class='skill-badge-wrapper'>
                 <div class='skill-pill' data-tooltip='Tableau' title='Tableau' aria-label='Tableau' tabindex='0'>""" + brand_logo('tableau', '#E97627') + """</div>
                 <div class='skill-pill' data-tooltip='Power BI' title='Power BI' aria-label='Power BI' tabindex='0'>""" + brand_logo('powerbi', '#F2C811') + """</div>
+                <div class='skill-pill' data-tooltip='Microsoft Excel' title='Microsoft Excel' aria-label='Microsoft Excel' tabindex='0'>""" + brand_logo('microsoftexcel', '#217346') + """</div>
                 <div class='skill-pill' data-tooltip='Python' title='Python' aria-label='Python' tabindex='0'>""" + brand_logo('python', '#3776AB') + """</div>
             </div>
             """,
@@ -381,6 +383,7 @@ elif page == "Technical Skills":
             <div class='skill-pill' data-tooltip='MS SQL Server' title='MS SQL Server' aria-label='MS SQL Server' tabindex='0'>""" + brand_logo('microsoftsqlserver', '#CC2927') + """</div>
             <div class='skill-pill' data-tooltip='PostgreSQL' title='PostgreSQL' aria-label='PostgreSQL' tabindex='0'>""" + brand_logo('postgresql', '#4169E1') + """</div>
             <div class='skill-pill' data-tooltip='MySQL' title='MySQL' aria-label='MySQL' tabindex='0'>""" + brand_logo('mysql', '#4479A1') + """</div>
+            <div class='skill-pill' data-tooltip='DBeaver' title='DBeaver' aria-label='DBeaver' tabindex='0'>""" + brand_logo('dbeaver', '#382923') + """</div>
         </div>
         """,
         unsafe_allow_html=True,
