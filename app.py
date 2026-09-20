@@ -494,7 +494,7 @@ if page == "Profile Overview":
     with col1:
         st.metric(label="Years of Analytics Experience", value="3.5+", delta="Professional")
     with col2:
-        st.metric(label="Analytics Projects Led", value="10+", delta="More than")
+        st.metric(label="Analytics Projects Led", value="15+", delta="More than")
     with col3:
         st.metric(label="Automation Efficiency", value="40%", delta="Saved Time")
 
