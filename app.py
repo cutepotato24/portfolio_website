@@ -76,10 +76,12 @@ st.markdown(
         }
 
         [data-testid="stSidebar"] iframe {
-            position: sticky;
+            position: fixed;
+            left: 0;
             bottom: 0;
-            z-index: 2;
-            width: 100% !important;
+            z-index: 999;
+            width: 21rem !important;
+            max-width: 100vw;
         }
 
         .main .block-container {
