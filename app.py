@@ -1,22 +1,24 @@
 import streamlit as st
 
+# 1. Page Configuration (Must be the first command)
 st.set_page_config(
-    page_title="Harold | Analytics and Software Engineer",
-    layout="wide",
-    initial_sidebar_state="expanded",
+    page_title="Professional Portfolio",
+    page_icon="🔷",
+    layout="centered",
 )
 
+# Pure charcoal, white, and electric-blue theme.
 st.markdown(
     """
     <style>
         :root {
             --charcoal: #17191c;
-            --charcoal-soft: #202328;
+            --charcoal-soft: #22262b;
             --white: #f5f7fa;
             --muted: #aeb6c2;
             --blue: #39a8ff;
             --blue-dark: #0d2638;
-            --border: #353b44;
+            --border: #3a414a;
         }
 
         .stApp {
@@ -30,53 +32,31 @@ st.markdown(
         }
 
         [data-testid="stSidebar"] h1,
+        [data-testid="stSidebar"] h2,
         [data-testid="stSidebar"] label,
         [data-testid="stSidebar"] p {
             color: var(--white);
-        }
-
-        [data-testid="stSidebar"] .stRadio > label {
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
         }
 
         [data-testid="stSidebar"] [role="radiogroup"] label {
             color: var(--muted);
         }
 
-        [data-testid="stSidebar"] [role="radiogroup"] label:hover,
-        [data-testid="stSidebar"] [role="radiogroup"] label[data-checked="true"] {
+        [data-testid="stSidebar"] [role="radiogroup"] label:hover {
             color: var(--blue);
         }
 
         .main .block-container {
-            max-width: 980px;
-            padding: 5rem 3rem 6rem;
+            max-width: 1000px;
+            padding: 3rem 2.5rem 5rem;
         }
 
-        h1, h2, h3 {
+        h1, h2, h3, h4 {
             color: var(--white) !important;
-            letter-spacing: -0.02em;
         }
 
         h1 {
-            font-size: clamp(2.5rem, 6vw, 5rem) !important;
-            line-height: 1 !important;
-            margin-bottom: 0.5rem !important;
-        }
-
-        h2 {
-            border-bottom: 1px solid var(--border);
-            font-size: 1.35rem !important;
-            margin-top: 2.75rem !important;
-            padding-bottom: 0.7rem;
-        }
-
-        h3 {
-            font-size: 1.05rem !important;
-            margin-top: 1.5rem !important;
+            letter-spacing: -0.03em;
         }
 
         p, li {
@@ -86,7 +66,6 @@ st.markdown(
 
         a {
             color: var(--blue) !important;
-            font-weight: 600;
         }
 
         code {
@@ -95,43 +74,31 @@ st.markdown(
             color: var(--blue) !important;
         }
 
-        .eyebrow {
-            color: var(--blue);
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.12em;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
+        [data-testid="stMetric"] {
+            background: var(--charcoal-soft);
+            border: 1px solid var(--border);
+            border-top: 2px solid var(--blue);
+            padding: 1rem;
         }
 
-        .subtitle {
-            color: var(--muted);
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
+        [data-testid="stMetricLabel"],
+        [data-testid="stMetricDelta"] {
+            color: var(--muted) !important;
         }
 
-        .project {
-            border-left: 2px solid var(--blue);
-            margin: 1.75rem 0;
-            padding: 0.25rem 0 0.25rem 1.25rem;
+        [data-testid="stMetricValue"] {
+            color: var(--white) !important;
         }
 
-        .project p {
-            margin-bottom: 0.5rem;
+        [data-testid="stVerticalBlockBorderWrapper"] {
+            background: var(--charcoal-soft);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--blue);
+            border-radius: 3px;
+            padding: 0.75rem 1rem;
         }
 
-        .contact-line {
-            border-bottom: 1px solid var(--border);
-            padding: 1rem 0;
-        }
-
-        .contact-label {
-            color: var(--muted);
-            display: inline-block;
-            min-width: 6rem;
-        }
-
-        .stButton > button, [data-testid="stLinkButton"] {
+        [data-testid="stLinkButton"] {
             background: var(--blue) !important;
             border: 0 !important;
             border-radius: 3px !important;
@@ -139,99 +106,120 @@ st.markdown(
             font-weight: 700 !important;
         }
 
-        .stButton > button:hover, [data-testid="stLinkButton"]:hover {
+        [data-testid="stLinkButton"]:hover {
             background: var(--white) !important;
             color: #07131d !important;
+        }
+
+        [data-testid="stAlert"] {
+            background: var(--blue-dark) !important;
+            border: 1px solid #194766 !important;
+            color: var(--white) !important;
+        }
+
+        hr {
+            border-color: var(--border) !important;
         }
     </style>
     """,
     unsafe_allow_html=True,
 )
 
-st.sidebar.title("HAROLD")
-page = st.sidebar.radio(
-    "Sections",
-    ["Overview", "Projects", "Skills", "Contact"],
-)
+# 2. Sidebar Structural Navigation
+st.sidebar.markdown("## 🔷 Navigation")
+page = st.sidebar.radio("Go to:", ["Profile Overview", "Core Projects", "Technical Skills", "Contact & Links"])
 
-if page == "Overview":
-    st.markdown('<div class="eyebrow">Analytics / Software Engineering</div>', unsafe_allow_html=True)
-    st.title("Harold")
-    st.markdown('<div class="subtitle">Precise systems. Useful data. Clear outcomes.</div>', unsafe_allow_html=True)
-    st.write(
-        "I build automated data workflows and software that turn complex information "
-        "into clear, useful business decisions."
-    )
+# --- PAGE 1: PROFILE OVERVIEW ---
+if page == "Profile Overview":
+    st.title("Hi, I'm Harold, how are you today? 👋")
+    st.subheader("Analytics & Software Engineer")
 
-    st.header("Profile")
-    st.write(
-        "I design reliable Python pipelines, data tools, and focused user experiences "
-        "for organizations that need to work with data at scale."
-    )
+    st.info("🔷 Specialized in building automated data workflows and clean user experiences.")
 
-    st.header("Selected figures")
+    st.markdown("### 🔷 Professional Profile")
+    st.write("""
+    I am a results-driven professional dedicated to transforming complex data sets into clear, actionable business strategies.
+    By leveraging cloud-native python workflows, I design and implement reliable pipeline structures that help organizations scale.
+    """)
+
+    st.divider()
+    st.markdown("### 🔷 Career Statistics")
+
     col1, col2, col3 = st.columns(3)
-    col1.metric("Python projects", "12+")
-    col2.metric("Data processed", "100M+")
-    col3.metric("Efficiency saved", "40%")
+    with col1:
+        st.metric(label="Python Projects", value="12+", delta="Active")
+    with col2:
+        st.metric(label="Data Processed", value="100M+", delta="Rows")
+    with col3:
+        st.metric(label="Automation Efficiency", value="40%", delta="Saved Time")
 
-elif page == "Projects":
-    st.markdown('<div class="eyebrow">Selected work</div>', unsafe_allow_html=True)
-    st.title("Projects")
+# --- PAGE 2: CORE PROJECTS ---
+elif page == "Core Projects":
+    st.title("Featured Projects 🔷")
+    st.write("Browse through an assortment of my recent professional applications.")
 
-    st.markdown('<div class="project">', unsafe_allow_html=True)
-    st.subheader("Cloud-Native E-Commerce Analytics Tool")
-    st.caption("Python / Streamlit / Pandas / Plotly")
-    st.write("A dashboard for monitoring retail transactions and segmenting purchasing behavior.")
-    st.markdown("[View Git Repository](https://github.com)")
-    st.markdown('</div>', unsafe_allow_html=True)
+    with st.container(border=True):
+        st.markdown("### 🔷 Cloud-Native E-Commerce Analytics Tool")
+        st.caption("▸ Tech Stack: `Python` | `Streamlit` | `Pandas` | `Plotly`")
+        st.write("""
+        Engineered an enterprise-level dashboard monitoring retail store transactions.
+        Integrated dynamic clustering logic to automatically segment purchasing personas, increasing retention rates by 18%.
+        """)
+        st.link_button("↗ View Git Repository", "https://github.com")
 
-    st.markdown('<div class="project">', unsafe_allow_html=True)
-    st.subheader("Automated Pipeline Scheduling Engine")
-    st.caption("Python / SQL / Docker / AWS Lambda")
-    st.write("An automated database validation worker that checks thousands of data points each day.")
-    st.markdown("[Read Technical Documentation](https://github.com)")
-    st.markdown('</div>', unsafe_allow_html=True)
+    st.write("")
 
-elif page == "Skills":
-    st.markdown('<div class="eyebrow">Technical toolkit</div>', unsafe_allow_html=True)
-    st.title("Skills")
+    with st.container(border=True):
+        st.markdown("### 🔷 Automated Pipeline Scheduling Engine")
+        st.caption("▸ Tech Stack: `Python` | `SQL` | `Docker` | `AWS Lambda`")
+        st.write("""
+        Built an automated database validation worker that runs micro-audits across thousands of data points daily,
+        reducing database formatting errors down to absolute zero.
+        """)
+        st.link_button("↗ Read Technical Documentation", "https://github.com")
+
+# --- PAGE 3: TECHNICAL SKILLS ---
+elif page == "Technical Skills":
+    st.title("Technical Proficiency 🔷")
+    st.write("A comprehensive breakdown of tools, programming languages, and engineering concepts I use daily.")
+
+    st.divider()
 
     col1, col2 = st.columns(2)
     with col1:
-        st.header("Programming")
-        st.write("Python")
-        st.write("SQL")
-        st.write("HTML and CSS")
+        st.markdown("### 🔷 Core Programming")
+        st.success("**Python** (Advanced Data Engineering)")
+        st.success("**SQL** (Complex Joins & Optimization)")
+        st.success("**HTML & CSS** (Responsive UI Styling)")
+
     with col2:
-        st.header("Infrastructure")
-        st.write("Streamlit")
-        st.write("Pandas and NumPy")
-        st.write("Git and GitHub")
+        st.markdown("### 🔷 Frameworks & Infrastructure")
+        st.success("**Streamlit** (Rapid App Development)")
+        st.success("**Pandas & NumPy** (Statistical Calculations)")
+        st.success("**Git & GitHub** (Version Control Strategy)")
 
-    st.header("Focus areas")
-    st.write("Data architecture")
-    st.write("Workflow automation")
-    st.write("Pipeline reliability")
+    st.divider()
+    st.markdown("### 🔷 Areas of Focus")
+    st.write("- **Data Architecture:** Designing scalable database management layouts.")
+    st.write("- **Workflow Automation:** Replacing manual data pipelines with automated scripts.")
 
-elif page == "Contact":
-    st.markdown('<div class="eyebrow">Start a conversation</div>', unsafe_allow_html=True)
-    st.title("Contact")
-    st.write("Available for freelance work, engineering roles, and consulting.")
+# --- PAGE 4: CONTACT & LINKS ---
+elif page == "Contact & Links":
+    st.title("Establish Connection 🔷")
+    st.write("I am always interested in discussing new freelance agreements, corporate positions, or automation consulting.")
 
-    st.markdown(
-        '<div class="contact-line"><span class="contact-label">LinkedIn</span>'
-        '<a href="https://www.linkedin.com/in/jharold-legaspi/">jharold-legaspi</a></div>',
-        unsafe_allow_html=True,
-    )
-    st.markdown(
-        '<div class="contact-line"><span class="contact-label">GitHub</span>'
-        '<a href="https://github.com/cutepotato24">cutepotato24</a></div>',
-        unsafe_allow_html=True,
-    )
-    st.markdown(
-        '<div class="contact-line"><span class="contact-label">Email</span>'
-        '<a href="https://mail.google.com/mail/?view=cm&fs=1&to=jllegaspicareers@gmail.com">'
-        'jllegaspicareers@gmail.com</a></div>',
-        unsafe_allow_html=True,
-    )
+    st.divider()
+
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.markdown("#### 🔷 Professional Networks")
+        st.link_button("↗ Connect on LinkedIn", "https://www.linkedin.com/in/jharold-legaspi/")
+    with col2:
+        st.markdown("#### 🔷 Code Repositories")
+        st.link_button("↗ Explore My GitHub", "https://github.com/cutepotato24")
+    with col3:
+        st.markdown("#### 🔷 Direct Email Contact")
+        st.link_button("↗ Email Me", "https://mail.google.com/mail/?view=cm&fs=1&to=jllegaspicareers@gmail.com")
+
+    st.write("")
+    st.success("🔷 **Direct Contact:** Please feel free to open a conversation or drop professional references through my social channels.")
