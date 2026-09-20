@@ -19,7 +19,9 @@ def brand_logo(brand: str, color: str, size: int = 30):
 
 @st.dialog("Power BI dashboard", width="large")
 def show_power_bi_picture(project):
-    st.image(f"assets/{project['file']}", caption=project["name"], use_container_width=True)
+    image_columns = st.columns([1, 20, 1])
+    with image_columns[1]:
+        st.image(f"assets/{project['file']}", caption=project["name"], use_container_width=True)
     if st.button("Hide picture", key=f"hide_{project['file']}"):
         st.session_state[f"show_{project['file']}"] = False
         st.rerun()
