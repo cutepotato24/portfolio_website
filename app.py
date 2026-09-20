@@ -97,7 +97,7 @@ elif page == "Contact & Links":
     st.divider()
     
     # Clean professional contact channels
-    col1, col2 = st.columns(3)
+    col1, col2, col3 = st.columns(3)
     with col1:
         st.markdown("#### 👔 Professional Networks")
         st.link_button("💼 Connect on LinkedIn", "https://www.linkedin.com/in/jharold-legaspi/")
