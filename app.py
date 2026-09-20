@@ -43,22 +43,6 @@ st.markdown(
             position: relative;
             background: var(--charcoal);
             color: var(--white);
-            background-image:
-                radial-gradient(circle at 12% 18%, rgba(245, 247, 250, 0.8) 0 1px, transparent 1.5px),
-                radial-gradient(circle at 68% 34%, rgba(57, 168, 255, 0.8) 0 1px, transparent 1.5px),
-                radial-gradient(circle at 34% 82%, rgba(245, 247, 250, 0.65) 0 1px, transparent 1.5px),
-                radial-gradient(circle at 88% 76%, rgba(57, 168, 255, 0.7) 0 1px, transparent 1.5px);
-            background-size: 280px 280px, 360px 360px, 420px 420px, 520px 520px;
-            animation: space-drift 45s linear infinite;
-        }
-
-        @keyframes space-drift {
-            from {
-                background-position: 0 0, 0 0, 0 0, 0 0;
-            }
-            to {
-                background-position: 280px 180px, -360px 240px, 420px -260px, -520px 320px;
-            }
         }
 
         [data-testid="stSidebar"] {
@@ -169,7 +153,6 @@ st.markdown(
         }
 
         @media (prefers-reduced-motion: reduce) {
-            .stApp,
             .astronaut-background,
             .astronaut-background img {
                 animation: none;
