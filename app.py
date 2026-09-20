@@ -22,7 +22,7 @@ st.set_page_config(
     page_title="Professional Portfolio",
     page_icon="🔷",
     layout="centered",
-    initial_sidebar_state="collapsed",
+    initial_sidebar_state="expanded",
 )
 
 # Pure charcoal, white, and electric-blue theme.
@@ -86,7 +86,7 @@ st.markdown(
             animation: astronaut-bounce 18s linear infinite;
         }
 
-        .astronaut-background svg {
+        .astronaut-background img {
             display: block;
             width: clamp(4rem, 9vw, 8rem);
             height: auto;
@@ -142,7 +142,7 @@ st.markdown(
 
         @media (prefers-reduced-motion: reduce) {
             .astronaut-background,
-            .astronaut-background svg {
+            .astronaut-background img {
                 animation: none;
             }
         }
@@ -354,18 +354,7 @@ st.markdown(
 st.markdown(
     """
     <div class="astronaut-background" aria-hidden="true">
-        <svg viewBox="0 0 120 180" role="presentation">
-            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="5">
-                <circle cx="60" cy="28" r="22" />
-                <rect x="43" y="20" width="34" height="18" rx="8" />
-                <path d="M38 50h44l10 17v45H28V67z" />
-                <path d="M28 68 12 86l11 8 15-14M92 68l16 18-11 8-15-14" />
-                <path d="M45 112 37 154l-13 15M75 112l8 42 13 15" />
-                <path d="M19 170h13M89 170h13" />
-                <path d="M28 76h14M78 76h14M48 58h24M47 94h26" />
-                <path d="M28 76v27M92 76v27" />
-            </g>
-        </svg>
+        <img src="https://static.vecteezy.com/system/resources/previews/067/804/658/non_2x/astronaut-floating-in-space-silhouette-icon-vector.jpg" alt="">
     </div>
     """,
     unsafe_allow_html=True,
