@@ -460,17 +460,32 @@ elif page == "Core Projects":
         st.write("Select a dashboard tile to view its screenshot.")
 
         power_bi_projects = [
-            "Commercial_Revenue_PBI.png",
-            "Regional_Sales_PBI.png",
-            "US_Adidas_PBI.png",
+            {
+                "file": "Commercial_Revenue_PBI.png",
+                "name": "Commercial Revenue",
+                "description": "Tracks commercial revenue performance and highlights trends across the business.",
+            },
+            {
+                "file": "Regional_Sales_PBI.png",
+                "name": "Regional Sales",
+                "description": "Compares sales performance across regions to reveal trends and growth opportunities.",
+            },
+            {
+                "file": "US_Adidas_PBI.png",
+                "name": "US Adidas",
+                "description": "Explores Adidas sales in the United States across products, categories, and regions.",
+            },
         ]
 
         project_columns = st.columns(2, gap="small")
-        for project_index, project_name in enumerate(power_bi_projects):
+        for project_index, project in enumerate(power_bi_projects):
             with project_columns[project_index % 2]:
                 with st.container(border=True):
-                    st.markdown(f"### {project_name}")
-                    st.image(f"assets/{project_name}", use_container_width=True)
+                    st.markdown(f"### {project['name']}")
+                    st.write(project["description"])
+                    show_picture = st.checkbox("Show picture", key=f"show_{project['file']}")
+                    if show_picture:
+                        st.image(f"assets/{project['file']}", use_container_width=True)
 
 # --- PAGE 3: TECHNICAL SKILLS ---
 elif page == "Technical Skills":
