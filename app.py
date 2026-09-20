@@ -258,10 +258,10 @@ elif page == "Technical Skills":
         st.markdown(
             """
             <div class='skill-badge-wrapper'>
-                <div class='skill-pill'><img src='https://cdn.simpleicons.org/python/white' alt='Python'> Python</div>
-                <div class='skill-pill'><img src='https://cdn.simpleicons.org/mysql/white' alt='SQL'> SQL</div>
-                <div class='skill-pill'><img src='https://cdn.simpleicons.org/html5/white' alt='HTML'> HTML</div>
-                <div class='skill-pill'><img src='https://cdn.simpleicons.org/css3/white' alt='CSS'> CSS</div>
+                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/python.svg' alt='Python'> Python</div>
+                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/mysql.svg' alt='SQL'> SQL</div>
+                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/html5.svg' alt='HTML'> HTML</div>
+                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/css3.svg' alt='CSS'> CSS</div>
             </div>
             """,
             unsafe_allow_html=True,
@@ -272,9 +272,9 @@ elif page == "Technical Skills":
         st.markdown(
             """
             <div class='skill-badge-wrapper'>
-                <div class='skill-pill'><img src='https://cdn.simpleicons.org/streamlit/white' alt='Streamlit'> Streamlit</div>
-                <div class='skill-pill'><img src='https://cdn.simpleicons.org/python/white' alt='Python Libraries'> Python Libraries</div>
-                <div class='skill-pill'><img src='https://cdn.simpleicons.org/github/white' alt='GitHub'> GitHub</div>
+                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/streamlit.svg' alt='Streamlit'> Streamlit</div>
+                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/python.svg' alt='Python Libraries'> Python Libraries</div>
+                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/github.svg' alt='GitHub'> GitHub</div>
             </div>
             """,
             unsafe_allow_html=True,
@@ -288,9 +288,9 @@ elif page == "Technical Skills":
         st.markdown(
             """
             <div class='skill-badge-wrapper'>
-                <div class='skill-pill'><img src='https://cdn.simpleicons.org/tableau/white' alt='Tableau'> Tableau</div>
-                <div class='skill-pill'><img src='https://cdn.simpleicons.org/powerbi/white' alt='Power BI'> Power BI</div>
-                <div class='skill-pill'><img src='https://cdn.simpleicons.org/python/white' alt='Python'> Python</div>
+                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/tableau.svg' alt='Tableau'> Tableau</div>
+                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/powerbi.svg' alt='Power BI'> Power BI</div>
+                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/python.svg' alt='Python'> Python</div>
             </div>
             """,
             unsafe_allow_html=True,
@@ -301,9 +301,9 @@ elif page == "Technical Skills":
         st.markdown(
             """
             <div class='skill-badge-wrapper'>
-                <div class='skill-pill'><img src='https://cdn.simpleicons.org/python/white' alt='Python'> Python</div>
-                <div class='skill-pill'><img src='https://cdn.simpleicons.org/knime/white' alt='KNIME'> KNIME Analytics</div>
-                <div class='skill-pill'><img src='https://cdn.simpleicons.org/snowflake/white' alt='Snowflake'> Snowflake</div>
+                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/python.svg' alt='Python'> Python</div>
+                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/knime.svg' alt='KNIME'> KNIME Analytics</div>
+                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/snowflake.svg' alt='Snowflake'> Snowflake</div>
             </div>
             """,
             unsafe_allow_html=True,
@@ -317,9 +317,9 @@ elif page == "Technical Skills":
         st.markdown(
             """
             <div class='skill-badge-wrapper'>
-                <div class='skill-pill'><img src='https://cdn.simpleicons.org/snowflake/white' alt='Snowflake'> Snowflake</div>
-                <div class='skill-pill'><img src='https://cdn.simpleicons.org/oracle/white' alt='Oracle'> Oracle</div>
-                <div class='skill-pill'><img src='https://cdn.simpleicons.org/googlebigquery/white' alt='BigQuery'> BigQuery</div>
+                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/snowflake.svg' alt='Snowflake'> Snowflake</div>
+                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/oracle.svg' alt='Oracle'> Oracle</div>
+                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/googlebigquery.svg' alt='BigQuery'> BigQuery</div>
             </div>
             """,
             unsafe_allow_html=True,
@@ -328,9 +328,9 @@ elif page == "Technical Skills":
         st.markdown(
             """
             <div class='skill-badge-wrapper'>
-                <div class='skill-pill'><img src='https://cdn.simpleicons.org/microsoftsqlserver/white' alt='SQL Server'> MS SQL Server</div>
-                <div class='skill-pill'><img src='https://cdn.simpleicons.org/postgresql/white' alt='PostgreSQL'> PostgreSQL</div>
-                <div class='skill-pill'><img src='https://cdn.simpleicons.org/mysql/white' alt='MySQL'> MySQL</div>
+                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/microsoftsqlserver.svg' alt='SQL Server'> MS SQL Server</div>
+                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/postgresql.svg' alt='PostgreSQL'> PostgreSQL</div>
+                <div class='skill-pill'><img src='https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/mysql.svg' alt='MySQL'> MySQL</div>
             </div>
             """,
             unsafe_allow_html=True,
