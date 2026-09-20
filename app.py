@@ -12,40 +12,37 @@ st.set_page_config(
 st.markdown(
     """
     <style>
-    div[data-testid="stTabs"] div[data-baseweb="tab-list"],
-    div[data-testid="stTabs"] [role="tablist"] {
-        column-gap: 8px;
-        border-bottom: none;
-        padding: 0 4px;
+    div[data-baseweb="tab-list"] {
+        gap: 0;
+        border-bottom: 1px solid #c8ccd1;
+        padding: 0 8px;
     }
 
-    div[data-testid="stTabs"] [role="tab"] {
-        display: block;
+    button[data-baseweb="tab"] {
         flex: 0 1 auto;
-        background: #e5e7eb !important;
-        border: 1px solid #c8ccd1 !important;
-        border-bottom: 1px solid #c8ccd1 !important;
-        border-radius: 8px !important;
-        box-sizing: border-box;
-        color: #5f6368 !important;
-        margin: 0;
+        background: #e8eaed;
+        border: 1px solid #c8ccd1;
+        border-bottom: none;
+        border-radius: 9px 9px 0 0;
+        color: #5f6368;
+        margin: 0 3px -1px 0;
         padding: 0.65rem 1rem;
         transition: background 150ms ease, color 150ms ease;
     }
 
-    div[data-testid="stTabs"] [role="tab"]:hover {
-        background: #f1f3f4 !important;
-        color: #202124 !important;
+    button[data-baseweb="tab"]:hover {
+        background: #f1f3f4;
+        color: #202124;
     }
 
-    div[data-testid="stTabs"] [role="tab"][aria-selected="true"] {
-        background: #d1d5db !important;
-        border-color: #9ca3af !important;
-        color: #202124 !important;
+    button[data-baseweb="tab"][aria-selected="true"] {
+        background: #ffffff;
+        border-bottom: 1px solid #ffffff;
+        color: #202124;
         font-weight: 600;
     }
 
-    div[data-testid="stTabs"] div[data-baseweb="tab-highlight"] {
+    div[data-baseweb="tab-highlight"] {
         display: none;
     }
     </style>
