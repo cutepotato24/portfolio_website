@@ -1,5 +1,7 @@
 import streamlit as st
 import streamlit.components.v1 as components
+from datetime import date
+from math import floor
 import urllib.error
 import urllib.request
 
@@ -16,6 +18,10 @@ def brand_logo(brand: str, color: str, size: int = 30):
     svg = svg.replace('fill="#000000"', f'fill="{color}"')
     svg = svg.replace('fill="#000"', f'fill="{color}"')
     return svg
+
+
+career_start_date = date(2023, 3, 1)
+years_of_experience = floor(((date.today() - career_start_date).days / 365.25) * 10) / 10
 
 
 @st.dialog("Power BI dashboard", width="large")
@@ -498,7 +504,7 @@ if page == "Profile Overview":
 
     col1, col2, col3 = st.columns(3)
     with col1:
-        st.metric(label="Years of Analytics Experience", value="3.5+", delta="Professional")
+        st.metric(label="Years of Analytics Experience", value=f"{years_of_experience:.1f}+", delta="Professional")
     with col2:
         st.metric(label="Analytics Projects Led", value="15+", delta="More than")
     with col3:
