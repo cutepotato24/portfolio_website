@@ -73,7 +73,7 @@ st.markdown(
         .astronaut-background {
             position: fixed;
             top: 18vh;
-            right: 4vw;
+            left: 5vw;
             z-index: 0;
             color: var(--blue);
             font-size: clamp(4rem, 9vw, 8rem);
@@ -82,22 +82,41 @@ st.markdown(
             pointer-events: none;
             user-select: none;
             filter: drop-shadow(0 0 18px rgba(57, 168, 255, 0.45));
-            animation: astronaut-drift 14s ease-in-out infinite;
+            animation: astronaut-bounce 18s linear infinite;
         }
 
-        @keyframes astronaut-drift {
-            0%, 100% {
-                transform: translate3d(0, 0, 0) rotate(-8deg);
+        @keyframes astronaut-bounce {
+            0% {
+                top: 10vh;
+                left: 5vw;
+                transform: rotate(-12deg);
+            }
+            25% {
+                top: 78vh;
+                left: 88vw;
+                transform: rotate(24deg);
             }
             50% {
-                transform: translate3d(-2.5rem, 2rem, 0) rotate(8deg);
+                top: 16vh;
+                left: 88vw;
+                transform: rotate(112deg);
+            }
+            75% {
+                top: 78vh;
+                left: 5vw;
+                transform: rotate(204deg);
+            }
+            100% {
+                top: 10vh;
+                left: 5vw;
+                transform: rotate(348deg);
             }
         }
 
         @media (max-width: 700px) {
             .astronaut-background {
                 top: 10vh;
-                right: 2vw;
+                left: 4vw;
                 opacity: 0.06;
             }
         }
