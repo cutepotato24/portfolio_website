@@ -59,6 +59,42 @@ st.markdown(
             color: var(--blue);
         }
 
+        .skill-badge-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 0.9rem;
+        }
+
+        .skill-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            background: linear-gradient(135deg, rgba(57, 168, 255, 0.12), rgba(255, 255, 255, 0.02));
+            border: 1px solid rgba(57, 168, 255, 0.28);
+            color: var(--white);
+            border-radius: 999px;
+            padding: 0.5rem 0.8rem;
+            font-size: 0.86rem;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 0 0 1px rgba(57,168,255,0.05);
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .skill-pill:hover {
+            transform: translateY(-1px);
+            border-color: rgba(57, 168, 255, 0.55);
+            box-shadow: 0 0 14px rgba(57, 168, 255, 0.15);
+        }
+
+        .skill-pill img {
+            width: 16px;
+            height: 16px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 5px rgba(57, 168, 255, 0.2));
+        }
+
         h1 {
             letter-spacing: -0.03em;
         }
@@ -218,16 +254,87 @@ elif page == "Technical Skills":
 
     col1, col2 = st.columns(2)
     with col1:
-        st.markdown("### <span class='icon'>⌘︎</span> Core Programming", unsafe_allow_html=True)
-        st.success("**Python** (Advanced Data Engineering)")
-        st.success("**SQL** (Complex Joins & Optimization)")
-        st.success("**HTML & CSS** (Responsive UI Styling)")
+        st.markdown("### <span class='icon'>💻</span> Programming", unsafe_allow_html=True)
+        st.markdown(
+            """
+            <div class='skill-badge-wrapper'>
+                <div class='skill-pill'><img src='https://cdn.simpleicons.org/python/white' alt='Python'> Python</div>
+                <div class='skill-pill'><img src='https://cdn.simpleicons.org/mysql/white' alt='SQL'> SQL</div>
+                <div class='skill-pill'><img src='https://cdn.simpleicons.org/html5/white' alt='HTML'> HTML</div>
+                <div class='skill-pill'><img src='https://cdn.simpleicons.org/css3/white' alt='CSS'> CSS</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
 
     with col2:
-        st.markdown("### <span class='icon'>⚙︎</span> Frameworks & Infrastructure", unsafe_allow_html=True)
-        st.success("**Streamlit** (Rapid App Development)")
-        st.success("**Pandas & NumPy** (Statistical Calculations)")
-        st.success("**Git & GitHub** (Version Control Strategy)")
+        st.markdown("### <span class='icon'>⚙️</span> Frameworks & Infrastructure", unsafe_allow_html=True)
+        st.markdown(
+            """
+            <div class='skill-badge-wrapper'>
+                <div class='skill-pill'><img src='https://cdn.simpleicons.org/streamlit/white' alt='Streamlit'> Streamlit</div>
+                <div class='skill-pill'><img src='https://cdn.simpleicons.org/python/white' alt='Python Libraries'> Python Libraries</div>
+                <div class='skill-pill'><img src='https://cdn.simpleicons.org/github/white' alt='GitHub'> GitHub</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+    st.write("")
+
+    col3, col4 = st.columns(2)
+    with col3:
+        st.markdown("### <span class='icon'>📊</span> Data Visualization", unsafe_allow_html=True)
+        st.markdown(
+            """
+            <div class='skill-badge-wrapper'>
+                <div class='skill-pill'><img src='https://cdn.simpleicons.org/tableau/white' alt='Tableau'> Tableau</div>
+                <div class='skill-pill'><img src='https://cdn.simpleicons.org/powerbi/white' alt='Power BI'> Power BI</div>
+                <div class='skill-pill'><img src='https://cdn.simpleicons.org/python/white' alt='Python'> Python</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+    with col4:
+        st.markdown("### <span class='icon'>🤖</span> Automation", unsafe_allow_html=True)
+        st.markdown(
+            """
+            <div class='skill-badge-wrapper'>
+                <div class='skill-pill'><img src='https://cdn.simpleicons.org/python/white' alt='Python'> Python</div>
+                <div class='skill-pill'><img src='https://cdn.simpleicons.org/knime/white' alt='KNIME'> KNIME Analytics</div>
+                <div class='skill-pill'><img src='https://cdn.simpleicons.org/snowflake/white' alt='Snowflake'> Snowflake</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+    st.write("")
+
+    st.markdown("### <span class='icon'>🗃️</span> RDBMS", unsafe_allow_html=True)
+    col5, col6 = st.columns(2)
+    with col5:
+        st.markdown(
+            """
+            <div class='skill-badge-wrapper'>
+                <div class='skill-pill'><img src='https://cdn.simpleicons.org/snowflake/white' alt='Snowflake'> Snowflake</div>
+                <div class='skill-pill'><img src='https://cdn.simpleicons.org/oracle/white' alt='Oracle'> Oracle</div>
+                <div class='skill-pill'><img src='https://cdn.simpleicons.org/googlebigquery/white' alt='BigQuery'> BigQuery</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+    with col6:
+        st.markdown(
+            """
+            <div class='skill-badge-wrapper'>
+                <div class='skill-pill'><img src='https://cdn.simpleicons.org/microsoftsqlserver/white' alt='SQL Server'> MS SQL Server</div>
+                <div class='skill-pill'><img src='https://cdn.simpleicons.org/postgresql/white' alt='PostgreSQL'> PostgreSQL</div>
+                <div class='skill-pill'><img src='https://cdn.simpleicons.org/mysql/white' alt='MySQL'> MySQL</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
 
     st.divider()
     st.markdown("### <span class='icon'>✦︎</span> Areas of Focus", unsafe_allow_html=True)
