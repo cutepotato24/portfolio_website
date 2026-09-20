@@ -302,11 +302,13 @@ elif page == "Core Projects":
             st.link_button(
                 "↗︎ Maven Viz",
                 "https://public.tableau.com/app/profile/john.harold.legaspi6572/viz/MAVENMODELEDDATATableau/Dashboard1#1",
+                use_container_width=True,
             )
         with link_col2:
             st.link_button(
                 "↗︎ Onyx Viz",
                 "https://public.tableau.com/app/profile/john.harold.legaspi6572/viz/OnyxDataaugust2023DNAChallenge/Dashboard1",
+                use_container_width=True,
             )
 
 # --- PAGE 3: TECHNICAL SKILLS ---
