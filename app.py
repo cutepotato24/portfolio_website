@@ -31,11 +31,11 @@ st.markdown(
     <style>
         :root {
             --charcoal: #17191c;
-            --charcoal-soft: #22262b;
+            --charcoal-soft: rgba(34, 38, 43, 0.62);
             --white: #f5f7fa;
             --muted: #aeb6c2;
             --blue: #39a8ff;
-            --blue-dark: #0d2638;
+            --blue-dark: rgba(13, 38, 56, 0.62);
             --border: #3a414a;
         }
 
@@ -310,7 +310,7 @@ st.markdown(
         }
 
         [data-testid="stLinkButton"] {
-            background: var(--blue) !important;
+            background: rgba(57, 168, 255, 0.82) !important;
             border: 0 !important;
             border-radius: 3px !important;
             color: #07131d !important;
@@ -318,7 +318,7 @@ st.markdown(
         }
 
         [data-testid="stLinkButton"]:hover {
-            background: var(--white) !important;
+            background: rgba(245, 247, 250, 0.86) !important;
             color: #07131d !important;
         }
 
@@ -344,7 +344,7 @@ st.markdown(
         .contact-action {
             display: block;
             padding: 0.65rem 0.8rem;
-            background: var(--blue);
+            background: rgba(57, 168, 255, 0.82);
             border-radius: 3px;
             color: #07131d !important;
             font-weight: 700;
@@ -354,7 +354,7 @@ st.markdown(
         }
 
         .contact-action:hover {
-            background: var(--white);
+            background: rgba(245, 247, 250, 0.86);
             color: #07131d !important;
         }
 
