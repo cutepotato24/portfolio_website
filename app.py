@@ -185,7 +185,7 @@ elif page == "Core Projects":
     st.write("")
 
     with st.container(border=True):
-        st.markdown("### <span class='icon'>◈︎</span> Maven Analytics Hospital rating Viz Challenge, unsafe_allow_html=True)
+        st.markdown("### <span class='icon'>◈︎</span> Maven Analytics Hospital rating Viz Challenge", unsafe_allow_html=True)
         st.caption("⚙︎ Tools: `Microsoft Excel` | `Tableau` | `Data Visualization` | `Dashboard Design`")
         st.write("""
         Created a data visualization project using Excel for data preparation and analysis, then Tableau to transform
